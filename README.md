@@ -1,4 +1,4 @@
-# Devonshires WTB
+# DevonshiresWTB
 
 Next.js website built from the Figma designs, with a simple CMS layer.
 
