@@ -1,37 +1,28 @@
-import { getHomePage, getSiteSettings } from "@/lib/cms";
+import { getHubPage, getSiteSettings } from "@/lib/cms";
+import SiteHeader from "@/components/SiteHeader";
+import Hero from "@/components/Hero";
+import PracticeAreas from "@/components/PracticeAreas";
+import WhyItMatters from "@/components/WhyItMatters";
+import WhyUs from "@/components/WhyUs";
+import FaqSection from "@/components/FaqSection";
+import ServicesGrid from "@/components/ServicesGrid";
+import SiteFooter from "@/components/SiteFooter";
 
 export default async function Home() {
-  const [site, home] = await Promise.all([getSiteSettings(), getHomePage()]);
+  const [site, hub] = await Promise.all([getSiteSettings(), getHubPage()]);
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="flex items-center justify-between px-8 py-6">
-        <span className="text-lg font-semibold">{site.name}</span>
-        <nav className="flex gap-6">
-          {site.navigation.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm text-zinc-600 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-50">
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </header>
-      <main className="flex flex-1 flex-col items-center justify-center gap-6 px-8 text-center">
-        <h1 className="max-w-2xl text-4xl font-semibold tracking-tight">
-          {home.hero.heading}
-        </h1>
-        <p className="max-w-xl text-lg text-zinc-600 dark:text-zinc-400">
-          {home.hero.subheading}
-        </p>
-        <a
-          href={home.hero.cta.href}
-          className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white hover:bg-zinc-800 dark:bg-zinc-50 dark:text-zinc-950 dark:hover:bg-zinc-200"
-        >
-          {home.hero.cta.label}
-        </a>
+      <SiteHeader site={site} />
+      <main>
+        <Hero banner={hub.banner} />
+        <PracticeAreas content={hub.practiceAreas} />
+        <WhyItMatters content={hub.whyItMatters} />
+        <WhyUs content={hub.whyUs} />
+        <FaqSection content={hub.faq} />
+        <ServicesGrid content={hub.services} />
       </main>
-      <footer className="px-8 py-6 text-center text-sm text-zinc-500">
-        {site.footer.copyright}
-      </footer>
+      <SiteFooter site={site} />
     </div>
   );
 }

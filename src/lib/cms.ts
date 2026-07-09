@@ -9,27 +9,13 @@ import content from "@/content/site-content.json";
  * so nothing else needs to change.
  */
 
-export type NavItem = {
-  label: string;
-  href: string;
-};
-
-export type SiteSettings = {
-  name: string;
-  tagline: string;
-  navigation: NavItem[];
-  footer: {
-    copyright: string;
-    links: NavItem[];
-  };
-};
-
-export type HomePageContent = (typeof content)["pages"]["home"];
+export type SiteSettings = (typeof content)["site"];
+export type HubPageContent = (typeof content)["pages"]["hub"];
 
 export async function getSiteSettings(): Promise<SiteSettings> {
   return content.site;
 }
 
-export async function getHomePage(): Promise<HomePageContent> {
-  return content.pages.home;
+export async function getHubPage(): Promise<HubPageContent> {
+  return content.pages.hub;
 }
