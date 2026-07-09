@@ -1,0 +1,23 @@
+{
+  "site": {
+    "name": "Devonshires",
+    "tagline": "Placeholder tagline — replace with copy from the Figma design",
+    "navigation": [
+      { "label": "Home", "href": "/" }
+    ],
+    "footer": {
+      "copyright": "© 2026 Devonshires. All rights reserved.",
+      "links": []
+    }
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "heading": "Placeholder heading",
+        "subheading": "This content is served from src/content/site-content.json. It will be replaced by Supabase later.",
+        "cta": { "label": "Get in touch", "href": "#contact" }
+      },
+      "sections": []
+    }
+  }
+}
