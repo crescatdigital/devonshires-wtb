@@ -732,6 +732,702 @@
             }
           ]
         }
+      },
+      "trusts": {
+        "slug": "trusts",
+        "banner": {
+          "eyebrow": "TRUSTS & ASSET PROTECTION",
+          "headingSegments": [
+            {
+              "text": "Protect your ",
+              "break": true
+            },
+            {
+              "text": "wealth",
+              "script": true
+            },
+            {
+              "text": " for the",
+              "break": true
+            },
+            {
+              "text": "next generation."
+            }
+          ],
+          "paragraph": "Trusts let you control how, when and to whom your assets pass, shielding what you've built from care fees, divorce, taxation and life's uncertainties. Our specialists make them simple to understand.",
+          "primaryCta": {
+            "label": "REQUEST A CALL BACK",
+            "href": "#contact",
+            "icon": "arrow"
+          },
+          "secondaryCta": {
+            "label": "SEE HOW IT WORKS",
+            "href": "#journey"
+          }
+        },
+        "overview": {
+          "eyebrow": "TRUSTS OVERVIEW",
+          "headingBefore": "What a",
+          "headingAccent": "trust",
+          "headingAfter": "does, and how we support you through its creation.",
+          "paragraphs": [
+            "A trust is a legal arrangement that lets one or more trustees hold and manage assets on behalf of the people you want to benefit. It separates legal ownership from benefit, giving you lasting control over money, property and investments — even after you're gone.",
+            "We advise on the full range of trusts, recommend the right structure for your goals, and draft the trust deed precisely. Where you'd like ongoing support, our team can also act as professional trustees and handle the administration year to year.",
+            "Trusts can be created during your lifetime or written into your will, and are a cornerstone of thoughtful estate and inheritance tax planning."
+          ],
+          "cardTitle": "TRUSTS WE SET UP & MANAGE",
+          "checklist": [
+            "Discretionary trusts",
+            "Life interest & right-to-reside trusts",
+            "Bare trusts for children & grandchildren",
+            "Property protection & care-fee trusts",
+            "Disabled & vulnerable person trusts",
+            "Will trusts & nil-rate band planning",
+            "Professional trustee & administration services"
+          ]
+        },
+        "reasons": {
+          "eyebrow": "WHY IT MATTERS",
+          "headingBefore": "Four reasons a trust",
+          "headingAccent": "is worth considering",
+          "subtext": "A well-structured trust does something a will alone cannot, it lets you keep guiding your assets for years to come.",
+          "cta": {
+            "label": "REQUEST A CALL BACK",
+            "href": "#contact"
+          },
+          "cards": [
+            {
+              "numeral": "i",
+              "title": "Control how assets pass",
+              "text": "Decide exactly when and how beneficiaries receive what you leave — at a certain age, in stages, or at the trustees' discretion."
+            },
+            {
+              "numeral": "ii",
+              "title": "Protect vulnerable people",
+              "text": "Provide for a child, a disabled relative or someone who can't manage money, without affecting means-tested benefits."
+            },
+            {
+              "numeral": "iii",
+              "title": "Ring-fence your wealth",
+              "text": "Help shield assets from care-home fees, a beneficiary's divorce, creditors or bankruptcy, keeping them in the family."
+            },
+            {
+              "numeral": "iv",
+              "title": "Plan for tax efficiently",
+              "text": "Used correctly, trusts can reduce inheritance tax exposure and pass on assets in a more tax-efficient way."
+            }
+          ]
+        },
+        "whyUs": {
+          "eyebrow": "WHY DEVONSHIRES CLAIMS",
+          "headingBefore": "Trust expertise you can rely on for the ",
+          "headingAccent": "long term",
+          "headingAfter": ".",
+          "cta": {
+            "label": "REQUEST A FREE TRUST ASSESSMENT",
+            "href": "#contact"
+          },
+          "columns": [
+            {
+              "image": {
+                "src": "/images/why-fixed-fees.png",
+                "alt": "Fixed, transparent fees",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Joined-up estate planning",
+              "text": "Your trust works alongside your will, powers of attorney and tax position, one coordinated plan, with fixed fees agreed up front."
+            },
+            {
+              "image": {
+                "src": "/images/why-legal-team.png",
+                "alt": "Specialist legal team",
+                "width": 150,
+                "height": 150
+              },
+              "title": "STEP-qualified specialists",
+              "text": "Trusts are a specialism, not a side-line. Our advisers hold the STEP Diploma and structure trusts day in, day out for UK families."
+            },
+            {
+              "image": {
+                "src": "/images/why-supportive.png",
+                "alt": "Sensitive and supportive firm",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Ongoing trustee support",
+              "text": "Setting up a trust is just the start. We can act as professional trustees and handle accounts, tax returns and decisions for as long as you need."
+            }
+          ]
+        },
+        "journey": {
+          "eyebrow": "YOUR PATH FORWARD",
+          "headingBefore": "A clear",
+          "headingAccent": "journey,",
+          "headingAfter": " from first call to completion.",
+          "checklistTitle": "What to have ready and consider:",
+          "cta": {
+            "label": "START YOUR JOURNEY",
+            "href": "#contact"
+          },
+          "subtext": "From your first conversation to funding your trust, our process is measured, transparent, and respectful of the trust you place in us. Most clients complete their trust in two or three appointments.",
+          "checklist": [
+            "A list of the assets you'd like to protect",
+            "Who you want to benefit, and when",
+            "Preferred trustees and their details",
+            "Any existing will or trust documents",
+            "Details of your wider tax position",
+            "Any specific concerns or wishes"
+          ],
+          "steps": [
+            {
+              "numeral": "I",
+              "title": "Initial Enquiry",
+              "meta": "30 MIN · FREE",
+              "text": "We discuss your assets, your family and what you want a trust to achieve, and explain whether a trust is the right tool, with no obligation."
+            },
+            {
+              "numeral": "II",
+              "title": "Review your goals & assets",
+              "meta": "1 WEEK",
+              "text": "A detailed look at your property, investments, beneficiaries and tax position, so our advice is based on the full picture."
+            },
+            {
+              "numeral": "III",
+              "title": "Structure & draft the deed",
+              "meta": "1-2 WEEKS",
+              "text": "We set out the most suitable type of trust in plain English, with the pros, costs and tax implications laid out. Your solicitor prepares the trust deed and supporting documents, naming trustees and beneficiaries and defining their powers."
+            },
+            {
+              "numeral": "IV",
+              "title": "Execute & fund the trust",
+              "meta": "30-60 MIN",
+              "text": "We oversee signing and formally transfer the chosen assets into the trust so it's legally effective — including registering it with HMRC."
+            },
+            {
+              "numeral": "V",
+              "title": "Ongoing administration",
+              "meta": "ONGOING",
+              "text": "As professional trustees we can handle accounts, tax returns, distributions and reviews for as long as you need, keeping your trust compliant and effective.",
+              "last": true
+            }
+          ]
+        },
+        "faq": {
+          "eyebrow": "COMMON QUESTIONS",
+          "headingLine1": "You asked, we",
+          "headingLine2": "answered.",
+          "intro": "Few people enjoy thinking about wills and estates, but most questions are simpler than they appear. Below are the queries we field most often,  and if yours isn't here, simply get in touch via our form.",
+          "formCard": {
+            "title": "Still have questions or want to start your journey with us?",
+            "subtitle": "Our client team are happy to answer anything, with no obligation to proceed.",
+            "placeholders": {
+              "name": "NAME...",
+              "phone": "PHONE...",
+              "email": "EMAIL ADDRESS...",
+              "message": "WRITE YOUR MESSAGE HERE..."
+            },
+            "submitLabel": "SUBMIT FORM"
+          },
+          "items": [
+            {
+              "question": "What exactly is a trust?",
+              "answer": "A trust is a legal arrangement where you (the settlor) transfer assets to trustees, who hold and manage them for the benefit of chosen people (the beneficiaries). It separates who legally owns an asset from who benefits from it, giving you lasting control over how it's used."
+            },
+            {
+              "question": "What type of trusts are there?",
+              "answer": ""
+            },
+            {
+              "question": "How much does it cost to set up a trust?",
+              "answer": ""
+            },
+            {
+              "question": "Can a trust protect against care-home fees?",
+              "answer": ""
+            },
+            {
+              "question": "How are trusts taxed?",
+              "answer": ""
+            },
+            {
+              "question": "Who should I choose as trustees?",
+              "answer": ""
+            },
+            {
+              "question": "Can I change or cancel a trust later?",
+              "answer": ""
+            },
+            {
+              "question": "Do trusts have to be registered?",
+              "answer": ""
+            }
+          ]
+        }
+      },
+      "probate": {
+        "slug": "probate",
+        "banner": {
+          "eyebrow": "PROBATE & ESTATE ADMINISTRATION",
+          "headingSegments": [
+            {
+              "text": "Compassionate",
+              "break": true
+            },
+            {
+              "text": "help",
+              "script": true
+            },
+            {
+              "text": " when you",
+              "break": true
+            },
+            {
+              "text": "need it most."
+            }
+          ],
+          "paragraph": "Losing someone is hard enough without the paperwork. Our probate team handles the legal and financial process with care, so you can take the time you need to grieve without the extra burden.",
+          "primaryCta": {
+            "label": "REQUEST A CALL BACK",
+            "href": "#contact",
+            "icon": "arrow"
+          },
+          "secondaryCta": {
+            "label": "SEE HOW IT WORKS",
+            "href": "#journey"
+          }
+        },
+        "overview": {
+          "eyebrow": "PROBATE OVERVIEW",
+          "headingBefore": "What",
+          "headingAccent": "probate",
+          "headingAfter": "involves, and how we support you through it.",
+          "paragraphs": [
+            "Probate is the legal process of dealing with the estate of someone who has died by proving the will, settling debts and taxes, and passing what remains to the people entitled to it.",
+            "We can take on as much or as little as you'd like and leave the rest to you, while our full estate administration handles everything from valuing assets to making the final distributions, and everything in between.",
+            "Throughout, you'll have a single, named contact who keeps you informed, deals with the institutions on your behalf, and treats your family's situation with the sensitivity it deserves."
+          ],
+          "cardTitle": "WHAT OUR PROBATE SERVICE COVERS",
+          "checklist": [
+            "Grant of probate & letters of administration",
+            "Valuing property, accounts & possessions",
+            "Calculating & reporting inheritance tax",
+            "Settling debts, bills & liabilities",
+            "Collecting in & distributing assets",
+            "Preparing full estate accounts",
+            "Grant-only or full administration options"
+          ]
+        },
+        "reasons": {
+          "eyebrow": "WHY IT MATTERS",
+          "headingBefore": "Why professional probate",
+          "headingAccent": "help is essential",
+          "subtext": "Administering an estate carries real legal and financial responsibility. Getting it wrong can be costly, lengthy, and stressful to you and your family.",
+          "cta": {
+            "label": "REQUEST A CALL BACK",
+            "href": "#contact"
+          },
+          "cards": [
+            {
+              "numeral": "i",
+              "title": "Legal authority to act",
+              "text": "For most estates you need a grant of probate before banks, pension providers and the Land Registry will release or transfer assets."
+            },
+            {
+              "numeral": "ii",
+              "title": "Protect the executor",
+              "text": "Executors are personally liable for mistakes. Our guidance shields you from claims, missed creditors and costly errors."
+            },
+            {
+              "numeral": "iii",
+              "title": "Get the tax right, on time",
+              "text": "Inheritance tax has strict deadlines and penalties. We calculate, report and pay it correctly so nothing is missed."
+            },
+            {
+              "numeral": "iv",
+              "title": "Time, space & less stress",
+              "text": "We take the admin, phone calls and forms off your hands — giving you room to grieve and support your family."
+            }
+          ]
+        },
+        "whyUs": {
+          "eyebrow": "WHY DEVONSHIRES CLAIMS",
+          "headingBefore": "Probate handled with clarity and ",
+          "headingAccent": "genuine care",
+          "headingAfter": ".",
+          "cta": {
+            "label": "REQUEST YOUR FREE PROBATE ENQUIRY",
+            "href": "#contact"
+          },
+          "columns": [
+            {
+              "image": {
+                "src": "/images/why-fixed-fees.png",
+                "alt": "Fixed, transparent fees",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Fixed fees, no surprises",
+              "text": "We offer clear fixed-fee and grant-only options, agreed at the outset. You'll always know what the service costs (with no hidden charges) or percentage-of-estate billing."
+            },
+            {
+              "image": {
+                "src": "/images/why-legal-team.png",
+                "alt": "Specialist legal team",
+                "width": 150,
+                "height": 150
+              },
+              "title": "A dedicated probate team",
+              "text": "Experienced probate solicitors deal directly with HMRC, the Probate Registry and asset-holders, and you have one named contact throughout."
+            },
+            {
+              "image": {
+                "src": "/images/why-supportive.png",
+                "alt": "Sensitive and supportive firm",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Sensitive & supportive firm",
+              "text": "We understand you're dealing with loss. We move at your pace, explain everything plainly, and treat you and your family with warmth and respect."
+            }
+          ]
+        },
+        "journey": {
+          "eyebrow": "YOUR PATH FORWARD",
+          "headingBefore": "A clear",
+          "headingAccent": "journey,",
+          "headingAfter": " from first call to completion.",
+          "checklistTitle": "What to have ready and consider:",
+          "cta": {
+            "label": "START YOUR JOURNEY",
+            "href": "#contact"
+          },
+          "subtext": "From your first call to closing the estate, our process is measured, transparent, and respectful of the trust you place in us. Most estates are fully administered within six to twelve months.",
+          "checklist": [
+            "The death certificate and the will (if any)",
+            "Details of the deceased's assets & accounts",
+            "Outstanding bills, debts and liabilities",
+            "Names and contact details of beneficiaries",
+            "Recent statements and property valuations",
+            "Any lifetime gifts made in the last 7 years"
+          ],
+          "steps": [
+            {
+              "numeral": "I",
+              "title": "Initial Enquiry",
+              "meta": "45 MIN · FREE",
+              "text": "We talk through what's happened and what's involved, explain your options, and agree a fixed fee — whenever you feel ready to begin."
+            },
+            {
+              "numeral": "II",
+              "title": "Value the estate",
+              "meta": "2-4 WEEKS",
+              "text": "We identify and value all assets and debts — property, accounts, investments and possessions — to build a full picture of the estate."
+            },
+            {
+              "numeral": "III",
+              "title": "Apply for the grant",
+              "meta": "6-8 WEEKS",
+              "text": "We complete the inheritance tax return, pay any tax due, and apply to the Probate Registry for the grant of probate or letters of administration."
+            },
+            {
+              "numeral": "IV",
+              "title": "Settle debts & taxes",
+              "meta": "4-8 WEEKS",
+              "text": "Once the grant is issued, we close accounts, settle outstanding debts and bills, and finalise the tax position with HMRC."
+            },
+            {
+              "numeral": "V",
+              "title": "Distribute assets & close estate",
+              "meta": "FINAL STAGE",
+              "text": "We gather in what's owed to the estate and distribute what remains to the beneficiaries, providing clear estate accounts to close everything properly.",
+              "last": true
+            }
+          ]
+        },
+        "faq": {
+          "eyebrow": "COMMON QUESTIONS",
+          "headingLine1": "You asked, we",
+          "headingLine2": "answered.",
+          "intro": "Few people enjoy thinking about wills and estates, but most questions are simpler than they appear. Below are the queries we field most often,  and if yours isn't here, simply get in touch via our form.",
+          "formCard": {
+            "title": "Still have questions or want to start your journey with us?",
+            "subtitle": "Our client team are happy to answer anything, with no obligation to proceed.",
+            "placeholders": {
+              "name": "NAME...",
+              "phone": "PHONE...",
+              "email": "EMAIL ADDRESS...",
+              "message": "WRITE YOUR MESSAGE HERE..."
+            },
+            "submitLabel": "SUBMIT FORM"
+          },
+          "items": [
+            {
+              "question": "What is probate?",
+              "answer": "Probate is the legal process of administering the estate of someone who has died — proving any will is valid, gathering in their assets, settling debts and taxes, and distributing what's left to the rightful beneficiaries. The official document granting authority to do this is called a \"grant of probate\"."
+            },
+            {
+              "question": "How long does the probate process usually take?",
+              "answer": ""
+            },
+            {
+              "question": "Do I always need probate?",
+              "answer": ""
+            },
+            {
+              "question": "How much does probate cost?",
+              "answer": ""
+            },
+            {
+              "question": "Will inheritance tax be due?",
+              "answer": ""
+            },
+            {
+              "question": "What does an executor have to do?",
+              "answer": ""
+            },
+            {
+              "question": "What happens if there's no will?",
+              "answer": ""
+            },
+            {
+              "question": "What if there's a dispute over the estate?",
+              "answer": ""
+            }
+          ]
+        }
+      },
+      "power-of-attorney": {
+        "slug": "power-of-attorney",
+        "banner": {
+          "eyebrow": "LASTING POWERS OF ATTORNEY",
+          "headingSegments": [
+            {
+              "text": "Choose who",
+              "break": true
+            },
+            {
+              "text": "speaks",
+              "script": true
+            },
+            {
+              "text": " for you",
+              "break": true
+            },
+            {
+              "text": "when you can't."
+            }
+          ],
+          "paragraph": "A Lasting Power of Attorney lets someone you trust make decisions on your behalf if illness or injury ever means you can't. Our solicitors make putting one in place simple, clear and reassuring.",
+          "primaryCta": {
+            "label": "REQUEST A CALL BACK",
+            "href": "#contact",
+            "icon": "arrow"
+          },
+          "secondaryCta": {
+            "label": "SEE HOW IT WORKS",
+            "href": "#journey"
+          }
+        },
+        "overview": {
+          "eyebrow": "POWER OF ATTORNEY OVERVIEW",
+          "headingBefore": "How a",
+          "headingAccent": "Lasting Power of Attorney",
+          "headingAfter": "represents you and your estate.",
+          "paragraphs": [
+            "A Lasting Power of Attorney (LPA) is a legal document that lets you appoint one or more people, your \"attorneys\", to make decisions for you if you lose the ability to make them yourself. It's one of the most important safeguards you can put in place for later life.",
+            "There are two types we advise on. A Property & Financial Affairs LPA covers your money, bank accounts, bills and property. While a Health & Welfare LPA covers your medical care, where you live and day-to-day wellbeing. Most clients choose to make both.",
+            "We draft your LPAs precisely, guide you in choosing and appointing the right attorneys, and handle registration with the Office of the Public Guardian from start to finish."
+          ],
+          "cardTitle": "INCLUDED IN OUR LPA SERVICE",
+          "checklist": [
+            "Property & Financial Affairs LPAs",
+            "Health & Welfare LPAs",
+            "Choosing attorneys & replacement attorneys",
+            "Tailored instructions & preferences",
+            "Acting as your certificate provider",
+            "Registration with the Office of the Public Guardian",
+            "Free secure storage of your registered LPAs"
+          ]
+        },
+        "reasons": {
+          "eyebrow": "WHY IT MATTERS",
+          "headingBefore": "Four reasons to put an",
+          "headingAccent": "LPA in place now",
+          "subtext": "An LPA can only be made while you have mental capacity. By the time it's needed, it's often too late to create one.",
+          "cta": {
+            "label": "REQUEST A CALL BACK",
+            "href": "#contact"
+          },
+          "cards": [
+            {
+              "numeral": "i",
+              "title": "Keep decisions in trusted hands",
+              "text": "You choose exactly who manages your affairs, rather than leaving it to the courts to appoint someone for you."
+            },
+            {
+              "numeral": "ii",
+              "title": "Avoid the Court of Protection",
+              "text": "Without an LPA, loved ones must apply for deputyship, a process that's slow, costly and overseen by the court."
+            },
+            {
+              "numeral": "iii",
+              "title": "Protect your finances",
+              "text": "Bills, pensions and property can be managed without disruption if you're ever unable to deal with them yourself."
+            },
+            {
+              "numeral": "iv",
+              "title": "Have your wishes respected",
+              "text": "Set out your preferences for care and treatment in advance, so the people you trust can honour what matters to you."
+            }
+          ]
+        },
+        "whyUs": {
+          "eyebrow": "WHY DEVONSHIRES CLAIMS",
+          "headingBefore": "LPAs done properly, ",
+          "headingAccent": "the first time",
+          "headingAfter": ".",
+          "cta": {
+            "label": "REQUEST YOUR FREE LPA ENQUIRY",
+            "href": "#contact"
+          },
+          "columns": [
+            {
+              "image": {
+                "src": "/images/why-fixed-fees.png",
+                "alt": "Fixed, transparent fees",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Fixed, transparent fees",
+              "text": "One clear price agreed before we start, covering drafting and our work on registration. The OPG's registration fee is the only separate cost."
+            },
+            {
+              "image": {
+                "src": "/images/why-legal-team.png",
+                "alt": "Specialist legal team",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Drafted to avoid rejection",
+              "text": "A surprising number of DIY LPAs are rejected over small errors. We draft and check every detail so yours is accepted by the OPG without delay."
+            },
+            {
+              "image": {
+                "src": "/images/why-supportive.png",
+                "alt": "Sensitive and supportive firm",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Advice on choosing attorneys",
+              "text": "Picking the right attorneys, and replacements, is the most important decision. We help you weigh it up and tailor instructions to your wishes."
+            }
+          ]
+        },
+        "journey": {
+          "eyebrow": "YOUR PATH FORWARD",
+          "headingBefore": "A clear",
+          "headingAccent": "journey,",
+          "headingAfter": " from first call to completion.",
+          "checklistTitle": "What to have ready and consider:",
+          "cta": {
+            "label": "START YOUR JOURNEY",
+            "href": "#contact"
+          },
+          "subtext": "From your first conversation to registration, our process is measured, transparent, and reassuring. Most clients complete their LPAs in two straightforward appointments.",
+          "checklist": [
+            "Your ID and proof of address",
+            "Who you'd like to appoint as attorneys",
+            "Details of any replacement attorneys",
+            "Any specific instructions or preferences",
+            "Someone to act as your certificate provider",
+            "Details of the people to be notified (if any)"
+          ],
+          "steps": [
+            {
+              "numeral": "I",
+              "title": "Free case assessment",
+              "meta": "30 MIN · FREE",
+              "text": "A relaxed conversation about your circumstances, which type of LPA you need and who you might appoint. We confirm a fixed fee before you decide."
+            },
+            {
+              "numeral": "II",
+              "title": "Choose your attorneys",
+              "meta": "45 MIN",
+              "text": "We help you decide who should act, whether jointly or separately, and whether to name replacements, then capture any instructions and preferences."
+            },
+            {
+              "numeral": "III",
+              "title": "We draft your LPAs",
+              "meta": "1-2 WEEKS",
+              "text": "Your solicitor prepares the documents accurately, acts as your certificate provider where appropriate, and sends everything to you to review."
+            },
+            {
+              "numeral": "IV",
+              "title": "Sign & witness",
+              "meta": "30-45 MIN",
+              "text": "We oversee correct signing by you, your attorneys and witnesses in the right order, so the LPAs are valid and ready to register."
+            },
+            {
+              "numeral": "V",
+              "title": "Register with the OPG",
+              "meta": "8-10 WEEKS",
+              "text": "We submit your LPAs to the Office of the Public Guardian, track them through the process, and store your registered originals safely.",
+              "last": true
+            }
+          ]
+        },
+        "faq": {
+          "eyebrow": "COMMON QUESTIONS",
+          "headingLine1": "You asked, we",
+          "headingLine2": "answered.",
+          "intro": "Few people enjoy thinking about wills and estates, but most questions are simpler than they appear. Below are the queries we field most often,  and if yours isn't here, simply get in touch via our form.",
+          "formCard": {
+            "title": "Still have questions or want to start your journey with us?",
+            "subtitle": "Our client team are happy to answer anything, with no obligation to proceed.",
+            "placeholders": {
+              "name": "NAME...",
+              "phone": "PHONE...",
+              "email": "EMAIL ADDRESS...",
+              "message": "WRITE YOUR MESSAGE HERE..."
+            },
+            "submitLabel": "SUBMIT FORM"
+          },
+          "items": [
+            {
+              "question": "What is a Lasting Power of Attorney?",
+              "answer": "An LPA is a legal document that lets you (the \"donor\") appoint one or more trusted people (your \"attorneys\") to make decisions on your behalf if you're no longer able to make them yourself, for example through illness, injury or loss of mental capacity."
+            },
+            {
+              "question": "What are the two types of LPA?",
+              "answer": ""
+            },
+            {
+              "question": "When can my attorney start making decisions?",
+              "answer": ""
+            },
+            {
+              "question": "Who should I choose as my attorney?",
+              "answer": ""
+            },
+            {
+              "question": "How much does an LPA cost?",
+              "answer": ""
+            },
+            {
+              "question": "How long does it take to setup?",
+              "answer": ""
+            },
+            {
+              "question": "What happens if I don't have an LPA?",
+              "answer": ""
+            },
+            {
+              "question": "Can I cancel or change my LPA later?",
+              "answer": ""
+            }
+          ]
+        }
       }
     }
   }
