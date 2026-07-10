@@ -16,7 +16,7 @@ export default function WhyItMatters({
   content: HubPageContent["whyItMatters"];
 }) {
   return (
-    <section className="bg-deep py-[85px]">
+    <section className="bg-deep py-[52px] lg:py-[85px]">
       <div className="mx-auto max-w-[1810px] px-6">
         <SectionIntro
           scheme="dark"

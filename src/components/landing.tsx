@@ -188,7 +188,7 @@ export function TrustBadges({ content }: { content: LandingPageContent["trustBad
 
 export function HelpWhen({ content }: { content: LandingPageContent["helpWhen"] }) {
   return (
-    <section className="bg-mint py-[70px]">
+    <section className="bg-mint py-[48px] lg:py-[70px]">
       <div className="mx-auto max-w-[1400px] px-6">
         <h2 className="text-center font-heading text-[34px] font-semibold text-deep lg:text-[46px]">
           {content.heading}
@@ -218,7 +218,7 @@ export function HelpWhen({ content }: { content: LandingPageContent["helpWhen"] 
 
 export function HowItWorks({ content }: { content: LandingPageContent["howItWorks"] }) {
   return (
-    <section className="bg-deep py-[80px]">
+    <section className="bg-deep py-[48px] lg:py-[80px]">
       <div className="mx-auto max-w-[1300px] px-6">
         <h2 className="text-center font-heading text-[34px] font-semibold text-white lg:text-[46px]">
           {content.heading}
@@ -248,7 +248,7 @@ export function HowItWorks({ content }: { content: LandingPageContent["howItWork
 
 export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGet"] }) {
   return (
-    <section className="bg-ice py-[80px]">
+    <section className="bg-ice py-[48px] lg:py-[80px]">
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-[50px] px-6 lg:grid-cols-[1fr_420px]">
         <div>
           <h2 className="font-heading text-[32px] font-semibold leading-[1.2] text-teal lg:text-[42px]">
@@ -288,7 +288,7 @@ export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGe
 
 export function SplitSection({ content }: { content: LandingPageContent["split"] }) {
   return (
-    <section className="relative overflow-hidden bg-deeper py-[70px]">
+    <section className="relative overflow-hidden bg-deeper py-[48px] lg:py-[70px]">
       <div className="mx-auto max-w-[1400px] px-6">
         <div className="flex justify-center">
           <h2 className="rounded-[10px] bg-deep px-[28px] py-[14px] text-center font-heading text-[26px] font-semibold text-white lg:text-[36px]">

@@ -23,7 +23,7 @@ export default function FaqSection({
   const dividerColor = light ? "border-deep/20" : "border-white/60";
 
   return (
-    <section className={`${sectionBg} py-[93px]`}>
+    <section className={`${sectionBg} py-[52px] lg:py-[93px]`}>
       <div className="mx-auto flex max-w-[1810px] flex-col gap-[60px] px-6 xl:flex-row xl:gap-[124px] xl:px-[125px]">
         {/* Left column — intro + contact form */}
         <div className="w-full max-w-[791px]">

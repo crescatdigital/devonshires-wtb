@@ -1,6 +1,6 @@
 import Image from "next/image";
 import BannerArtwork, { type BannerImage, type Testimonial } from "./BannerArtwork";
-import { ArrowRightIcon, FolderIcon } from "./icons";
+import { ArrowRightIcon, FolderIcon, StarIcon } from "./icons";
 
 type Segment = { text: string; script?: boolean; break?: boolean };
 type Cta = { label: string; href: string; icon?: string };
@@ -69,6 +69,37 @@ export default function Banner({ banner }: { banner: BannerData }) {
               <CtaIcon icon={banner.secondaryCta.icon} />
             </a>
           </div>
+          {/* Mobile shield artwork (desktop uses the absolute BannerArtwork) */}
+          <div className="mt-[50px] flex flex-col items-center gap-[24px] xl:hidden">
+            <div className="relative w-full max-w-[380px]">
+              <Image
+                src={banner.shieldImage.src}
+                alt={banner.shieldImage.alt}
+                width={banner.shieldImage.width}
+                height={banner.shieldImage.height}
+                className="h-auto w-full"
+              />
+              <div className="absolute left-[6%] top-[8%] w-[26%]">
+                <Image
+                  src={banner.winBadge.src}
+                  alt={banner.winBadge.alt}
+                  width={banner.winBadge.width}
+                  height={banner.winBadge.height}
+                  className="h-auto w-full"
+                />
+              </div>
+            </div>
+            <div className="w-full max-w-[380px] rounded-[20px] border-[3px] border-white bg-deep p-[24px]">
+              <div className="flex gap-0">
+                {Array.from({ length: banner.testimonial.stars }).map((_, i) => (
+                  <StarIcon key={i} className="size-[22px]" />
+                ))}
+              </div>
+              <p className="mt-[14px] text-[15px] leading-normal text-white">{banner.testimonial.quote}</p>
+              <p className="mt-[12px] text-[12px] text-mint">{banner.testimonial.attribution}</p>
+            </div>
+          </div>
+
           <div className="mt-[70px] h-px w-full max-w-[711px] bg-white/30" />
           <div className="mt-[28px] flex flex-wrap items-center gap-x-[85px] gap-y-6">
             <Image

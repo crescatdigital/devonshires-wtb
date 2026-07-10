@@ -12,7 +12,7 @@ export default function ServiceQuestions({
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-lite py-[80px]">
+    <section className="bg-lite py-[52px] lg:py-[80px]">
       <div className="mx-auto max-w-[1400px] px-6">
         <div className="rounded-[24px] bg-deep px-[40px] py-[50px] lg:px-[70px]">
           <h2 className="text-center font-heading text-[34px] font-semibold text-white lg:text-[44px]">

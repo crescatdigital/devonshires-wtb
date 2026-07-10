@@ -3,7 +3,7 @@ import type { HubPageContent } from "@/lib/cms";
 
 export default function WhyUs({ content }: { content: HubPageContent["whyUs"] }) {
   return (
-    <section className="bg-lite py-[85px]">
+    <section className="bg-lite py-[52px] lg:py-[85px]">
       <div className="mx-auto max-w-[1610px] px-6">
         <div className="flex items-center gap-[24px]">
           <span className="h-px w-[74px] bg-teal" />
@@ -17,7 +17,7 @@ export default function WhyUs({ content }: { content: HubPageContent["whyUs"] })
           <span className="heading-accent text-teal">{content.headingAccent}</span>
           <span className="heading-accent text-deep">{content.headingAfter}</span>
         </h2>
-        <div className="mx-auto mt-[118px] grid max-w-[1299px] grid-cols-1 divide-y divide-white/60 rounded-[30px] border border-lite bg-deep xl:grid-cols-3 xl:divide-x xl:divide-y-0">
+        <div className="mx-auto mt-[50px] grid max-w-[1299px] grid-cols-1 divide-y divide-white/60 rounded-[30px] border border-lite bg-deep xl:mt-[118px] xl:grid-cols-3 xl:divide-x xl:divide-y-0">
           {content.columns.map((col) => (
             <div key={col.title} className="flex flex-col items-center px-[40px] pb-[55px] pt-[30px]">
               <Image

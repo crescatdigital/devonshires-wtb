@@ -12,7 +12,7 @@ export type OverviewData = {
 
 export default function ServiceOverview({ content }: { content: OverviewData }) {
   return (
-    <section className="bg-ice py-[85px]">
+    <section className="bg-ice py-[52px] lg:py-[85px]">
       <div className="mx-auto grid max-w-[1470px] grid-cols-1 gap-[60px] px-6 lg:grid-cols-2 lg:gap-[90px]">
         {/* Left — heading + paragraphs */}
         <div>

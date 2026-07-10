@@ -11,7 +11,7 @@ export type ReasonsData = {
 
 export default function ServiceReasons({ content }: { content: ReasonsData }) {
   return (
-    <section className="bg-deep py-[85px]">
+    <section className="bg-deep py-[52px] lg:py-[85px]">
       <div className="mx-auto max-w-[1400px] px-6 text-center">
         <div className="flex items-center justify-center gap-[24px]">
           <span className="h-px w-[74px] bg-mint" />

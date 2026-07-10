@@ -9,7 +9,7 @@ export default function PracticeAreas({
   content: HubPageContent["practiceAreas"];
 }) {
   return (
-    <section id="services" className="bg-ice py-[85px]">
+    <section id="services" className="bg-ice py-[52px] lg:py-[85px]">
       <div className="mx-auto max-w-[1810px] px-6">
         <SectionIntro
           scheme="light"

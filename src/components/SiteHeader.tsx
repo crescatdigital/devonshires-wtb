@@ -1,12 +1,31 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { SiteSettings } from "@/lib/cms";
 import { ChevronDownIcon, EnvelopeIcon, PhoneIcon, SearchIcon } from "./icons";
 
+function MenuIcon({ open, className }: { open: boolean; className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" aria-hidden>
+      {open ? (
+        <path d="M6 6l12 12M18 6L6 18" />
+      ) : (
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      )}
+    </svg>
+  );
+}
+
 export default function SiteHeader({ site }: { site: SiteSettings }) {
+  const [open, setOpen] = useState(false);
+  const tel = `tel:${site.phone.replace(/\s/g, "")}`;
+
   return (
     <header className="bg-white">
-      <div className="mx-auto flex max-w-[1730px] flex-wrap items-center justify-between gap-4 px-6 pb-2 pt-4 lg:px-12">
+      {/* Top row: logo + actions */}
+      <div className="mx-auto flex max-w-[1730px] items-center justify-between gap-4 px-6 pb-2 pt-4 lg:px-12">
         <Link href="/" className="shrink-0">
           <Image
             src={site.logo.src}
@@ -14,32 +33,57 @@ export default function SiteHeader({ site }: { site: SiteSettings }) {
             width={site.logo.width}
             height={site.logo.height}
             priority
-            className="h-[70px] w-auto lg:h-[96px]"
+            className="h-[52px] w-auto sm:h-[64px] lg:h-[96px]"
           />
         </Link>
-        <div className="flex flex-wrap items-center gap-3 lg:gap-4">
+
+        {/* Desktop CTAs */}
+        <div className="hidden items-center gap-3 lg:flex lg:gap-4">
           <a
-            href={`tel:${site.phone.replace(/\s/g, "")}`}
-            className="flex h-[48px] items-center gap-2.5 rounded-full bg-flame px-6 text-[17px] font-semibold text-white lg:h-[54px] lg:px-7 lg:text-[19px]"
+            href={tel}
+            className="flex h-[54px] items-center gap-2.5 rounded-full bg-flame px-7 text-[19px] font-semibold text-white"
           >
             <PhoneIcon className="size-[18px]" />
             {site.phone}
           </a>
           <a
             href={site.header.cta.href}
-            className="flex h-[48px] items-center gap-2.5 rounded-full bg-flame px-6 text-[17px] font-semibold text-white lg:h-[54px] lg:px-7 lg:text-[19px]"
+            className="flex h-[54px] items-center gap-2.5 rounded-full bg-flame px-7 text-[19px] font-semibold text-white"
           >
             <EnvelopeIcon className="size-[20px]" />
             {site.header.cta.label}
           </a>
         </div>
+
+        {/* Mobile actions: call + menu toggle */}
+        <div className="flex items-center gap-2 lg:hidden">
+          <a
+            href={tel}
+            aria-label={`Call ${site.phone}`}
+            className="flex size-[44px] items-center justify-center rounded-full bg-flame text-white"
+          >
+            <PhoneIcon className="size-[18px]" />
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label="Main menu"
+            className="flex h-[44px] items-center gap-2 rounded-full bg-teal px-4 text-[15px] font-semibold uppercase tracking-wide text-white"
+          >
+            Menu
+            <MenuIcon open={open} className="size-[20px]" />
+          </button>
+        </div>
       </div>
-      <nav className="mx-auto flex max-w-[1730px] flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6 pb-4 pt-2 lg:gap-x-12">
+
+      {/* Desktop nav */}
+      <nav className="mx-auto hidden max-w-[1730px] flex-wrap items-center justify-center gap-x-12 gap-y-2 px-6 pb-4 pt-2 lg:flex">
         {site.header.navigation.map((item) => (
           <a
             key={item.label}
             href={item.href}
-            className="flex items-center gap-1 text-[16px] font-semibold tracking-[0.02em] text-deep hover:text-teal lg:text-[18px]"
+            className="flex items-center gap-1 text-[18px] font-semibold tracking-[0.02em] text-deep hover:text-teal"
           >
             {item.label}
             {"hasDropdown" in item && item.hasDropdown && (
@@ -51,6 +95,36 @@ export default function SiteHeader({ site }: { site: SiteSettings }) {
           <SearchIcon className="size-[20px]" />
         </button>
       </nav>
+
+      {/* Mobile menu panel */}
+      {open && (
+        <nav className="border-t border-deep/10 bg-white px-6 py-4 lg:hidden">
+          <ul className="flex flex-col divide-y divide-deep/10">
+            {site.header.navigation.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-between py-3 text-[17px] font-semibold text-deep"
+                >
+                  {item.label}
+                  {"hasDropdown" in item && item.hasDropdown && (
+                    <ChevronDownIcon className="size-[16px] text-deep/60" />
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={site.header.cta.href}
+            onClick={() => setOpen(false)}
+            className="mt-4 flex h-[52px] items-center justify-center gap-2.5 rounded-full bg-flame px-6 text-[17px] font-semibold text-white"
+          >
+            <EnvelopeIcon className="size-[20px]" />
+            {site.header.cta.label}
+          </a>
+        </nav>
+      )}
     </header>
   );
 }

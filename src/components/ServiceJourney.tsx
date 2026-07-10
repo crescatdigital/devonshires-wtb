@@ -14,7 +14,7 @@ export type JourneyData = {
 
 export default function ServiceJourney({ content }: { content: JourneyData }) {
   return (
-    <section className="bg-lite py-[85px]">
+    <section className="bg-lite py-[52px] lg:py-[85px]">
       <div className="mx-auto grid max-w-[1470px] grid-cols-1 gap-[70px] px-6 lg:grid-cols-2 lg:gap-[90px]">
         {/* Left — heading, checklist, CTA */}
         <div>

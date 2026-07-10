@@ -9,7 +9,7 @@ export default function ServicesGrid({
   content: HubPageContent["services"];
 }) {
   return (
-    <section className="bg-lite py-[95px]">
+    <section className="bg-lite py-[52px] lg:py-[95px]">
       <div className="mx-auto max-w-[1810px] px-6">
         <SectionIntro
           scheme="light"

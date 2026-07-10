@@ -26,7 +26,7 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
   const footer = site.footer;
   return (
     <footer id="contact">
-      <div className="bg-deep py-[90px]">
+      <div className="bg-deep py-[52px] lg:py-[90px]">
         <div className="mx-auto flex max-w-[1470px] flex-col justify-center gap-[70px] px-6 lg:flex-row lg:gap-[120px]">
           {/* Get in touch */}
           <div className="pt-[10px]">
