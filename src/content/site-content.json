@@ -1429,6 +1429,195 @@
           ]
         }
       }
+    },
+    "landing": {
+      "slug": "free-case-assessment",
+      "banner": {
+        "eyebrow": "WILLS · TRUSTS · PROBATE",
+        "headingSegments": [
+          {
+            "text": "Specialist Wills, Trusts",
+            "break": true
+          },
+          {
+            "text": "& Probate Solicitors -",
+            "break": true
+          },
+          {
+            "text": "Free",
+            "script": true,
+            "underline": true
+          },
+          {
+            "text": " Case Assessment"
+          }
+        ],
+        "paragraph": "If you're worried about a will, inheritance or how an estate is being handled, our team at Devonshires Claims can review your situation, explain your options, and outline costs before you decide to proceed.",
+        "bullets": [
+          "No obligation initial assessment",
+          "SRA regulated UK Solicitors",
+          "Clear advice on options and costs"
+        ],
+        "form": {
+          "title": "Request Your FREE Case Assessment",
+          "titleAccent": "FREE",
+          "placeholders": {
+            "name": "NAME...",
+            "phone": "PHONE...",
+            "email": "EMAIL ADDRESS...",
+            "situation": "BRIEFLY DESCRIBE YOUR SITUATION (Optional)..."
+          },
+          "helpLabel": "WHAT DO YOU NEED HELP WITH?",
+          "helpOptions": [
+            "Contesting a Will",
+            "Probate delay",
+            "Executor dispute",
+            "Writing a Will",
+            "Other"
+          ],
+          "submitLabel": "REQUEST YOUR FREE CASE ASSESSMENT",
+          "disclaimer": "*We aim to respond within 1 business day. No obligation."
+        }
+      },
+      "trustBadges": {
+        "heading": "Part of Devonshires Claims - trusted claimant solicitors in the UK",
+        "headingAccent": "trusted",
+        "logos": [
+          {
+            "label": "Solicitors Regulation Authority"
+          },
+          {
+            "label": "The Law Society"
+          },
+          {
+            "label": "Legal500"
+          },
+          {
+            "label": "The Times",
+            "image": {
+              "src": "/images/times-logo.png",
+              "alt": "The Times",
+              "width": 174,
+              "height": 105
+            }
+          }
+        ]
+      },
+      "helpWhen": {
+        "heading": "We help when...",
+        "cta": {
+          "label": "REQUEST YOUR FREE CASE ASSESSMENT",
+          "href": "#assessment"
+        },
+        "cards": [
+          {
+            "icon": "user-x",
+            "text": "You believe a will is unfair, invalid or has excluded you."
+          },
+          {
+            "icon": "hourglass",
+            "text": "An executor is delaying or refusing to distribute the estate."
+          },
+          {
+            "icon": "scales",
+            "text": "You're unsure of your rights over inheritance or property."
+          },
+          {
+            "icon": "document",
+            "text": "You feel overwhelmed by probate forms, deadlines and legal terms."
+          }
+        ]
+      },
+      "howItWorks": {
+        "heading": "How it works",
+        "steps": [
+          {
+            "numeral": "i",
+            "icon": "user",
+            "title": "Free Case Assessment",
+            "text": "Share a few details online or by phone. A solicitor reviews whether we can help."
+          },
+          {
+            "numeral": "ii",
+            "icon": "chat",
+            "title": "Options & Cost Explained",
+            "text": "We outline your legal options and funding choices before you decide."
+          },
+          {
+            "numeral": "iii",
+            "icon": "folder",
+            "title": "We Act, You Get Updates",
+            "text": "If you instruct us, we handle the legal work and keep you informed."
+          }
+        ]
+      },
+      "whatYouGet": {
+        "headingBefore": "What you get from your ",
+        "headingAccent": "FREE",
+        "headingAfter": " Case Assessment",
+        "items": [
+          "Review of key information about your situation",
+          "Plain-English explanation of your legal position",
+          "Initial view on prospects of success and risks",
+          "Recommended next steps and likely timescales",
+          "Funding options explained (fixed fees, no win no fee where suitable)"
+        ],
+        "image": {
+          "src": "/images/hero-shield.png",
+          "alt": "Devonshires Claims specialist team",
+          "width": 909,
+          "height": 909
+        }
+      },
+      "split": {
+        "heading": "We give clear,",
+        "headingHighlight": "upfront costs",
+        "bullets": [
+          "No obligation initial assessment",
+          "Fixed or capped fees where possible for non-contentious work",
+          "No win fee may be available for suitable contentious probate claims"
+        ],
+        "quote": "If we don't believe we can improve your position, we'll tell you upfront.",
+        "cta": {
+          "label": "DISCUSS YOUR OPTIONS - REQUEST YOUR FREE CASE ASSESSMENT",
+          "href": "#assessment"
+        }
+      },
+      "faq": {
+        "heading": "Common Service Questions",
+        "stillUnsureText": "Still Unsure? - ",
+        "stillUnsureLink": "Request Your FREE Case Assessment",
+        "items": [
+          {
+            "question": "Do I have to pay for the first call?",
+            "answer": ""
+          },
+          {
+            "question": "What if I can't afford legal fees?",
+            "answer": ""
+          },
+          {
+            "question": "Will I have to go to court?",
+            "answer": ""
+          },
+          {
+            "question": "Can you help if I live abroad?",
+            "answer": ""
+          },
+          {
+            "question": "How long do probate disputes usually take?",
+            "answer": ""
+          },
+          {
+            "question": "Can you help with writing a will?",
+            "answer": ""
+          },
+          {
+            "question": "What documents should I prepare?",
+            "answer": ""
+          }
+        ]
+      }
     }
   }
 }

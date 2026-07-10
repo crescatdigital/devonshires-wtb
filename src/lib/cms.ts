@@ -11,6 +11,7 @@ import content from "@/content/site-content.json";
 
 export type SiteSettings = (typeof content)["site"];
 export type HubPageContent = (typeof content)["pages"]["hub"];
+export type LandingPageContent = (typeof content)["pages"]["landing"];
 export type ServicePageContent = (typeof content)["pages"]["servicePages"][ServiceSlug] & {
   banner: HubPageContent["banner"];
 };
@@ -24,6 +25,10 @@ export async function getSiteSettings(): Promise<SiteSettings> {
 
 export async function getHubPage(): Promise<HubPageContent> {
   return content.pages.hub;
+}
+
+export async function getLandingPage(): Promise<LandingPageContent> {
+  return content.pages.landing;
 }
 
 /** The shared "Complete estate planning" grid, reused by every service page. */

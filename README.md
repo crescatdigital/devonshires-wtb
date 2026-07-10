@@ -4,22 +4,46 @@ Next.js website built from the Figma designs, with a simple CMS layer.
 
 ## Pages
 
-- **Hub page** (`/`) — replica of the Figma frame "DC Wills, Trust, Probate Hub Page v3"
-  (file `4RQc1E7tLjTOkrGWGw5J4e`, node `13-621`).
+All pages are built from the Figma file `4RQc1E7tLjTOkrGWGw5J4e` and driven by the
+static CMS in `src/content/site-content.json` (see below).
+
+- **Hub page** (`/`) — "DC Wills, Trust, Probate Hub Page v3" (node `13-621`).
+- **Service pages** — one dynamic route (`src/app/[service]`) renders all four from the
+  `pages.servicePages` content:
+  - `/wills` — "DC Wills Service Page v3"
+  - `/trusts` — "DC Trusts Service Page v3"
+  - `/probate` — "DC Probate Service Page v3"
+  - `/power-of-attorney` — "DC Power of Attorney Service Page v3"
+- **Landing page** (`/free-case-assessment`) — "DC Wills, Trusts & Probate Landing Page".
+
+## Desktop scaling
+
+The Figma source is a 1920px canvas, so component sizes are literal design pixels. A
+single rule in `globals.css` scales the whole design to 75% on viewports ≥1024px
+(`body { zoom: 0.75 }`) so it reads at a comfortable size at 100% browser zoom; mobile
+and tablet keep their own responsive sizes.
 
 ## Known placeholders (to swap when CMS/assets are ready)
 
+- Every service-page banner reuses the hub's duotone shield artwork
+  (`hero-shield.png`); each page has its own shield photo in Figma that should be
+  exported and wired into `site.bannerAssets` / per-page banners.
 - The four photos in the "Complete estate planning, under one firm" cards currently reuse
   the duotone shield artwork — the stock photos in the Figma file could not be exported
   (export is disabled on the file and the Figma MCP seat hit its rate limit). Export them
   from Figma (Section 6 - Pre-Footer) and drop them into `public/images/`, then update the
   `services.cards[].image` paths in `src/content/site-content.json`.
+- The landing page's trust badges (SRA, The Law Society, Legal500, The Times) render as
+  text placeholders — swap for the official logos.
+- The landing "split" section and "what you get" image use gradient/shield placeholders in
+  place of the Figma lifestyle photography.
 - The SRA badge in the footer bottom bar is a styled placeholder — replace with the
   official SRA digital badge embed.
 - The reCAPTCHA in the footer form is a visual mock; wire up the real widget together with
-  the form backend.
-- Only the first FAQ has answer copy in the design; the rest have empty `answer` fields in
-  the content JSON.
+  the form backend. The hero/contact forms are visual mocks pending a backend.
+- Journey checklists on the Trusts/Probate/LPA pages were placeholders in the comps and are
+  filled with sensible domain copy. Only the first FAQ per page has answer copy in the
+  design; the rest have empty `answer` fields.
 
 ## Stack
 
