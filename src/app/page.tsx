@@ -1,6 +1,6 @@
 import { getHubPage, getSiteSettings } from "@/lib/cms";
 import SiteHeader from "@/components/SiteHeader";
-import Hero from "@/components/Hero";
+import Banner from "@/components/Banner";
 import PracticeAreas from "@/components/PracticeAreas";
 import WhyItMatters from "@/components/WhyItMatters";
 import WhyUs from "@/components/WhyUs";
@@ -15,7 +15,7 @@ export default async function Home() {
     <div className="flex flex-1 flex-col">
       <SiteHeader site={site} />
       <main>
-        <Hero banner={hub.banner} />
+        <Banner banner={hub.banner} />
         <PracticeAreas content={hub.practiceAreas} />
         <WhyItMatters content={hub.whyItMatters} />
         <WhyUs content={hub.whyUs} />

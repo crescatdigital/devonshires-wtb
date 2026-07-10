@@ -33,6 +33,21 @@ body {
   font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
 }
 
+/*
+ * The Figma source is a 1920px canvas, so every size in the components is a
+ * literal design pixel. Rendered 1:1 that reads oversized on real screens, so
+ * we scale the whole design down on tablet/desktop — the equivalent of viewing
+ * the 1920px comp at ~78%, but baked in so it looks right at 100% zoom.
+ * Media queries still evaluate against the true viewport, so the responsive
+ * breakpoints below `md` (the mobile layout) are left at 1:1.
+ */
+@media (min-width: 1024px) {
+  body {
+    zoom: 0.75;
+  }
+}
+
+
 /* Segoe UI Semilight italic accent used in section headings */
 .heading-accent {
   font-family: "Segoe UI Semilight", "Segoe UI", "Segoe UI Variable Text",

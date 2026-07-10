@@ -11,6 +11,12 @@ import content from "@/content/site-content.json";
 
 export type SiteSettings = (typeof content)["site"];
 export type HubPageContent = (typeof content)["pages"]["hub"];
+export type ServicePageContent = (typeof content)["pages"]["servicePages"][ServiceSlug] & {
+  banner: HubPageContent["banner"];
+};
+
+type ServicePages = (typeof content)["pages"]["servicePages"];
+export type ServiceSlug = keyof ServicePages;
 
 export async function getSiteSettings(): Promise<SiteSettings> {
   return content.site;
@@ -18,4 +24,26 @@ export async function getSiteSettings(): Promise<SiteSettings> {
 
 export async function getHubPage(): Promise<HubPageContent> {
   return content.pages.hub;
+}
+
+/** The shared "Complete estate planning" grid, reused by every service page. */
+export async function getServicesGrid(): Promise<HubPageContent["services"]> {
+  return content.pages.hub.services;
+}
+
+export function getServiceSlugs(): ServiceSlug[] {
+  return Object.keys(content.pages.servicePages) as ServiceSlug[];
+}
+
+export async function getServicePage(
+  slug: ServiceSlug,
+): Promise<ServicePageContent | null> {
+  const page = content.pages.servicePages[slug];
+  if (!page) return null;
+  // Merge the shared banner artwork (shield, badge, testimonial, review logos)
+  // into each service banner so the content JSON stays free of duplication.
+  return {
+    ...page,
+    banner: { ...page.banner, ...content.site.bannerAssets },
+  } as ServicePageContent;
 }

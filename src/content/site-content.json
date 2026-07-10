@@ -1,58 +1,192 @@
 {
   "site": {
     "name": "Devonshires Claims — Wills, Trusts & Probate",
-    "logo": { "src": "/images/logo-wtp.png", "alt": "Wills, Trusts & Probate by Devonshires Claims", "width": 347, "height": 106 },
+    "logo": {
+      "src": "/images/logo-wtp.png",
+      "alt": "Wills, Trusts & Probate by Devonshires Claims",
+      "width": 347,
+      "height": 106
+    },
     "phone": "0333 900 8787",
     "email": "admin@devonshiresclaims.co.uk",
     "header": {
-      "cta": { "label": "REQUEST A CALL BACK", "href": "#contact" },
+      "cta": {
+        "label": "REQUEST A CALL BACK",
+        "href": "#contact"
+      },
       "navigation": [
-        { "label": "HOME", "href": "/" },
-        { "label": "WHAT WE DO", "href": "#", "hasDropdown": true },
-        { "label": "ABOUT US", "href": "#", "hasDropdown": true },
-        { "label": "REVIEWS", "href": "#" },
-        { "label": "INFO HUB", "href": "#", "hasDropdown": true },
-        { "label": "JOIN US", "href": "#", "hasDropdown": true },
-        { "label": "CONTACT", "href": "#contact" }
+        {
+          "label": "HOME",
+          "href": "/"
+        },
+        {
+          "label": "WHAT WE DO",
+          "href": "#",
+          "hasDropdown": true
+        },
+        {
+          "label": "ABOUT US",
+          "href": "#",
+          "hasDropdown": true
+        },
+        {
+          "label": "REVIEWS",
+          "href": "#"
+        },
+        {
+          "label": "INFO HUB",
+          "href": "#",
+          "hasDropdown": true
+        },
+        {
+          "label": "JOIN US",
+          "href": "#",
+          "hasDropdown": true
+        },
+        {
+          "label": "CONTACT",
+          "href": "#contact"
+        }
       ]
     },
     "socials": [
-      { "network": "facebook", "href": "https://www.facebook.com/devonshiresclaims" },
-      { "network": "youtube", "href": "https://www.youtube.com/@devonshiresclaims" },
-      { "network": "linkedin", "href": "https://www.linkedin.com/company/devonshires-claims" }
+      {
+        "network": "facebook",
+        "href": "https://www.facebook.com/devonshiresclaims"
+      },
+      {
+        "network": "youtube",
+        "href": "https://www.youtube.com/@devonshiresclaims"
+      },
+      {
+        "network": "linkedin",
+        "href": "https://www.linkedin.com/company/devonshires-claims"
+      }
     ],
     "footer": {
       "heading": "Get in touch",
-      "addressLines": ["Devonshires Claims", "Ground Floor", "30 Finsbury Circus", "Finsbury, London", "EC2M 7DT"],
+      "addressLines": [
+        "Devonshires Claims",
+        "Ground Floor",
+        "30 Finsbury Circus",
+        "Finsbury, London",
+        "EC2M 7DT"
+      ],
       "form": {
         "heading": "Get a Free Case Evaluation",
         "disclaimer": "This data will only be used by Devonshires Claims for processing your query and for no other purpose.",
         "submitLabel": "Start your free case evaluation",
-        "bestTimeOptions": ["Morning", "Afternoon", "Evening"]
+        "bestTimeOptions": [
+          "Morning",
+          "Afternoon",
+          "Evening"
+        ]
       },
       "copyright": "© Devonshires Claims 2025",
       "legalLinks": [
-        { "label": "Cookies", "href": "#" },
-        { "label": "Privacy", "href": "#" },
-        { "label": "Regulatory Information", "href": "#" }
+        {
+          "label": "Cookies",
+          "href": "#"
+        },
+        {
+          "label": "Privacy",
+          "href": "#"
+        },
+        {
+          "label": "Regulatory Information",
+          "href": "#"
+        }
       ],
       "regulatory": "Devonshires Claims is a trading name of PI Law Direct Ltd - SRA No. 615139"
+    },
+    "bannerAssets": {
+      "reviewsBadge": {
+        "src": "/images/reviews-badge.png",
+        "alt": "Devonshires Claims rated 4.8 out of 5 — 48 verified reviews",
+        "width": 349,
+        "height": 111
+      },
+      "timesLogo": {
+        "src": "/images/times-logo.png",
+        "alt": "Recommended by The Times",
+        "width": 174,
+        "height": 105
+      },
+      "shieldImage": {
+        "src": "/images/hero-shield.png",
+        "alt": "Duotone shield artwork",
+        "width": 909,
+        "height": 909
+      },
+      "winBadge": {
+        "src": "/images/win-badge.png",
+        "alt": "UK Legal Awards 2023 — Devonshires Claims — Best Solicitors 2023",
+        "width": 200,
+        "height": 168
+      },
+      "testimonial": {
+        "stars": 5,
+        "quote": "“Glowing testimonial from a very happy customer who has used these services should go here.”",
+        "attribution": "--- FORNAME SURNAME"
+      }
     }
   },
   "pages": {
     "hub": {
       "banner": {
         "eyebrow": "WILLS · TRUSTS · PROBATE",
-        "headingBefore": "Plan your",
-        "headingScript": "legacy",
-        "headingAfter": "with confidence & care.",
+        "headingSegments": [
+          {
+            "text": "Plan your "
+          },
+          {
+            "text": "legacy",
+            "script": true,
+            "break": true
+          },
+          {
+            "text": "with confidence",
+            "break": true
+          },
+          {
+            "text": "& care."
+          }
+        ],
         "paragraph": "Devonshires Claims is dedicated to protect what matters most to you and your family, with measured advice, fixed fees and a steady hand through life's most personal decisions.",
-        "primaryCta": { "label": "REQUEST A CALL BACK", "href": "#contact" },
-        "secondaryCta": { "label": "EXPLORE SERVICES", "href": "#services" },
-        "reviewsBadge": { "src": "/images/reviews-badge.png", "alt": "Devonshires Claims rated 4.8 out of 5 — 48 verified reviews", "width": 349, "height": 111 },
-        "timesLogo": { "src": "/images/times-logo.png", "alt": "Recommended by The Times", "width": 174, "height": 105 },
-        "shieldImage": { "src": "/images/hero-shield.png", "alt": "Family protected under Devonshires Claims shield", "width": 909, "height": 909 },
-        "winBadge": { "src": "/images/win-badge.png", "alt": "UK Legal Awards 2023 — Devonshires Claims — Best Solicitors 2023", "width": 200, "height": 168 },
+        "primaryCta": {
+          "label": "REQUEST A CALL BACK",
+          "href": "#contact",
+          "icon": "arrow"
+        },
+        "secondaryCta": {
+          "label": "EXPLORE SERVICES",
+          "href": "#services",
+          "icon": "folder"
+        },
+        "reviewsBadge": {
+          "src": "/images/reviews-badge.png",
+          "alt": "Devonshires Claims rated 4.8 out of 5 — 48 verified reviews",
+          "width": 349,
+          "height": 111
+        },
+        "timesLogo": {
+          "src": "/images/times-logo.png",
+          "alt": "Recommended by The Times",
+          "width": 174,
+          "height": 105
+        },
+        "shieldImage": {
+          "src": "/images/hero-shield.png",
+          "alt": "Family protected under Devonshires Claims shield",
+          "width": 909,
+          "height": 909
+        },
+        "winBadge": {
+          "src": "/images/win-badge.png",
+          "alt": "UK Legal Awards 2023 — Devonshires Claims — Best Solicitors 2023",
+          "width": 200,
+          "height": 168
+        },
         "testimonial": {
           "stars": 5,
           "quote": "“Glowing testimonial from a very happy customer who has used these services should go here.”",
@@ -68,37 +202,90 @@
           {
             "numeral": "i",
             "title": "Wills",
-            "image": { "src": "/images/card-wills.png", "alt": "Wills", "width": 210, "height": 210 },
+            "image": {
+              "src": "/images/card-wills.png",
+              "alt": "Wills",
+              "width": 210,
+              "height": 210
+            },
             "description": "A properly drafted will is the cornerstone of any estate plan. We help you express your wishes with absolute clarity — protecting loved ones, guarding against disputes, and ensuring your intentions stand the test of time.",
-            "bullets": ["Single & Mirror Wills", "Guardianship provisions", "Specific gifts & legacies", "Will Review & Updates", "Complex Estate Planning"],
-            "link": { "label": "EXPLORE WILLS", "href": "#" },
+            "bullets": [
+              "Single & Mirror Wills",
+              "Guardianship provisions",
+              "Specific gifts & legacies",
+              "Will Review & Updates",
+              "Complex Estate Planning"
+            ],
+            "link": {
+              "label": "EXPLORE WILLS",
+              "href": "/wills"
+            },
             "highlighted": true
           },
           {
             "numeral": "ii",
             "title": "Trusts",
-            "image": { "src": "/images/card-trusts.png", "alt": "Trusts", "width": 210, "height": 210 },
+            "image": {
+              "src": "/images/card-trusts.png",
+              "alt": "Trusts",
+              "width": 210,
+              "height": 210
+            },
             "description": "Trusts offer a flexible vehicle for protecting assets, supporting vulnerable beneficiaries, and managing inheritance tax efficiently. We design and administer trusts tailored to your family's circumstances and objectives.",
-            "bullets": ["Discretionary & Life Interest", "Asset Protection Trusts", "Disabled Persons' Trusts", "Trust Administration & Advice"],
-            "link": { "label": "EXPLORE TRUSTS", "href": "#" },
+            "bullets": [
+              "Discretionary & Life Interest",
+              "Asset Protection Trusts",
+              "Disabled Persons' Trusts",
+              "Trust Administration & Advice"
+            ],
+            "link": {
+              "label": "EXPLORE TRUSTS",
+              "href": "/trusts"
+            },
             "highlighted": false
           },
           {
             "numeral": "iii",
             "title": "Probate",
-            "image": { "src": "/images/card-probate.png", "alt": "Probate", "width": 210, "height": 210 },
+            "image": {
+              "src": "/images/card-probate.png",
+              "alt": "Probate",
+              "width": 210,
+              "height": 210
+            },
             "description": "Administering an estate is a profound responsibility, often at a difficult time. Our probate specialists guide executors and families through every stage with patience, precision, and quiet efficiency.",
-            "bullets": ["Grant of Probate Applications", "Full Estate Administration", "Inheritance Tax Returns", "Contentious Probate Disputes"],
-            "link": { "label": "EXPLORE PROBATE", "href": "#" },
+            "bullets": [
+              "Grant of Probate Applications",
+              "Full Estate Administration",
+              "Inheritance Tax Returns",
+              "Contentious Probate Disputes"
+            ],
+            "link": {
+              "label": "EXPLORE PROBATE",
+              "href": "/probate"
+            },
             "highlighted": false
           },
           {
             "numeral": "iv",
             "title": "Power of Attorney",
-            "image": { "src": "/images/card-lpa.png", "alt": "Power of Attorney", "width": 210, "height": 210 },
+            "image": {
+              "src": "/images/card-lpa.png",
+              "alt": "Power of Attorney",
+              "width": 210,
+              "height": 210
+            },
             "description": "A Lasting Power of Attorney allows your to choose who speaks for you, while you still have the ability to select the person or persons that you trust to carry out your wishes, for your wellbeing and your estate.",
-            "bullets": ["Property & Financial Affairs", "Health & Welfare LPAs", "Tailored instructions", "Certificate registration"],
-            "link": { "label": "EXPLORE LPA", "href": "#" },
+            "bullets": [
+              "Property & Financial Affairs",
+              "Health & Welfare LPAs",
+              "Tailored instructions",
+              "Certificate registration"
+            ],
+            "link": {
+              "label": "EXPLORE LPA",
+              "href": "/power-of-attorney"
+            },
             "highlighted": false,
             "tallTitle": true
           }
@@ -109,14 +296,47 @@
         "headingLine1": "Six reasons to put your",
         "headingLine2": "affairs in order",
         "intro": "Estate planning is rarely urgent until it is. Each year, thousands of families face avoidable difficulty because of an outdated will, no will at all, or a missing trust arrangement. Here is what proper planning can deliver.",
-        "cta": { "label": "REQUEST A CALL BACK", "href": "#contact" },
+        "cta": {
+          "label": "REQUEST A CALL BACK",
+          "href": "#contact"
+        },
         "boxes": [
-          { "numeral": "i", "icon": "/images/icon-protect.svg", "title": "Protect Your Family", "text": "Ensure your loved ones, particularly children and dependents, are provided for exactly as you intend, with named guardians and clear bequests." },
-          { "numeral": "ii", "icon": "/images/icon-bank-card.svg", "title": "Reduce Inheritance Tax", "text": "Strategic use of trusts, gifts, and reliefs can substantially reduce the IHT burden on your estate — keeping more of what you've built within your family." },
-          { "numeral": "iii", "icon": "/images/icon-time.svg", "title": "Avoid Lengthy Delays", "text": "Dying with an ambiguous will can prolong probate by months or years. Clear documentation means a faster, smoother process for those left behind." },
-          { "numeral": "iv", "icon": "/images/icon-star-outline.svg", "title": "Express Personal Wishes", "text": "A will is more than a document, it carries your voice. Specific gifts, charitable donations, funeral preferences, all set down precisely to your wishes." },
-          { "numeral": "v", "icon": "/images/icon-users.svg", "title": "Provide for Blended Families", "text": "Second marriages, step-children, and complex family structures require thoughtful provision. Trusts ensure fairness across generations and households." },
-          { "numeral": "vi", "icon": "/images/icon-lock.svg", "title": "Lasting Peace of Mind", "text": "Above all, knowing your affairs are properly arranged lets you live each day unburdened, and gives your family a final, quiet gift of certainty." }
+          {
+            "numeral": "i",
+            "icon": "/images/icon-protect.svg",
+            "title": "Protect Your Family",
+            "text": "Ensure your loved ones, particularly children and dependents, are provided for exactly as you intend, with named guardians and clear bequests."
+          },
+          {
+            "numeral": "ii",
+            "icon": "/images/icon-bank-card.svg",
+            "title": "Reduce Inheritance Tax",
+            "text": "Strategic use of trusts, gifts, and reliefs can substantially reduce the IHT burden on your estate — keeping more of what you've built within your family."
+          },
+          {
+            "numeral": "iii",
+            "icon": "/images/icon-time.svg",
+            "title": "Avoid Lengthy Delays",
+            "text": "Dying with an ambiguous will can prolong probate by months or years. Clear documentation means a faster, smoother process for those left behind."
+          },
+          {
+            "numeral": "iv",
+            "icon": "/images/icon-star-outline.svg",
+            "title": "Express Personal Wishes",
+            "text": "A will is more than a document, it carries your voice. Specific gifts, charitable donations, funeral preferences, all set down precisely to your wishes."
+          },
+          {
+            "numeral": "v",
+            "icon": "/images/icon-users.svg",
+            "title": "Provide for Blended Families",
+            "text": "Second marriages, step-children, and complex family structures require thoughtful provision. Trusts ensure fairness across generations and households."
+          },
+          {
+            "numeral": "vi",
+            "icon": "/images/icon-lock.svg",
+            "title": "Lasting Peace of Mind",
+            "text": "Above all, knowing your affairs are properly arranged lets you live each day unburdened, and gives your family a final, quiet gift of certainty."
+          }
         ]
       },
       "whyUs": {
@@ -124,11 +344,41 @@
         "headingBefore": "Legal services handled with clarity and ",
         "headingAccent": "genuine care",
         "headingAfter": ".",
-        "cta": { "label": "REQUEST YOUR FREE CASE ASSESSMENT", "href": "#contact" },
+        "cta": {
+          "label": "REQUEST YOUR FREE CASE ASSESSMENT",
+          "href": "#contact"
+        },
         "columns": [
-          { "image": { "src": "/images/why-fixed-fees.png", "alt": "Fixed fees", "width": 150, "height": 150 }, "title": "Fixed fees, no surprises", "text": "We offer clear fixed-fee options, agreed at the outset. You'll always know what the service costs (with no hidden charges) or percentage-of-service billing." },
-          { "image": { "src": "/images/why-legal-team.png", "alt": "Dedicated legal team", "width": 150, "height": 150 }, "title": "A dedicated, expert legal team", "text": "Experienced solicitors deal directly with the courts, HMRC, Registry Offices, asset-holders, and you have one named contact throughout." },
-          { "image": { "src": "/images/why-supportive.png", "alt": "Sensitive and supportive firm", "width": 150, "height": 150 }, "title": "Sensitive & supportive firm", "text": "We understand whether you're dealing with loss or planning for the future. We move at your pace, explain everything plainly, and treat you and your family with warmth and respect." }
+          {
+            "image": {
+              "src": "/images/why-fixed-fees.png",
+              "alt": "Fixed fees",
+              "width": 150,
+              "height": 150
+            },
+            "title": "Fixed fees, no surprises",
+            "text": "We offer clear fixed-fee options, agreed at the outset. You'll always know what the service costs (with no hidden charges) or percentage-of-service billing."
+          },
+          {
+            "image": {
+              "src": "/images/why-legal-team.png",
+              "alt": "Dedicated legal team",
+              "width": 150,
+              "height": 150
+            },
+            "title": "A dedicated, expert legal team",
+            "text": "Experienced solicitors deal directly with the courts, HMRC, Registry Offices, asset-holders, and you have one named contact throughout."
+          },
+          {
+            "image": {
+              "src": "/images/why-supportive.png",
+              "alt": "Sensitive and supportive firm",
+              "width": 150,
+              "height": 150
+            },
+            "title": "Sensitive & supportive firm",
+            "text": "We understand whether you're dealing with loss or planning for the future. We move at your pace, explain everything plainly, and treat you and your family with warmth and respect."
+          }
         ]
       },
       "faq": {
@@ -139,7 +389,12 @@
         "formCard": {
           "title": "Still have questions or want to start your journey with us?",
           "subtitle": "Our client team are happy to answer anything, with no obligation to proceed.",
-          "placeholders": { "name": "NAME...", "phone": "PHONE...", "email": "EMAIL ADDRESS...", "message": "WRITE YOUR MESSAGE HERE..." },
+          "placeholders": {
+            "name": "NAME...",
+            "phone": "PHONE...",
+            "email": "EMAIL ADDRESS...",
+            "message": "WRITE YOUR MESSAGE HERE..."
+          },
           "submitLabel": "SUBMIT FORM"
         },
         "items": [
@@ -147,13 +402,34 @@
             "question": "How much does it cost to make a will or trust with Devonshires Claims?",
             "answer": "Our fees are fixed and quoted in writing before any work begins. A straightforward single will starts at £xxx plus VAT, and mirror wills for couples from £xxx plus VAT. More complex arrangements — those involving trusts, business assets, or tax planning — are quoted individually after your initial consultation.\nWe never charge by the hour for standard will drafting, so you always know where you stand."
           },
-          { "question": "What happens if I die without a will in England or Wales?", "answer": "" },
-          { "question": "When should I consider setting up a trust?", "answer": "" },
-          { "question": "How long does the probate process usually take?", "answer": "" },
-          { "question": "How often should I review my will?", "answer": "" },
-          { "question": "Can I make a will if I have property or assets abroad?", "answer": "" },
-          { "question": "Are your wills legally binding and recognised everywhere?", "answer": "" },
-          { "question": "Is my information kept confidential?", "answer": "" }
+          {
+            "question": "What happens if I die without a will in England or Wales?",
+            "answer": ""
+          },
+          {
+            "question": "When should I consider setting up a trust?",
+            "answer": ""
+          },
+          {
+            "question": "How long does the probate process usually take?",
+            "answer": ""
+          },
+          {
+            "question": "How often should I review my will?",
+            "answer": ""
+          },
+          {
+            "question": "Can I make a will if I have property or assets abroad?",
+            "answer": ""
+          },
+          {
+            "question": "Are your wills legally binding and recognised everywhere?",
+            "answer": ""
+          },
+          {
+            "question": "Is my information kept confidential?",
+            "answer": ""
+          }
         ]
       },
       "services": {
@@ -164,32 +440,298 @@
           {
             "label": "SERVICE",
             "title": "Wills",
-            "image": { "src": "/images/card-wills.png", "alt": "Wills service", "width": 410, "height": 210 },
+            "image": {
+              "src": "/images/card-wills.png",
+              "alt": "Wills service",
+              "width": 410,
+              "height": 210
+            },
             "text": "Protect your loved ones with a clear, valid will built around your wishes.",
-            "link": { "label": "Explore Wills", "href": "#" }
+            "link": {
+              "label": "Explore Wills",
+              "href": "/wills"
+            }
           },
           {
             "label": "SERVICE",
             "title": "Trusts",
-            "image": { "src": "/images/card-trusts.png", "alt": "Trusts service", "width": 410, "height": 210 },
+            "image": {
+              "src": "/images/card-trusts.png",
+              "alt": "Trusts service",
+              "width": 410,
+              "height": 210
+            },
             "text": "Ring-fence and control how your wealth passes to the next generation.",
-            "link": { "label": "Explore Trusts", "href": "#" }
+            "link": {
+              "label": "Explore Trusts",
+              "href": "/trusts"
+            }
           },
           {
             "label": "SERVICE",
             "title": "Probate",
-            "image": { "src": "/images/card-probate.png", "alt": "Probate service", "width": 410, "height": 210 },
+            "image": {
+              "src": "/images/card-probate.png",
+              "alt": "Probate service",
+              "width": 410,
+              "height": 210
+            },
             "text": "Compassionate, fixed-fee help administering a loved one's estate.",
-            "link": { "label": "Explore Probate", "href": "#" }
+            "link": {
+              "label": "Explore Probate",
+              "href": "/probate"
+            }
           },
           {
             "label": "SERVICE",
             "title": "Power of Attorney",
-            "image": { "src": "/images/card-lpa.png", "alt": "Power of Attorney service", "width": 410, "height": 210 },
+            "image": {
+              "src": "/images/card-lpa.png",
+              "alt": "Power of Attorney service",
+              "width": 410,
+              "height": 210
+            },
             "text": "Secure who speaks on your behalf, when you are unable to do so.",
-            "link": { "label": "Explore LPA", "href": "#" }
+            "link": {
+              "label": "Explore LPA",
+              "href": "/power-of-attorney"
+            }
           }
         ]
+      }
+    },
+    "servicePages": {
+      "wills": {
+        "slug": "wills",
+        "banner": {
+          "eyebrow": "WILL WRITING & ESTATE PLANNING",
+          "headingSegments": [
+            {
+              "text": "Make a will that ",
+              "break": true
+            },
+            {
+              "text": "protects",
+              "script": true
+            },
+            {
+              "text": " the people",
+              "break": true
+            },
+            {
+              "text": "who matter most."
+            }
+          ],
+          "paragraph": "Clear, professional advice from London solicitors who make writing your will straightforward, so your wishes are followed and your family is spared uncertainty.",
+          "primaryCta": {
+            "label": "REQUEST A CALL BACK",
+            "href": "#contact",
+            "icon": "arrow"
+          },
+          "secondaryCta": {
+            "label": "SEE HOW IT WORKS",
+            "href": "#journey"
+          }
+        },
+        "overview": {
+          "eyebrow": "WILLS OVERVIEW",
+          "headingBefore": "What our",
+          "headingAccent": "wills",
+          "headingAfter": "service covers and how we support you through it.",
+          "paragraphs": [
+            "A will is the single most important document for protecting your family's future. We make sure yours is valid, tax-aware and genuinely reflects your wishes, written in plain English, not legal jargon.",
+            "Whether you need a simple will, a pair of mirror wills with your partner, or something more complex involving property, a business or beneficiaries abroad, our solicitors guide you through every decision and handle the drafting end to end.",
+            "We also review and update existing wills after life changes such as marriage, divorce, a new child or buying property, and store your signed will securely, free of charge."
+          ],
+          "cardTitle": "INCLUDED IN OUR WILL SERVICE",
+          "checklist": [
+            "Single, mirror & complex wills",
+            "Appointing executors & guardians for children",
+            "Specific gifts, legacies & residuary estate",
+            "Inheritance tax planning & allowances",
+            "Property, business & overseas assets",
+            "Will reviews, updates & codicils",
+            "Free secure storage of your signed will"
+          ]
+        },
+        "reasons": {
+          "eyebrow": "WHY IT MATTERS",
+          "headingBefore": "Why leaving it to chance",
+          "headingAccent": "is the last thing you want",
+          "subtext": "Without a valid will, the law decides who inherits, and it rarely matches what you would have wanted.",
+          "cta": {
+            "label": "REQUEST A CALL BACK",
+            "href": "#contact"
+          },
+          "cards": [
+            {
+              "numeral": "i",
+              "title": "You decide who inherits",
+              "text": "Choose exactly who receives your home, savings and possessions, rather than the rigid intestacy rules deciding for you."
+            },
+            {
+              "numeral": "ii",
+              "title": "Protect your children",
+              "text": "Name legal guardians for children under 18 and set out how and when they receive what you leave them."
+            },
+            {
+              "numeral": "iii",
+              "title": "Prevent family disputes",
+              "text": "A clear, professionally drafted will removes ambiguity, sparing loved ones stress, cost and conflict later."
+            },
+            {
+              "numeral": "iv",
+              "title": "Reduce inheritance tax",
+              "text": "Use available allowances and reliefs so more of your estate passes to your family, not to HMRC."
+            }
+          ]
+        },
+        "whyUs": {
+          "eyebrow": "WHY DEVONSHIRES CLAIMS",
+          "headingBefore": "Wills expertly crafted for you by ",
+          "headingAccent": "legal specialists",
+          "headingAfter": ".",
+          "cta": {
+            "label": "REQUEST YOUR FREE WILL ASSESSMENT",
+            "href": "#contact"
+          },
+          "columns": [
+            {
+              "image": {
+                "src": "/images/why-fixed-fees.png",
+                "alt": "Fixed, transparent fees",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Fixed, transparent fees",
+              "text": "You get a clear, fixed price before any work begins. No hourly billing, no surprises, just one agreed fee for your will."
+            },
+            {
+              "image": {
+                "src": "/images/why-legal-team.png",
+                "alt": "Specialist team of solicitors",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Specialist team of solicitors",
+              "text": "Your will is drafted by a qualified solicitor, many of our team are full members of STEP, the global body for estate-planning practitioners."
+            },
+            {
+              "image": {
+                "src": "/images/why-supportive.png",
+                "alt": "Sensitive and supportive firm",
+                "width": 150,
+                "height": 150
+              },
+              "title": "Sensitive & supportive firm",
+              "text": "We understand creating a will can be an emotional and personal experience. We move at your pace, explain everything plainly, and treat you with warmth and respect."
+            }
+          ]
+        },
+        "journey": {
+          "eyebrow": "YOUR PATH FORWARD",
+          "headingBefore": "A clear",
+          "headingAccent": "journey,",
+          "headingAfter": " from first call to completion.",
+          "subtext": "From your first call to the signing of your documents, our process is designed to be measured, transparent, and respectful of the trust you place in us. For example, most clients complete their will in two appointments.",
+          "checklistTitle": "What to have ready and consider:",
+          "checklist": [
+            "Photo ID and proof of address",
+            "A rough list of your assets & liabilities",
+            "Details of intended beneficiaries",
+            "Any existing will or trust documents",
+            "Names of preferred executors",
+            "Guardian preferences for minor children"
+          ],
+          "cta": {
+            "label": "START YOUR JOURNEY",
+            "href": "#contact"
+          },
+          "steps": [
+            {
+              "numeral": "I",
+              "title": "Initial Enquiry",
+              "meta": "15 MIN · FREE",
+              "text": "A friendly, no-obligation telephone or video call. We listen to what matters to you, outline what may be involved, and provide a clear written quote — no jargon, no surprises."
+            },
+            {
+              "numeral": "II",
+              "title": "Fact-Find Consultation",
+              "meta": "60-90 MIN",
+              "text": "Meeting in person or remotely, your solicitor takes detailed instructions: family circumstances, asset position, wishes for executors and guardians, and any concerns specific to your situation."
+            },
+            {
+              "numeral": "III",
+              "title": "Draft & Review",
+              "meta": "7-10 DAYS",
+              "text": "We prepare a first draft of your will or trust deed and send it for your review. You will have time to read it carefully, share with family if you wish, and raise any questions before we proceed."
+            },
+            {
+              "numeral": "IV",
+              "title": "Signing & Witnessing",
+              "meta": "30-45 MIN",
+              "text": "Once the document is exactly as you want it, you attend our offices to sign in the presence of qualified witnesses. We handle the formalities precisely as required under the Wills Act 1837."
+            },
+            {
+              "numeral": "V",
+              "title": "Safe Storage & Aftercare",
+              "meta": "LIFETIME",
+              "text": "We hold your original will in our fireproof strongroom at no charge for life, register it with the National Will Register, and remind you to review it every five years or after major life events.",
+              "last": true
+            }
+          ]
+        },
+        "faq": {
+          "eyebrow": "COMMON QUESTIONS",
+          "headingLine1": "You asked, we",
+          "headingLine2": "answered.",
+          "intro": "Few people enjoy thinking about wills and estates, but most questions are simpler than they appear. Below are the queries we field most often,  and if yours isn't here, simply get in touch via our form.",
+          "formCard": {
+            "title": "Still have questions or want to start your journey with us?",
+            "subtitle": "Our client team are happy to answer anything, with no obligation to proceed.",
+            "placeholders": {
+              "name": "NAME...",
+              "phone": "PHONE...",
+              "email": "EMAIL ADDRESS...",
+              "message": "WRITE YOUR MESSAGE HERE..."
+            },
+            "submitLabel": "SUBMIT FORM"
+          },
+          "items": [
+            {
+              "question": "How much does a will cost?",
+              "answer": "We work on fixed fees agreed in advance. A single will typically starts from £180 and mirror wills for couples from £300. More complex wills, involving trusts, business assets or overseas property, are quoted individually, always before any work begins."
+            },
+            {
+              "question": "What happens if I die without a will?",
+              "answer": ""
+            },
+            {
+              "question": "Who should I appoint as my executor?",
+              "answer": ""
+            },
+            {
+              "question": "How often should I update my will?",
+              "answer": ""
+            },
+            {
+              "question": "Does my will need to be witnessed?",
+              "answer": ""
+            },
+            {
+              "question": "Can I include my business in my will?",
+              "answer": ""
+            },
+            {
+              "question": "What are mirror wills?",
+              "answer": ""
+            },
+            {
+              "question": "Can my will be contested after I die?",
+              "answer": ""
+            }
+          ]
+        }
       }
     }
   }

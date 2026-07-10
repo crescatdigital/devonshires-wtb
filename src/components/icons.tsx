@@ -83,6 +83,21 @@ export function ChevronCircleIcon({ className, open }: { className?: string; ope
   );
 }
 
+export function CheckCircleIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 30 30" fill="none" aria-hidden>
+      <circle cx="15" cy="15" r="15" fill="#2ab3a3" />
+      <path
+        d="M9 15.5 13 19.5 21.5 11"
+        stroke="#f1fffd"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function UpArrowIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden>

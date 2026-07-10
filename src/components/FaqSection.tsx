@@ -5,27 +5,41 @@ import Image from "next/image";
 import type { HubPageContent } from "@/lib/cms";
 import { ArrowRightIcon, ChevronCircleIcon } from "./icons";
 
-export default function FaqSection({ content }: { content: HubPageContent["faq"] }) {
+export type FaqData = HubPageContent["faq"];
+
+export default function FaqSection({
+  content,
+  variant = "dark",
+}: {
+  content: FaqData;
+  variant?: "dark" | "light";
+}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const light = variant === "light";
+
+  const sectionBg = light ? "bg-lite" : "bg-deep";
+  const headingColor = light ? "text-deep" : "text-white";
+  const bodyColor = light ? "text-deep" : "text-white";
+  const dividerColor = light ? "border-deep/20" : "border-white/60";
 
   return (
-    <section className="bg-deep py-[93px]">
+    <section className={`${sectionBg} py-[93px]`}>
       <div className="mx-auto flex max-w-[1810px] flex-col gap-[60px] px-6 xl:flex-row xl:gap-[124px] xl:px-[125px]">
         {/* Left column — intro + contact form */}
         <div className="w-full max-w-[791px]">
           <div className="flex items-center gap-[24px]">
-            <span className="h-px w-[74px] bg-mint" />
-            <p className="font-heading text-[20px] font-semibold uppercase text-mint lg:text-[26px]">
+            <span className="h-px w-[74px] bg-teal" />
+            <p className="font-heading text-[20px] font-semibold uppercase text-teal lg:text-[26px]">
               {content.eyebrow}
             </p>
-            <span className="h-px w-[74px] bg-mint" />
+            <span className="h-px w-[74px] bg-teal" />
           </div>
-          <h2 className="mt-[33px] font-heading text-[44px] font-semibold leading-[1.14] text-white lg:text-[68px] xl:text-[92px]">
+          <h2 className={`mt-[33px] font-heading text-[44px] font-semibold leading-[1.14] lg:text-[68px] xl:text-[92px] ${headingColor}`}>
             {content.headingLine1}
             <br />
-            <span className="heading-accent text-mint">{content.headingLine2}</span>
+            <span className="heading-accent text-teal">{content.headingLine2}</span>
           </h2>
-          <p className="mt-[46px] text-[18px] leading-normal text-white lg:text-[24px]">
+          <p className={`mt-[46px] text-[18px] leading-normal lg:text-[24px] ${bodyColor}`}>
             {content.intro}
           </p>
 
@@ -88,25 +102,25 @@ export default function FaqSection({ content }: { content: HubPageContent["faq"]
 
         {/* Right column — FAQ accordion */}
         <div className="w-full max-w-[767px] xl:pt-[111px]">
-          <div className="h-px w-full bg-white/60" />
+          <div className={`h-px w-full ${light ? "bg-deep/20" : "bg-white/60"}`} />
           {content.items.map((item, i) => {
             const isOpen = openIndex === i;
             const hasAnswer = item.answer.trim().length > 0;
             return (
-              <div key={item.question} className="border-b border-white/60">
+              <div key={item.question} className={`border-b ${dividerColor}`}>
                 <button
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="flex w-full items-center justify-between gap-6 py-[30px] text-left"
                 >
-                  <span className="max-w-[672px] font-heading text-[20px] font-semibold leading-normal text-white lg:text-[24px]">
+                  <span className={`max-w-[672px] font-heading text-[20px] font-semibold leading-normal lg:text-[24px] ${headingColor}`}>
                     {item.question}
                   </span>
                   <ChevronCircleIcon className="size-[50px] shrink-0" open={isOpen} />
                 </button>
                 {isOpen && hasAnswer && (
-                  <div className="pb-[36px] pr-[70px] text-[18px] leading-[35px] text-white whitespace-pre-line">
+                  <div className={`whitespace-pre-line pb-[36px] pr-[70px] text-[18px] leading-[35px] ${bodyColor}`}>
                     {item.answer}
                   </div>
                 )}
