@@ -129,6 +129,123 @@
         "quote": "“Glowing testimonial from a very happy customer who has used these services should go here.”",
         "attribution": "--- FORNAME SURNAME"
       }
+    },
+    "megaMenu": {
+      "trigger": "WHAT WE DO",
+      "informationHub": {
+        "heading": "INFORMATION HUB",
+        "searchPlaceholder": "How can we help you?"
+      },
+      "compensation": {
+        "heading": "COMPENSATION CLAIMS:",
+        "links": [
+          {
+            "label": "A&E",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Ambulance and Paramedic Negligence Compensation Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Amputation Claims Resulting From Medical Negligence",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Brain Injury Compensation Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Child Birth Injury Compensation Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Delayed or Misdiagnosis Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Dental Negligence Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Eye Injury Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Fatal Claims & Inquests",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Gastroenterology Negligence Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "GP Negligence Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Hospital Infection Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Hospital Negligence Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Lens Replacement Negligence Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Medication and Prescription Error Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Nerve Injury Compensation Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "NHS Negligence Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Orthopaedic Injury Compensation Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Orthopaedic Negligence Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Pregnancy and Gynaecology Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          },
+          {
+            "label": "Surgical Error Claims",
+            "href": "https://devonshiresclaims.co.uk/"
+          }
+        ]
+      },
+      "wtpServices": {
+        "heading": "WILLS, TRUSTS & PROBATE SERVICES by DC:",
+        "links": [
+          {
+            "label": "Wills & Estate Planning",
+            "href": "/wills"
+          },
+          {
+            "label": "Trusts & Asset Protection",
+            "href": "/trusts"
+          },
+          {
+            "label": "Probate & Estate Administration",
+            "href": "/probate"
+          },
+          {
+            "label": "Lasting Power of Attorney",
+            "href": "/power-of-attorney"
+          }
+        ]
+      }
     }
   },
   "pages": {

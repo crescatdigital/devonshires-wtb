@@ -16,6 +16,12 @@ static CMS in `src/content/site-content.json` (see below).
   - `/power-of-attorney` — "DC Power of Attorney Service Page v3"
 - **Landing page** (`/free-case-assessment`) — "DC Wills, Trusts & Probate Landing Page".
 
+The header "WHAT WE DO" item opens a **mega-menu** ("DC Wills, Trust, Probate Temporary
+Menu") — an Information Hub search, the parent firm's compensation-claims list, and the
+four Wills/Trusts/Probate service links. Content lives in `site.megaMenu`
+([`MegaMenu.tsx`](src/components/MegaMenu.tsx)); on mobile it collapses into the menu
+under "WHAT WE DO". The compensation links point at the live devonshiresclaims.co.uk site.
+
 ## Desktop scaling
 
 The Figma source is a 1920px canvas, so component sizes are literal design pixels. A
