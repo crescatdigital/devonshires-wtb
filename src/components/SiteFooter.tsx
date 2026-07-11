@@ -38,14 +38,16 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
                 <p key={line}>{line}</p>
               ))}
             </div>
-            <div className="mt-[28px] space-y-[10px] text-[20px] text-white">
+            <div className="mt-[28px] space-y-[10px] text-[17px] text-white sm:text-[20px]">
               <p className="flex items-center gap-[12px]">
-                <PhoneIcon className="size-[18px]" />
+                <PhoneIcon className="size-[18px] shrink-0" />
                 <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
               </p>
-              <p className="flex items-center gap-[12px]">
-                <EnvelopeIcon className="size-[19px]" />
-                <a href={`mailto:${site.email}`}>{site.email}</a>
+              <p className="flex items-start gap-[12px]">
+                <EnvelopeIcon className="mt-[3px] size-[19px] shrink-0" />
+                <a href={`mailto:${site.email}`} className="min-w-0 break-all">
+                  {site.email}
+                </a>
               </p>
             </div>
             <div className="mt-[26px] flex gap-[12px]">

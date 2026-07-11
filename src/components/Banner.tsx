@@ -36,7 +36,7 @@ export default function Banner({ banner }: { banner: BannerData }) {
 
         <div className="relative px-6 py-[70px] lg:px-12 xl:pl-[175px] xl:pr-[960px] xl:py-[90px]">
           <p className="font-heading text-[20px] text-mint lg:text-[26px]">{banner.eyebrow}</p>
-          <h1 className="mt-[24px] font-heading text-[52px] font-semibold leading-[1.2] text-white lg:text-[72px] xl:text-[96px]">
+          <h1 className="mt-[24px] font-heading text-[34px] font-semibold leading-[1.2] text-white min-[360px]:text-[40px] sm:text-[52px] lg:text-[72px] xl:text-[96px]">
             {banner.headingSegments.map((seg, i) => (
               <span key={i}>
                 {seg.script ? (

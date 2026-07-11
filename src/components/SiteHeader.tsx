@@ -25,7 +25,7 @@ export default function SiteHeader({ site }: { site: SiteSettings }) {
   return (
     <header className="relative z-40 bg-white">
       {/* Top row: logo + actions */}
-      <div className="mx-auto flex max-w-[1730px] items-center justify-between gap-4 px-6 pb-2 pt-4 lg:px-12">
+      <div className="mx-auto flex max-w-[1730px] items-center justify-between gap-2 px-4 pb-2 pt-4 sm:gap-4 sm:px-6 lg:px-12">
         <Link href="/" className="shrink-0">
           <Image
             src={site.logo.src}
@@ -33,7 +33,7 @@ export default function SiteHeader({ site }: { site: SiteSettings }) {
             width={site.logo.width}
             height={site.logo.height}
             priority
-            className="h-[52px] w-auto sm:h-[64px] lg:h-[96px]"
+            className="h-[42px] w-auto sm:h-[60px] lg:h-[96px]"
           />
         </Link>
 
@@ -50,8 +50,8 @@ export default function SiteHeader({ site }: { site: SiteSettings }) {
         </div>
 
         {/* Mobile actions */}
-        <div className="flex items-center gap-2 lg:hidden">
-          <a href={tel} aria-label={`Call ${site.phone}`} className="flex size-[44px] items-center justify-center rounded-full bg-flame text-white">
+        <div className="flex shrink-0 items-center gap-2 lg:hidden">
+          <a href={tel} aria-label={`Call ${site.phone}`} className="flex size-[42px] items-center justify-center rounded-full bg-flame text-white">
             <PhoneIcon className="size-[18px]" />
           </a>
           <button
@@ -59,9 +59,9 @@ export default function SiteHeader({ site }: { site: SiteSettings }) {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Main menu"
-            className="flex h-[44px] items-center gap-2 rounded-full bg-teal px-4 text-[15px] font-semibold uppercase tracking-wide text-white"
+            className="flex h-[42px] items-center gap-2 rounded-full bg-teal px-3 text-[14px] font-semibold uppercase tracking-wide text-white sm:px-4 sm:text-[15px]"
           >
-            Menu
+            <span className="hidden min-[360px]:inline">Menu</span>
             <MenuIcon open={open} className="size-[20px]" />
           </button>
         </div>

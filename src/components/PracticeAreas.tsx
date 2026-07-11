@@ -18,15 +18,11 @@ export default function PracticeAreas({
           headingLine2={content.headingLine2}
           intro={content.intro}
         />
-        <div className="mt-[130px] flex flex-wrap justify-center gap-[20px]">
-          {content.cards.map((card) => {
-            // Cards whose title wraps to two lines shift their copy down,
-            // exactly as in the Figma design (Power of Attorney card).
-            const shift = "tallTitle" in card && card.tallTitle ? 59 : 0;
-            return (
+        <div className="mt-[50px] flex flex-wrap justify-center gap-[20px] lg:mt-[130px]">
+          {content.cards.map((card) => (
             <article
               key={card.title}
-              className={`relative h-[1028px] w-[410px] rounded-[10px] border-2 ${
+              className={`relative flex w-full max-w-[410px] flex-col rounded-[10px] border-2 p-[30px] xl:h-[1028px] xl:p-[45px] ${
                 card.highlighted
                   ? "border-teal bg-lite shadow-[2px_4px_4px_4px_rgba(0,0,0,0.1)]"
                   : "border-deep bg-white"
@@ -35,41 +31,40 @@ export default function PracticeAreas({
               {card.highlighted && (
                 <div className="absolute inset-x-0 top-0 h-[11px] rounded-t-[10px] bg-teal" />
               )}
-              <Image
-                src={card.image.src}
-                alt={card.image.alt}
-                width={card.image.width}
-                height={card.image.height}
-                className="absolute left-[10px] top-[16px] size-[210px] object-cover"
-              />
-              <p
-                className={`absolute right-[25px] top-[38px] font-numeral text-[86px] leading-none ${
-                  card.highlighted ? "text-teal" : "text-teal/50"
-                }`}
-              >
-                {card.numeral}
-              </p>
-              <h3 className="absolute left-[45px] top-[246px] font-heading text-[48px] font-semibold leading-[1.1] text-deep">
+
+              <div className="flex items-start justify-between">
+                <Image
+                  src={card.image.src}
+                  alt={card.image.alt}
+                  width={card.image.width}
+                  height={card.image.height}
+                  className="size-[150px] object-cover xl:size-[210px]"
+                />
+                <span
+                  className={`font-numeral text-[64px] leading-none xl:text-[86px] ${
+                    card.highlighted ? "text-teal" : "text-teal/50"
+                  }`}
+                >
+                  {card.numeral}
+                </span>
+              </div>
+
+              <h3 className="mt-[16px] font-heading text-[34px] font-semibold leading-[1.1] text-deep xl:mt-[24px] xl:text-[48px]">
                 {card.title}
               </h3>
-              <p
-                className="absolute left-[45px] w-[320px] text-[22px] leading-[35px] text-deep"
-                style={{ top: 335 + shift }}
-              >
+              <p className="mt-[16px] text-[18px] leading-[28px] text-deep xl:mt-[22px] xl:text-[22px] xl:leading-[35px]">
                 {card.description}
               </p>
-              <ul
-                className="absolute left-[45px] w-[350px] list-disc ps-[22px] text-[22px] leading-[50px] text-deep"
-                style={{ top: 630 + shift }}
-              >
+              <ul className="mt-[16px] list-disc ps-[22px] text-[18px] leading-[34px] text-deep xl:mt-[22px] xl:text-[22px] xl:leading-[50px]">
                 {card.bullets.map((bullet) => (
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
-              <div className="absolute left-[45px] top-[935px]">
+
+              <div className="mt-[26px] xl:mt-auto xl:pt-[30px]">
                 <a
                   href={card.link.href}
-                  className={`flex items-center gap-[14px] font-heading text-[22px] font-semibold ${
+                  className={`flex items-center gap-[14px] font-heading text-[20px] font-semibold xl:text-[22px] ${
                     card.highlighted ? "text-flame" : "text-deep"
                   }`}
                 >
@@ -77,14 +72,13 @@ export default function PracticeAreas({
                   <ArrowRightIcon className="size-[24px]" />
                 </a>
                 <div
-                  className={`mt-[18px] h-[2px] w-[200px] ${
+                  className={`mt-[18px] h-[2px] w-[200px] max-w-full ${
                     card.highlighted ? "bg-flame" : "bg-deep"
                   }`}
                 />
               </div>
             </article>
-            );
-          })}
+          ))}
         </div>
       </div>
     </section>

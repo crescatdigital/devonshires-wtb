@@ -67,7 +67,7 @@ export default function ServiceJourney({ content }: { content: JourneyData }) {
         {/* Right — vertical step timeline */}
         <ol className="relative space-y-[24px] before:absolute before:bottom-[40px] before:left-[24px] before:top-[40px] before:w-[2px] before:bg-teal/40">
           {content.steps.map((step) => (
-            <li key={step.title} className="relative flex gap-[24px]">
+            <li key={step.title} className="relative flex gap-[16px] sm:gap-[24px]">
               <span
                 className={`relative z-10 flex size-[50px] shrink-0 items-center justify-center rounded-full font-numeral text-[22px] leading-none ${
                   step.last ? "bg-deep text-white" : "border-2 border-teal bg-lite text-teal"
@@ -75,14 +75,14 @@ export default function ServiceJourney({ content }: { content: JourneyData }) {
               >
                 {step.last ? <CheckCircleIcon className="size-[50px]" /> : step.numeral}
               </span>
-              <div className="flex-1 rounded-[14px] bg-deep p-[26px]">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-heading text-[22px] font-semibold text-white">{step.title}</h3>
-                  <span className="shrink-0 rounded-full bg-mint px-[14px] py-[5px] text-[12px] font-semibold text-deep">
+              <div className="min-w-0 flex-1 rounded-[14px] bg-deep p-[20px] sm:p-[26px]">
+                <div className="flex flex-col gap-[10px] sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                  <h3 className="min-w-0 font-heading text-[20px] font-semibold text-white sm:text-[22px]">{step.title}</h3>
+                  <span className="w-fit shrink-0 rounded-full bg-mint px-[14px] py-[5px] text-[12px] font-semibold text-deep">
                     {step.meta}
                   </span>
                 </div>
-                <p className="mt-[14px] text-[16px] leading-[26px] text-white/90">{step.text}</p>
+                <p className="mt-[14px] text-[15px] leading-[24px] text-white/90 sm:text-[16px] sm:leading-[26px]">{step.text}</p>
               </div>
             </li>
           ))}
