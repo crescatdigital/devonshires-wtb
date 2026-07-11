@@ -50,20 +50,20 @@ export default function Banner({ banner }: { banner: BannerData }) {
               </span>
             ))}
           </h1>
-          <p className="mt-[46px] max-w-[779px] text-[20px] leading-normal text-white lg:text-[24px]">
+          <p className="mt-[32px] max-w-[779px] text-[18px] leading-normal text-white sm:text-[20px] lg:mt-[46px] lg:text-[24px]">
             {banner.paragraph}
           </p>
-          <div className="mt-[86px] flex flex-wrap gap-[20px]">
+          <div className="mt-[40px] flex flex-col gap-[16px] sm:flex-row sm:flex-wrap sm:gap-[20px] lg:mt-[86px]">
             <a
               href={banner.primaryCta.href}
-              className="flex h-[64px] items-center gap-[12px] rounded-full bg-flame px-[35px] text-[18px] font-semibold text-white lg:h-[76px] lg:text-[20px]"
+              className="flex h-[60px] items-center justify-center gap-[12px] rounded-full bg-flame px-[35px] text-[18px] font-semibold text-white sm:justify-start lg:h-[76px] lg:text-[20px]"
             >
               {banner.primaryCta.label}
               <CtaIcon icon={banner.primaryCta.icon ?? "arrow"} />
             </a>
             <a
               href={banner.secondaryCta.href}
-              className="flex h-[64px] items-center gap-[12px] rounded-full border-[3px] border-flame px-[37px] text-[18px] font-semibold text-white lg:h-[76px] lg:text-[20px]"
+              className="flex h-[60px] items-center justify-center gap-[12px] rounded-full border-[3px] border-flame px-[37px] text-[18px] font-semibold text-white sm:justify-start lg:h-[76px] lg:text-[20px]"
             >
               {banner.secondaryCta.label}
               <CtaIcon icon={banner.secondaryCta.icon} />
