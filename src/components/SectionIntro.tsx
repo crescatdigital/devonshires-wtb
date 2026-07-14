@@ -49,7 +49,7 @@ export default function SectionIntro({
       </h2>
       {intro && (
         <p
-          className={`mx-auto mt-[40px] max-w-[1230px] text-[18px] leading-normal lg:text-[24px] ${introColor} ${centered ? "" : "mx-0"}`}
+          className={`mx-auto mt-[50px] max-w-[1230px] text-[18px] leading-normal lg:text-[24px] ${introColor} ${centered ? "" : "mx-0"}`}
         >
           {intro}
         </p>

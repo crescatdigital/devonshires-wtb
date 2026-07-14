@@ -39,7 +39,7 @@ export default function BannerArtwork({
           />
         </div>
       </div>
-      <div className="pointer-events-auto absolute bottom-[185px] right-[113px] w-[318px] rounded-[20px] border-[3px] border-white bg-deep p-[30px]">
+      <div className="pointer-events-auto absolute bottom-[275px] right-[113px] w-[318px] rounded-[20px] border-[3px] border-white bg-deep p-[30px]">
         <div className="flex gap-0">
           {Array.from({ length: testimonial.stars }).map((_, i) => (
             <StarIcon key={i} className="size-[24px]" />

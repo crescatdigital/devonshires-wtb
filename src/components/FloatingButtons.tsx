@@ -10,20 +10,20 @@ export default function FloatingButtons() {
           type="button"
           aria-label="Back to top"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex size-[54px] items-center justify-center rounded-full bg-teal text-white shadow-lg hover:bg-teal/90"
+          className="flex size-[75px] items-center justify-center rounded-full bg-teal text-white shadow-lg hover:bg-teal/90"
         >
-          <UpArrowIcon className="size-[24px]" />
+          <UpArrowIcon className="size-[42px]" />
         </button>
-        <span className="mt-[6px] text-[9px] font-semibold tracking-[0.06em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
+        <span className="mt-[6px] text-[18px] font-semibold tracking-[0.06em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.6)]">
           BACK TO TOP
         </span>
       </div>
       <a
         href="#contact"
         aria-label="Contact us"
-        className="flex size-[54px] items-center justify-center rounded-full bg-flame text-white shadow-lg hover:bg-flame/90"
+        className="flex size-[75px] items-center justify-center rounded-full bg-flame text-white shadow-lg hover:bg-flame/90"
       >
-        <EnvelopeIcon className="size-[26px]" />
+        <EnvelopeIcon className="size-[42px]" />
       </a>
     </div>
   );

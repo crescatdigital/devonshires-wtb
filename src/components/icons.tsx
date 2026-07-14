@@ -63,19 +63,33 @@ export function StarIcon({ className }: { className?: string }) {
   );
 }
 
-export function ChevronCircleIcon({ className, open }: { className?: string; open?: boolean }) {
+export function ChevronCircleIcon({
+  className,
+  open = false,
+}: {
+  className?: string;
+  open?: boolean;
+}) {
   return (
     <svg
-      className={`${className ?? ""} ${open ? "" : "-scale-y-100"}`}
+      className={className}
       viewBox="0 0 50 50"
       fill="none"
       aria-hidden
     >
-      <circle cx="25" cy="25" r="20.8" fill="#a3f4ba" />
+      <circle
+        cx="25"
+        cy="25"
+        r="20.8"
+        fill={open ? "none" : "#A3F4BA"}
+        stroke="#A3F4BA"
+        strokeWidth="2.4"
+      />
+
       <path
-        d="M15.5 28.5 25 19l9.5 9.5"
-        stroke="#142c38"
-        strokeWidth="3.2"
+        d={open ? "M16 28L25 19L34 28" : "M16 22L25 31L34 22"}
+        stroke={open ? "#A3F4BA" : "#142C38"}
+        strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

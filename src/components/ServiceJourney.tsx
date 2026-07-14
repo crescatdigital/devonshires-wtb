@@ -15,74 +15,99 @@ export type JourneyData = {
 export default function ServiceJourney({ content }: { content: JourneyData }) {
   return (
     <section className="bg-lite py-[52px] lg:py-[85px]">
-      <div className="mx-auto grid max-w-[1470px] grid-cols-1 gap-[70px] px-6 lg:grid-cols-2 lg:gap-[90px]">
+      <div className="mx-auto grid grid-cols-1 lg:grid-cols-2">
         {/* Left — heading, checklist, CTA */}
-        <div>
+        <div className="bg-deep p-[22em_4em_22em_8em]">
           <div className="flex items-center gap-[24px]">
             <span className="h-px w-[74px] bg-teal" />
-            <p className="font-heading text-[18px] font-semibold uppercase tracking-[0.04em] text-teal lg:text-[22px]">
+            <p className="font-heading text-[18px] font-semibold uppercase tracking-[0.04em] text-teal lg:text-[26px]">
               {content.eyebrow}
             </p>
+            <span className="h-px w-[74px] bg-teal" />
           </div>
-          <h2 className="mt-[24px] font-heading text-[40px] font-semibold leading-[1.1] text-deep lg:text-[64px]">
+          <h2 className="mt-[30px] font-heading text-[40px] font-semibold leading-[1.1] text-white lg:text-[92px]">
             {content.headingBefore}
             <span className="heading-accent text-teal"> {content.headingAccent}</span>
             {content.headingAfter}
           </h2>
-          <p className="mt-[28px] max-w-[560px] text-[18px] leading-[28px] text-deep lg:text-[19px]">
+          <p className="mt-[60px] max-w-[684px] text-[18px] leading-[1.4] text-white lg:text-[24px]">
             {content.subtext}
           </p>
 
-          <div className="mt-[40px] rounded-[16px] border border-deep/15 bg-white p-[35px]">
-            <div className="flex items-center gap-[14px]">
-              <span className="flex size-[40px] items-center justify-center rounded-[8px] bg-teal/15 text-teal">
-                <svg viewBox="0 0 24 24" className="size-[24px]" fill="none" aria-hidden>
-                  <rect x="4" y="3" width="16" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
-                  <path d="m8 11 2.5 2.5L16 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <div className="mt-[110px] rounded-[12px] border-2 border-[#14B8B0] bg-white px-[80px] py-[70px]">
+            <div className="flex items-center gap-[20px]">
+              <span className="flex h-[44px] w-[44px] items-center justify-center rounded-[4px] border-2 border-[#14B8B0] text-[#14B8B0]">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[24px] w-[24px]"
+                  fill="none"
+                  aria-hidden
+                >
+                  <rect
+                    x="4"
+                    y="3"
+                    width="16"
+                    height="18"
+                    rx="2"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M8 11l2.5 2.5L16 8"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </span>
-              <h3 className="font-heading text-[22px] font-semibold text-deep">
+
+              <h3 className="font-heading text-[34px] font-semibold leading-[1.2] text-deep">
                 {content.checklistTitle}
               </h3>
             </div>
-            <ul className="mt-[22px] space-y-[14px] text-[17px] text-deep">
+
+            <ul className="mt-[36px] space-y-[18px] pl-[38px] text-[26px] leading-[1.55] text-deep">
               {content.checklist.map((item) => (
-                <li key={item} className="flex gap-[12px]">
-                  <span className="mt-[9px] size-[6px] shrink-0 rounded-full bg-teal" />
+                <li key={item} className="list-disc marker:text-deep">
                   {item}
                 </li>
               ))}
             </ul>
           </div>
 
-          <a
-            href={content.cta.href}
-            className="mt-[36px] inline-flex h-[63px] items-center gap-[12px] rounded-full bg-flame px-[36px] text-[18px] font-semibold text-white lg:text-[20px]"
-          >
-            {content.cta.label}
-            <ArrowRightIcon className="size-[30px]" />
-          </a>
+          <div className="text-center mt-[60px]">
+            <a
+              href={content.cta.href}
+              className="mt-[36px] inline-flex h-[63px] items-center gap-[12px] rounded-full bg-flame px-[36px] text-[18px] font-semibold text-white lg:text-[20px]"
+            >
+              {content.cta.label}
+              <ArrowRightIcon className="size-[30px]" />
+            </a>
+          </div>
         </div>
 
         {/* Right — vertical step timeline */}
-        <ol className="relative space-y-[24px] before:absolute before:bottom-[40px] before:left-[24px] before:top-[40px] before:w-[2px] before:bg-teal/40">
+        <ol className="bg-mint p-[10em_7em_8em_2em] relative space-y-[60px] before:absolute before:bottom-[40px] before:left-[74px] before:top-[170px] before:w-[2px] before:h-[1550px] before:bg-deep">
           {content.steps.map((step) => (
             <li key={step.title} className="relative flex gap-[16px] sm:gap-[24px]">
               <span
-                className={`relative z-10 flex size-[50px] shrink-0 items-center justify-center rounded-full font-numeral text-[22px] leading-none ${
-                  step.last ? "bg-deep text-white" : "border-2 border-teal bg-lite text-teal"
-                }`}
-              >
-                {step.last ? <CheckCircleIcon className="size-[50px]" /> : step.numeral}
-              </span>
-              <div className="min-w-0 flex-1 rounded-[14px] bg-deep p-[20px] sm:p-[26px]">
+              className={`relative z-10 flex size-[85px] shrink-0 items-center justify-center rounded-full font-numeral text-[32px] leading-none ${
+                step.last
+                  ? "bg-deep text-white"
+                  : "bg-mint border-3 border-deep text-deep font-bold"
+              }`}
+            >
+              {step.last ? <CheckCircleIcon className="size-[50px]" /> : step.numeral}
+            </span>
+              <div className="min-w-0 flex-1 rounded-[10px] border-[3px] border-white bg-deep pt-[26px] pr-[26px] pb-[70px] pl-[50px]">
                 <div className="flex flex-col gap-[10px] sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                  <h3 className="min-w-0 font-heading text-[20px] font-semibold text-white sm:text-[22px]">{step.title}</h3>
-                  <span className="w-fit shrink-0 rounded-full bg-mint px-[14px] py-[5px] text-[12px] font-semibold text-deep">
+                  <h3 className="mt-[30px] min-w-0 font-heading text-[20px] font-semibold text-white sm:text-[34px]">{step.title}</h3>
+                  <span className="w-fit shrink-0 rounded-full bg-mint px-[20px] py-[10px] text-[18px] font-semibold text-deep">
                     {step.meta}
                   </span>
                 </div>
-                <p className="mt-[14px] text-[15px] leading-[24px] text-white/90 sm:text-[16px] sm:leading-[26px]">{step.text}</p>
+                <p className="mt-[14px] mr-[100px] text-[15px] leading-[24px] text-white/90 sm:text-[22px] sm:leading-[1.5]">{step.text}</p>
               </div>
             </li>
           ))}
