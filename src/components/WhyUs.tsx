@@ -4,8 +4,8 @@ import type { HubPageContent } from "@/lib/cms";
 export default function WhyUs({ content }: { content: HubPageContent["whyUs"] }) {
   return (
     <section className="bg-lite py-[52px] lg:py-[85px]">
-      <div className="mx-auto max-w-[1610px] px-6">
-        <div className="flex items-center gap-[24px]">
+      <div className="mx-auto max-w-[1340px] px-6">
+        <div className="flex items-center gap-[40px]">
           <span className="h-px w-[74px] bg-teal" />
           <p className="font-heading text-[20px] font-semibold uppercase text-teal lg:text-[26px]">
             {content.eyebrow}
@@ -17,7 +17,7 @@ export default function WhyUs({ content }: { content: HubPageContent["whyUs"] })
           <span className="heading-accent text-teal">{content.headingAccent}</span>
           <span className="heading-accent text-deep">{content.headingAfter}</span>
         </h2>
-        <div className="mx-auto mt-[50px] grid max-w-[1299px] grid-cols-1 divide-y divide-white/60 rounded-[30px] border border-lite bg-deep xl:mt-[118px] xl:grid-cols-3 xl:divide-x xl:divide-y-0">
+        <div className="mt-[50px] grid grid-cols-1 divide-y divide-white/60 rounded-[30px] border border-lite bg-deep xl:grid-cols-3 xl:divide-x xl:divide-y-0">
           {content.columns.map((col) => (
             <div key={col.title} className="flex flex-col items-center px-[40px] pb-[55px] pt-[30px]">
               <Image
@@ -27,7 +27,7 @@ export default function WhyUs({ content }: { content: HubPageContent["whyUs"] })
                 height={col.image.height}
                 className="size-[150px] rounded-full"
               />
-              <h3 className="mt-[35px] max-w-[321px] text-center text-[26px] font-semibold text-mint">
+              <h3 className="mt-[35px] max-w-[321px] text-center text-[26px] font-semibold text-mint px-4">
                 {col.title}
               </h3>
               <p className="mt-[26px] max-w-[341px] text-center text-[20px] leading-normal text-white">

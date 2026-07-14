@@ -25,7 +25,7 @@ export default function WhyItMatters({
           headingLine2={content.headingLine2}
           intro={content.intro}
         />
-        <div className="mx-auto mt-[110px] grid max-w-[1761px] grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mx-auto mt-[80px] grid max-w-[1761px] grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {content.boxes.map((box, i) => (
             <article
               key={box.title}

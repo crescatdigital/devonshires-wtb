@@ -78,7 +78,7 @@ export default function SiteHeader({ site }: { site: SiteSettings }) {
                 type="button"
                 onClick={() => setMega((v) => !v)}
                 aria-expanded={mega}
-                className={`flex items-center gap-1 rounded-[6px] px-2 py-1 text-[18px] font-semibold tracking-[0.02em] ${
+                className={`flex items-center gap-1 rounded-[6px] px-2 py-1 font-[family-name:var(--font-montserrat)] text-[26px] font-semibold tracking-[0.02em] ${
                   mega ? "bg-lite text-teal" : "text-deep hover:text-teal"
                 }`}
               >
@@ -91,7 +91,7 @@ export default function SiteHeader({ site }: { site: SiteSettings }) {
             <a
               key={item.label}
               href={item.href}
-              className="flex items-center gap-1 text-[18px] font-semibold tracking-[0.02em] text-deep hover:text-teal"
+              className="flex items-center gap-1 font-[family-name:var(--font-montserrat)] text-[26px] font-semibold tracking-[0.02em] text-deep hover:text-teal"
             >
               {item.label}
               {"hasDropdown" in item && item.hasDropdown && (

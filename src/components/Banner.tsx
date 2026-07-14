@@ -34,9 +34,9 @@ export default function Banner({ banner }: { banner: BannerData }) {
           testimonial={banner.testimonial}
         />
 
-        <div className="relative px-6 py-[70px] lg:px-12 xl:pl-[175px] xl:pr-[960px] xl:py-[90px]">
-          <p className="font-heading text-[20px] text-mint lg:text-[26px]">{banner.eyebrow}</p>
-          <h1 className="mt-[24px] font-heading text-[34px] font-semibold leading-[1.2] text-white min-[360px]:text-[40px] sm:text-[52px] lg:text-[72px] xl:text-[96px]">
+        <div className="relative px-6 py-[70px] lg:px-12 xl:pl-[140px] xl:pr-[960px] xl:pt-[100px] xl:pb-[70px]">
+          <p className="font-heading text-[20px] text-mint leading-[100%] lg:text-[26px]">{banner.eyebrow}</p>
+          <h1 className="mt-[24px] font-heading text-[34px] font-semibold leading-[115px] text-white min-[360px]:text-[40px] sm:text-[52px] lg:text-[72px] xl:text-[96px]">
             {banner.headingSegments.map((seg, i) => (
               <span key={i}>
                 {seg.script ? (
@@ -53,7 +53,7 @@ export default function Banner({ banner }: { banner: BannerData }) {
           <p className="mt-[32px] max-w-[779px] text-[18px] leading-normal text-white sm:text-[20px] lg:mt-[46px] lg:text-[24px]">
             {banner.paragraph}
           </p>
-          <div className="mt-[40px] flex flex-col gap-[16px] sm:flex-row sm:flex-wrap sm:gap-[20px] lg:mt-[86px]">
+          <div className="mt-[40px] flex flex-col gap-[16px] sm:flex-row sm:flex-wrap sm:gap-[20px] lg:mt-[70px]">
             <a
               href={banner.primaryCta.href}
               className="flex h-[60px] items-center justify-center gap-[12px] rounded-full bg-flame px-[35px] text-[18px] font-semibold text-white sm:justify-start lg:h-[76px] lg:text-[20px]"
@@ -100,7 +100,7 @@ export default function Banner({ banner }: { banner: BannerData }) {
             </div>
           </div>
 
-          <div className="mt-[70px] h-px w-full max-w-[711px] bg-white/30" />
+          <div className="mt-[70px] h-px w-full max-w-[711px] bg-white" />
           <div className="mt-[28px] flex flex-wrap items-center gap-x-[85px] gap-y-6">
             <Image
               src={banner.reviewsBadge.src}

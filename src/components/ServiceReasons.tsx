@@ -12,7 +12,7 @@ export type ReasonsData = {
 export default function ServiceReasons({ content }: { content: ReasonsData }) {
   return (
     <section className="bg-deep py-[52px] lg:py-[85px]">
-      <div className="mx-auto max-w-[1400px] px-6 text-center">
+      <div className="mx-auto max-w-[1750px] px-6 text-center">
         <div className="flex items-center justify-center gap-[24px]">
           <span className="h-px w-[74px] bg-mint" />
           <p className="font-heading text-[20px] font-semibold uppercase text-mint lg:text-[26px]">
@@ -20,12 +20,12 @@ export default function ServiceReasons({ content }: { content: ReasonsData }) {
           </p>
           <span className="h-px w-[74px] bg-mint" />
         </div>
-        <h2 className="mt-[28px] font-heading text-[40px] font-semibold leading-[1.15] text-white lg:text-[64px]">
+        <h2 className="mt-[28px] font-heading text-[40px] font-semibold leading-[1.15] text-white lg:text-[92px]">
           {content.headingBefore}
           <br />
           <span className="heading-accent text-mint">{content.headingAccent}</span>
         </h2>
-        <p className="mx-auto mt-[28px] max-w-[900px] text-[18px] leading-normal text-white lg:text-[22px]">
+        <p className="mx-auto mt-[50px] max-w-[900px] text-[18px] leading-normal text-white lg:text-[24px]">
           {content.subtext}
         </p>
 
@@ -33,16 +33,16 @@ export default function ServiceReasons({ content }: { content: ReasonsData }) {
           {content.cards.map((card) => (
             <article
               key={card.title}
-              className="flex min-h-[300px] flex-col rounded-[16px] border border-mint/60 bg-deeper p-[32px]"
+              className="relative flex min-h-[300px] flex-col rounded-[30px] border border-mint/60 bg-deeper p-[40px_40px_100px]"
             >
-              <span className="flex size-[64px] items-center justify-center rounded-full border-2 border-mint font-numeral text-[36px] leading-none text-mint">
+              <span className="bg-deep flex size-[80px] items-center justify-center rounded-full border-5 border-mint font-numeral text-[48px] leading-none text-mint pb-[12px]">
                 {card.numeral}
               </span>
-              <h3 className="mt-[26px] font-heading text-[24px] font-semibold text-white">
+              <h3 className="mt-[26px] font-heading text-[28px] font-semibold text-white">
                 {card.title}
               </h3>
-              <p className="mt-[16px] text-[16px] leading-[26px] text-white/90">{card.text}</p>
-              <span className="mt-auto block h-[2px] w-[70px] bg-teal pt-[20px]" />
+              <p className="mt-[20px] text-[18px] leading-[26px] text-white/90">{card.text}</p>
+              <span className="absolute bottom-[40px] w-[80px] mt-auto block h-[2px] w-[70px] bg-teal" />
             </article>
           ))}
         </div>

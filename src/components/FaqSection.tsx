@@ -20,31 +20,31 @@ export default function FaqSection({
   const sectionBg = light ? "bg-lite" : "bg-deep";
   const headingColor = light ? "text-deep" : "text-white";
   const bodyColor = light ? "text-deep" : "text-white";
-  const dividerColor = light ? "border-deep/20" : "border-white/60";
+  const dividerColor = light ? "border-deep/20" : "border-mint";
 
   return (
-    <section className={`${sectionBg} py-[52px] lg:py-[93px]`}>
-      <div className="mx-auto flex max-w-[1810px] flex-col gap-[60px] px-6 xl:flex-row xl:gap-[124px] xl:px-[125px]">
+    <section className={`${sectionBg} py-[52px] lg:pt-[93px] lg:pb-[130px]`}>
+      <div className="mx-auto flex max-w-[1810px] flex-col justify-between gap-[60px] px-6 xl:flex-row xl:gap-[124px] xl:px-[20px]">
         {/* Left column — intro + contact form */}
         <div className="w-full max-w-[791px]">
           <div className="flex items-center gap-[24px]">
-            <span className="h-px w-[74px] bg-teal" />
-            <p className="font-heading text-[20px] font-semibold uppercase text-teal lg:text-[26px]">
+            <span className="h-px w-[74px] bg-mint" />
+            <p className="font-heading text-[20px] font-semibold uppercase text-mint lg:text-[26px]">
               {content.eyebrow}
             </p>
-            <span className="h-px w-[74px] bg-teal" />
+            <span className="h-px w-[74px] bg-mint" />
           </div>
           <h2 className={`mt-[33px] font-heading text-[44px] font-semibold leading-[1.14] lg:text-[68px] xl:text-[92px] ${headingColor}`}>
             {content.headingLine1}
             <br />
-            <span className="heading-accent text-teal">{content.headingLine2}</span>
+            <span className="heading-accent text-mint">{content.headingLine2}</span>
           </h2>
           <p className={`mt-[46px] text-[18px] leading-normal lg:text-[24px] ${bodyColor}`}>
             {content.intro}
           </p>
 
           <form
-            className="mt-[63px] rounded-[10px] border border-mint bg-deeper p-[30px] lg:p-[60px]"
+            className="mt-[53px] rounded-[10px] border border-mint bg-deeper p-[30px] lg:p-[60px]"
             action="#"
             method="post"
           >
@@ -101,8 +101,8 @@ export default function FaqSection({
         </div>
 
         {/* Right column — FAQ accordion */}
-        <div className="w-full max-w-[767px] xl:pt-[111px]">
-          <div className={`h-px w-full ${light ? "bg-deep/20" : "bg-white/60"}`} />
+        <div className="w-full max-w-[845px] xl:pt-[25px]">
+          <div className={`h-px w-full ${light ? "bg-deep/20" : "bg-mint"}`} />
           {content.items.map((item, i) => {
             const isOpen = openIndex === i;
             const hasAnswer = item.answer.trim().length > 0;
