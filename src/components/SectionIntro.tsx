@@ -13,6 +13,7 @@ export default function SectionIntro({
   scheme,
   align = "center",
   headingSize = "large",
+  hideMobileLines = false,
 }: {
   eyebrow: string;
   headingLine1: string;
@@ -21,6 +22,7 @@ export default function SectionIntro({
   scheme: Scheme;
   align?: "center" | "left";
   headingSize?: "large" | "medium";
+  hideMobileLines?: boolean;
 }) {
   const eyebrowColor = scheme === "dark" ? "text-mint" : "text-teal";
   const headingColor = scheme === "dark" ? "text-white" : "text-deep";
@@ -36,11 +38,11 @@ export default function SectionIntro({
   return (
     <div className={centered ? "text-center" : ""}>
       <div className={`flex items-center gap-[24px] ${centered ? "justify-center" : ""}`}>
-        <span className={`h-px w-[74px] ${lineColor}`} />
+        <span className={`h-px w-[74px] ${lineColor} ${hideMobileLines ? "hidden xl:block" : ""}`} />
         <p className={`font-heading text-[20px] font-semibold uppercase lg:text-[26px] ${eyebrowColor}`}>
           {eyebrow}
         </p>
-        <span className={`h-px w-[74px] ${lineColor}`} />
+        <span className={`h-px w-[74px] ${lineColor} ${hideMobileLines ? "hidden xl:block" : ""}`} />
       </div>
       <h2 className={`mt-[28px] font-heading font-semibold ${headingClass} ${headingColor}`}>
         {headingLine1}

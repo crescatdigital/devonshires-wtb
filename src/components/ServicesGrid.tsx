@@ -17,11 +17,11 @@ export default function ServicesGrid({
           headingLine1={content.headingLine1}
           headingLine2={content.headingLine2}
         />
-        <div className="mt-[60px] flex flex-wrap justify-center gap-[20px]">
+        <div className="mt-[60px] flex flex-wrap justify-between gap-[20px]">
           {content.cards.map((card) => (
             <article
               key={card.title}
-              className="flex w-[410px] flex-col overflow-hidden rounded-[10px]"
+              className="flex min-w-[410px] flex-1 flex-col overflow-hidden rounded-[30px]"
             >
               <Image
                 src={card.image.src}
