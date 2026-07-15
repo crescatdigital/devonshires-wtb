@@ -134,7 +134,7 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
             >
               {footer.form.submitLabel}
             </button>
-            <p className="mt-[18px] text-[18px] leading-[1.8] text-white">
+            <p className="mt-[18px] text-[18px] leading-[1.8] text-white pl-[20px]">
               {footer.form.disclaimer}
             </p>
           </form>

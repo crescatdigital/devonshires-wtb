@@ -12,10 +12,10 @@ export default function ServiceQuestions({
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="bg-lite py-[52px] lg:py-[80px]">
-      <div className="mx-auto max-w-[1400px] px-6">
-        <div className="rounded-[24px] bg-deep px-[40px] py-[50px] lg:px-[70px]">
-          <h2 className="text-center font-heading text-[34px] font-semibold text-white lg:text-[44px]">
+    <section className="bg-lite py-[52px] lg:py-[40px]">
+      <div className="mx-auto max-w-[1484px] px-6">
+        <div className="rounded-[24px] bg-deep px-[40px] pt-[30px] pb-[50px] lg:px-[110px]">
+          <h2 className="text-center font-heading text-[34px] font-normal text-white lg:text-[42px]">
             {content.heading}
           </h2>
           <div className="mt-[30px]">
@@ -23,17 +23,17 @@ export default function ServiceQuestions({
               const isOpen = open === i;
               const hasAnswer = item.answer.trim().length > 0;
               return (
-                <div key={item.question} className="border-b border-white/15">
+                <div key={item.question} className="border-t border-mint">
                   <button
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between gap-6 py-[26px] text-left"
+                    className="flex w-full items-center justify-between gap-6 py-[14px] text-left"
                   >
-                    <span className="font-heading text-[18px] font-semibold text-white lg:text-[20px]">
+                    <span className="font-heading text-[18px] font-semibold text-lite lg:text-[24px]">
                       {item.question}
                     </span>
-                    <ChevronCircleIcon className="size-[42px] shrink-0" open={isOpen} />
+                    <ChevronCircleIcon className="size-[54px] shrink-0 lg:size-[60px]" open={isOpen} />
                   </button>
                   {isOpen && hasAnswer && (
                     <p className="pb-[26px] pr-[60px] text-[17px] leading-[30px] text-white/90">
@@ -45,9 +45,9 @@ export default function ServiceQuestions({
             })}
           </div>
         </div>
-        <p className="mt-[36px] text-center font-heading text-[22px] font-semibold text-deep">
+        <p className="mt-[36px] text-center font-heading text-[26px] text-deep">
           {content.stillUnsureText}
-          <a href="#assessment" className="text-flame">
+          <a href="#assessment" className="text-flame font-semibold underline">
             {content.stillUnsureLink}
           </a>
         </p>

@@ -18,28 +18,37 @@ export default function FaqSection({
   const light = variant === "light";
 
   const sectionBg = light ? "bg-lite" : "bg-deep";
-  const headingColor = light ? "text-deep" : "text-white";
-  const bodyColor = light ? "text-deep" : "text-white";
-  const dividerColor = light ? "border-deep/20" : "border-mint";
+
+  // Left column (mint bg in light) — dark text/lines, white main heading, deep accent
+  const eyebrowColor = light ? "text-deep" : "text-mint";
+  const eyebrowLine = light ? "bg-deep" : "bg-mint";
+  const accentColor = light ? "text-deep" : "text-mint";
+  const introColor = light ? "text-deep" : "text-white";
+
+  // Right column (deep bg in light) — same white text + mint dividers as dark variant
+  const headingColor = "text-white";
+  const bodyColor = "text-white";
+  const dividerColor = "border-mint";
+  const topDivider = "bg-mint";
 
   return (
-    <section className={`${sectionBg} py-[52px] lg:pt-[93px] lg:pb-[130px]`}>
-      <div className="mx-auto flex max-w-[1810px] flex-col justify-between gap-[60px] px-6 xl:flex-row xl:gap-[124px] xl:px-[20px]">
+    <section className={`${sectionBg} ${ light ? "" : "py-[52px] lg:pt-[93px] lg:pb-[130px]" }`} >
+      <div className={`mx-auto flex flex-col justify-between xl:flex-row ${light ? "w-full" : "max-w-[1810px] gap-[60px] px-6 xl:gap-[124px] xl:px-[20px]"}`}>
         {/* Left column — intro + contact form */}
-        <div className="w-full max-w-[791px]">
+        <div className={`w-full ${light ? "bg-mint pb-[8em] pl-[8em] pr-[4em] pt-[5em] xl:flex-1" : "max-w-[791px]"}`}>
           <div className="flex items-center gap-[24px]">
-            <span className="h-px w-[74px] bg-mint" />
-            <p className="font-heading text-[20px] font-semibold uppercase text-mint lg:text-[26px]">
+            <span className={`h-px w-[74px] ${eyebrowLine}`} />
+            <p className={`font-heading text-[20px] font-semibold uppercase lg:text-[26px] ${eyebrowColor}`}>
               {content.eyebrow}
             </p>
-            <span className="h-px w-[74px] bg-mint" />
+            <span className={`h-px w-[74px] ${eyebrowLine}`} />
           </div>
-          <h2 className={`mt-[33px] font-heading text-[44px] font-semibold leading-[1.14] lg:text-[68px] xl:text-[92px] ${headingColor}`}>
+          <h2 className="mt-[33px] font-heading text-[44px] font-semibold leading-[1.14] text-white lg:text-[68px] xl:text-[92px]">
             {content.headingLine1}
             <br />
-            <span className="heading-accent text-mint">{content.headingLine2}</span>
+            <span className={`heading-accent ${accentColor}`}>{content.headingLine2}</span>
           </h2>
-          <p className={`mt-[46px] text-[18px] leading-normal lg:text-[24px] ${bodyColor}`}>
+          <p className={`mt-[46px] text-[18px] leading-normal lg:text-[24px] ${introColor}`}>
             {content.intro}
           </p>
 
@@ -101,8 +110,8 @@ export default function FaqSection({
         </div>
 
         {/* Right column — FAQ accordion */}
-        <div className="w-full max-w-[845px] xl:pt-[25px]">
-          <div className={`h-px w-full ${light ? "bg-deep/20" : "bg-mint"}`} />
+        <div className={`w-full ${light ? "bg-deep pb-[8em] pl-[5em] pr-[7em] pt-[7em] xl:flex-1" : "max-w-[845px] xl:pt-[25px]"}`}>
+          <div className={`h-px w-full ${topDivider}`} />
           {content.items.map((item, i) => {
             const isOpen = openIndex === i;
             const hasAnswer = item.answer.trim().length > 0;
@@ -120,7 +129,7 @@ export default function FaqSection({
                   <ChevronCircleIcon className="size-[50px] shrink-0" open={isOpen} />
                 </button>
                 {isOpen && hasAnswer && (
-                  <div className={`whitespace-pre-line pb-[36px] pr-[70px] text-[18px] leading-[35px] ${bodyColor}`}>
+                  <div className={`whitespace-pre-line pr-[70px] text-[18px] leading-[35px] ${light ? "mt-[2em] pb-[6em]" : "pb-[36px]"} ${bodyColor}`}>
                     {item.answer}
                   </div>
                 )}

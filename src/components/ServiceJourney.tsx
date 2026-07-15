@@ -1,4 +1,4 @@
-import { ArrowRightIcon, CheckCircleIcon } from "./icons";
+import { ArrowRightIcon } from "./icons";
 
 export type JourneyData = {
   eyebrow: string;
@@ -14,7 +14,7 @@ export type JourneyData = {
 
 export default function ServiceJourney({ content }: { content: JourneyData }) {
   return (
-    <section className="bg-lite py-[52px] lg:py-[85px]">
+    <section className="bg-lite">
       <div className="mx-auto grid grid-cols-1 lg:grid-cols-2">
         {/* Left — heading, checklist, CTA */}
         <div className="bg-deep p-[22em_4em_22em_8em]">
@@ -88,17 +88,40 @@ export default function ServiceJourney({ content }: { content: JourneyData }) {
         </div>
 
         {/* Right — vertical step timeline */}
-        <ol className="bg-mint p-[10em_7em_8em_2em] relative space-y-[60px] before:absolute before:bottom-[40px] before:left-[74px] before:top-[170px] before:w-[2px] before:h-[1550px] before:bg-deep">
-          {content.steps.map((step) => (
-            <li key={step.title} className="relative flex gap-[16px] sm:gap-[24px]">
-              <span
-              className={`relative z-10 flex size-[85px] shrink-0 items-center justify-center rounded-full font-numeral text-[32px] leading-none ${
+        <ol className="bg-mint p-[10em_7em_8em_2em] relative space-y-[60px]">
+          {content.steps.map((step, i) => {
+            const isEven = (i + 1) % 2 === 0;
+            return (
+            <li
+              key={step.title}
+              className={`relative flex gap-[16px] sm:gap-[24px] ${
                 step.last
-                  ? "bg-deep text-white"
-                  : "bg-mint border-3 border-deep text-deep font-bold"
+                  ? ""
+                  : "before:absolute before:left-[42px] before:top-[42px] before:z-0 before:h-[calc(100%+60px)] before:w-[2px] before:bg-deep"
               }`}
             >
-              {step.last ? <CheckCircleIcon className="size-[50px]" /> : step.numeral}
+              <span
+              className={`relative z-10 flex size-[85px] shrink-0 items-center justify-center rounded-full border-deep font-numeral text-[32px] leading-none ${
+                step.last
+                  ? "border-[5px] bg-mint"
+                  : `border-[3px] ${isEven ? "bg-white" : "bg-mint"} text-deep font-bold`
+              }`}
+            >
+              {step.last ? (
+                <span className="flex size-[65px] items-center justify-center rounded-full bg-deep">
+                  <svg viewBox="0 0 30 30" className="size-[65px]" fill="none" aria-hidden>
+                    <path
+                      d="M9 15.5 13 19.5 21.5 11"
+                      stroke="#f1fffd"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+              ) : (
+                step.numeral
+              )}
             </span>
               <div className="min-w-0 flex-1 rounded-[10px] border-[3px] border-white bg-deep pt-[26px] pr-[26px] pb-[70px] pl-[50px]">
                 <div className="flex flex-col gap-[10px] sm:flex-row sm:items-start sm:justify-between sm:gap-4">
@@ -110,7 +133,8 @@ export default function ServiceJourney({ content }: { content: JourneyData }) {
                 <p className="mt-[14px] mr-[100px] text-[15px] leading-[24px] text-white/90 sm:text-[22px] sm:leading-[1.5]">{step.text}</p>
               </div>
             </li>
-          ))}
+            );
+          })}
         </ol>
       </div>
     </section>

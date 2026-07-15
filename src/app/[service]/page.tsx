@@ -64,7 +64,7 @@ export default async function ServicePage({
           <ServiceJourney content={page.journey} />
         </div>
         <FaqSection content={page.faq} variant="light" />
-        <ServicesGrid content={servicesGrid} />
+        <ServicesGrid content={"services" in page ? page.services : servicesGrid} />
       </main>
       <SiteFooter site={site} />
     </div>

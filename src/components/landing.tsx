@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { LandingPageContent } from "@/lib/cms";
-import { ArrowRightIcon, CheckCircleIcon, StarIcon } from "./icons";
 
 /* ---------- small inline icon set used only on the landing page ---------- */
 
@@ -68,9 +67,25 @@ function LandingIcon({ name, className }: { name: string; className?: string }) 
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-heading text-[18px] font-semibold uppercase tracking-[0.04em] text-mint lg:text-[22px]">
+    <p className="font-heading text-[16px] uppercase tracking-[0.12em] text-mint lg:text-[26px]">
       {children}
     </p>
+  );
+}
+
+/** Thin outlined circle-check used for the hero pitch bullets. */
+function OutlineCheck({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 44 44" className={className} fill="none" aria-hidden>
+      <circle cx="22" cy="22" r="20" stroke="currentColor" strokeWidth="2.4" />
+      <path
+        d="M13 22.5 19.5 29 32 15.5"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 
@@ -78,19 +93,32 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 export function LandingHero({ content }: { content: LandingPageContent["banner"] }) {
   const form = content.form;
+  const [titleBefore, titleAfter] = form.title.split(form.titleAccent);
   return (
     <section id="assessment" className="relative overflow-hidden bg-deep">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-1 gap-[50px] px-6 py-[60px] lg:grid-cols-[1fr_560px] lg:gap-[70px] lg:px-[80px] lg:py-[80px]">
+      {/* Right — halftone panel image (desktop only) */}
+      <Image
+        src="/images/landing-page-banner-bg.jpg"
+        alt=""
+        width={697}
+        height={1027}
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[697px] object-cover lg:block"
+      />
+
+      <div className="relative mx-auto flex max-w-[1920px] flex-col gap-[48px] px-6 py-[52px] lg:flex-row lg:items-start lg:justify-between lg:gap-[80px] lg:py-[90px] lg:pl-[175px] lg:pr-[262px]">
         {/* Left — pitch */}
-        <div>
+        <div className="relative lg:flex-1">
           <Eyebrow>{content.eyebrow}</Eyebrow>
-          <h1 className="mt-[20px] font-heading text-[40px] font-semibold leading-[1.15] text-white lg:text-[60px]">
+          <h1 className="mt-[20px] font-heading text-[44px] font-semibold leading-[1.4] text-white lg:mt-[10px] lg:text-[70px]">
             {content.headingSegments.map((seg, i) => (
               <span key={i}>
                 {seg.script ? (
                   <span
                     className={`font-script font-normal text-mint ${
-                      "underline" in seg && seg.underline ? "underline underline-offset-[6px]" : ""
+                      "underline" in seg && seg.underline
+                        ? "underline decoration-[3px] underline-offset-[8px]"
+                        : ""
                     }`}
                   >
                     {seg.text}
@@ -102,55 +130,92 @@ export function LandingHero({ content }: { content: LandingPageContent["banner"]
               </span>
             ))}
           </h1>
-          <p className="mt-[28px] max-w-[620px] text-[18px] leading-[28px] text-white/90 lg:text-[20px]">
+          <p className="mt-[26px] max-w-[520px] text-[17px] leading-[1.5] text-white lg:mt-[40px] lg:max-w-[760px] lg:text-[24px]">
             {content.paragraph}
           </p>
-          <ul className="mt-[34px] space-y-[18px]">
+          <ul className="mt-[34px] space-y-[22px] lg:mt-[50px] lg:space-y-[30px]">
             {content.bullets.map((b) => (
-              <li key={b} className="flex items-center gap-[16px] text-[18px] text-white lg:text-[20px]">
-                <CheckCircleIcon className="size-[30px] shrink-0" />
+              <li key={b} className="flex items-center gap-[16px] text-[18px] text-white lg:gap-[22px] lg:text-[28px]">
+                <OutlineCheck className="size-[36px] shrink-0 text-mint lg:size-[46px]" />
                 {b}
               </li>
             ))}
           </ul>
-          <div className="mt-[40px] flex items-center gap-[16px]">
-            <div className="flex gap-[2px]">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <StarIcon key={i} className="size-[26px]" />
-              ))}
-            </div>
-            <span className="text-[20px] font-bold text-mint">4.8/5</span>
-            <span className="text-[13px] text-white/70">48 verified reviews</span>
+          <div className="mt-[36px] h-px w-full max-w-[620px] bg-white/25 lg:mt-[50px]" />
+          <div className="mt-[22px]">
+            <p className="text-[16px] font-semibold text-white lg:text-[18px]">Devonshires Claims</p>
+            <Image
+              src="/images/reviews-badge.png"
+              alt="Devonshires Claims rated 4.8 out of 5 — 48 verified reviews"
+              width={349}
+              height={111}
+              className="mt-[10px] h-auto w-[280px] lg:w-[320px]"
+            />
           </div>
+          {/* Award seal */}
+          <Image
+            src="/images/win-badge.png"
+            alt="UK Legal Awards 2023 — Devonshires Claims — Best Solicitors 2023"
+            width={200}
+            height={168}
+            className="hidden lg:absolute lg:bottom-[70px] lg:right-[10px] lg:block lg:w-[200px]"
+          />
         </div>
 
         {/* Right — assessment form (visual mock) */}
-        <form action="#" method="post" className="rounded-[24px] bg-white p-[30px] shadow-[0_20px_60px_rgba(0,0,0,0.3)] lg:p-[40px]">
-          <h2 className="font-heading text-[24px] font-semibold text-deep lg:text-[28px]">
-            Request Your{" "}
-            <span className="text-teal underline underline-offset-[4px]">{form.titleAccent}</span> Case
-            Assessment
+        <form
+          action="#"
+          method="post"
+          className="relative w-full shrink-0 rounded-[30px] border-[3px] border-deep bg-lite px-[24px] pb-[42px] pt-[38px] shadow-[2px_4px_4px_2px_rgba(0,0,0,0.25)] lg:w-[571px] lg:px-[25px] lg:pb-[45px] lg:pt-[40px]"
+        >
+          <h2 className="px-[8px] font-heading text-[24px] font-semibold text-deep lg:text-[30px]">
+            {titleBefore}
+            <span className="text-teal underline decoration-2 underline-offset-[4px]">{form.titleAccent}</span>
+            {titleAfter}
           </h2>
-          <div className="mt-[24px] space-y-[16px]">
-            <input placeholder={form.placeholders.name} className="h-[48px] w-full rounded-[14px] border border-teal/40 bg-mint/30 px-[20px] text-[15px] text-deep placeholder:text-deep/60 focus:outline-none" />
-            <input placeholder={form.placeholders.phone} className="h-[48px] w-full rounded-[14px] border border-teal/40 bg-mint/30 px-[20px] text-[15px] text-deep placeholder:text-deep/60 focus:outline-none" />
-            <input placeholder={form.placeholders.email} className="h-[48px] w-full rounded-[14px] border border-teal/40 bg-mint/30 px-[20px] text-[15px] text-deep placeholder:text-deep/60 focus:outline-none" />
-            <fieldset className="rounded-[14px] border border-teal/40 bg-mint/30 px-[20px] py-[10px]">
-              <legend className="px-[6px] text-[12px] font-semibold uppercase tracking-wide text-deep/70">
+          <div className="mt-[28px] space-y-[18px] lg:mt-[34px] lg:space-y-[20px]">
+            <input
+              placeholder={form.placeholders.name}
+              className="h-[52px] w-full rounded-[20px] border-2 border-deep bg-mint px-[26px] text-[15px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none lg:h-[56px] lg:text-[17px]"
+            />
+            <input
+              placeholder={form.placeholders.phone}
+              className="h-[52px] w-full rounded-[20px] border-2 border-deep bg-mint px-[26px] text-[15px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none lg:h-[56px] lg:text-[17px]"
+            />
+            <input
+              placeholder={form.placeholders.email}
+              className="h-[52px] w-full rounded-[20px] border-2 border-deep bg-mint px-[26px] text-[15px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none lg:h-[56px] lg:text-[17px]"
+            />
+            <fieldset className="rounded-[20px] border-2 border-deep px-[24px] pb-[16px] pt-[4px]">
+              <legend className="px-[8px] text-[12px] font-bold uppercase tracking-[0.02em] text-deep lg:text-[14px]">
                 {form.helpLabel}
               </legend>
-              <select className="h-[34px] w-full bg-transparent text-[15px] text-deep focus:outline-none">
-                {form.helpOptions.map((o) => (
-                  <option key={o}>{o}</option>
-                ))}
-              </select>
+              <div className="flex items-center justify-between gap-[16px]">
+                <p className="pt-[10px] pr-[20px] pb-[5px] pl-[25px] text-[15px] font-semibold leading-[1.35] text-deep lg:text-[17px]">
+                  {form.helpOptions.join(" / ")}
+                </p>
+                <svg viewBox="0 0 24 24" className="size-[24px] shrink-0 text-deep" fill="none" aria-hidden>
+                  <path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
             </fieldset>
-            <textarea placeholder={form.placeholders.situation} className="h-[110px] w-full resize-none rounded-[14px] border border-teal/40 bg-mint/30 px-[20px] py-[14px] text-[15px] text-deep placeholder:text-deep/60 focus:outline-none" />
+            <textarea
+              placeholder={form.placeholders.situation}
+              className="h-[150px] w-full resize-none rounded-[20px] border-2 border-deep bg-mint px-[26px] py-[18px] text-[15px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none lg:h-[190px] lg:text-[17px]"
+            />
           </div>
-          <button type="submit" className="mt-[24px] h-[56px] w-full rounded-full bg-flame text-[16px] font-semibold text-white">
-            {form.submitLabel}
-          </button>
-          <p className="mt-[16px] text-center text-[13px] text-deep/60">{form.disclaimer}</p>
+          <div className="mt-[26px] px-[20px] lg:px-[33px]">
+            <button
+              type="submit"
+              className="flex h-[60px] w-full items-center justify-center rounded-full bg-flame text-[15px] font-semibold uppercase tracking-[0.03em] text-white lg:h-[64px] lg:text-[20px]"
+            >
+              {form.submitLabel}
+            </button>
+          </div>
+          <p className="mt-[30px] text-center text-[13px] text-deep lg:text-[16px]">
+            <span className="text-teal">*</span>
+            {form.disclaimer.startsWith("*") ? form.disclaimer.slice(1) : form.disclaimer}
+          </p>
         </form>
       </div>
     </section>
@@ -162,20 +227,30 @@ export function LandingHero({ content }: { content: LandingPageContent["banner"]
 export function TrustBadges({ content }: { content: LandingPageContent["trustBadges"] }) {
   const parts = content.heading.split(content.headingAccent);
   return (
-    <section className="bg-white py-[50px]">
-      <div className="mx-auto max-w-[1400px] px-6 text-center">
-        <p className="text-[18px] text-deep lg:text-[22px]">
+    <section className="bg-lite py-[40px] lg:py-[40px]">
+      <div className="mx-auto max-w-[1500px] px-6 text-center">
+        <p className="text-[20px] text-teal lg:text-[28px]">
           {parts[0]}
-          <span className="font-semibold text-teal">{content.headingAccent}</span>
+          <span className="font-bold">{content.headingAccent}</span>
           {parts[1]}
         </p>
-        <div className="mt-[32px] grid grid-cols-2 items-center gap-[24px] md:grid-cols-4">
+        <div className="mt-[30px] flex flex-wrap items-center justify-center gap-[24px] lg:mt-[20px] lg:gap-[45px]">
           {content.logos.map((logo) => (
             <div
               key={logo.label}
-              className="flex h-[80px] items-center justify-center rounded-[10px] border border-deep/10 px-[20px] text-center font-heading text-[18px] font-semibold text-deep/70"
+              className="flex h-[116px] w-[309px] items-center justify-center rounded-[12px] border-2 border-teal/30 bg-white px-[30px] py-[10px] text-center font-heading text-[18px] font-semibold text-deep/75"
             >
-              {logo.label}
+              {"image" in logo && logo.image ? (
+                <Image
+                  src={logo.image.src}
+                  alt={logo.image.alt}
+                  width={logo.image.width}
+                  height={logo.image.height}
+                  className="max-h-full w-auto max-w-full object-contain"
+                />
+              ) : (
+                logo.label
+              )}
             </div>
           ))}
         </div>
@@ -188,25 +263,30 @@ export function TrustBadges({ content }: { content: LandingPageContent["trustBad
 
 export function HelpWhen({ content }: { content: LandingPageContent["helpWhen"] }) {
   return (
-    <section className="bg-mint py-[48px] lg:py-[70px]">
-      <div className="mx-auto max-w-[1400px] px-6">
-        <h2 className="text-center font-heading text-[34px] font-semibold text-deep lg:text-[46px]">
+    <section className="bg-mint py-[48px] lg:pt-[30px] lg:pb-[60px]">
+      <div className="mx-auto max-w-[1810px] px-6">
+        <h2 className="text-center font-heading text-[34px] text-deep lg:text-[42px]">
           {content.heading}
         </h2>
-        <div className="mt-[44px] grid grid-cols-1 gap-[24px] sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-[40px] grid grid-cols-1 gap-[22px] sm:grid-cols-2 xl:grid-cols-4">
           {content.cards.map((card) => (
-            <article key={card.text} className="flex items-start gap-[18px] rounded-[16px] bg-deep p-[28px]">
-              <span className="flex size-[54px] shrink-0 items-center justify-center rounded-full bg-teal/20 text-mint">
-                <LandingIcon name={card.icon} className="size-[28px]" />
+            <article
+              key={card.text}
+              className="flex items-start gap-[24px] rounded-[30px] border border-3 border-white bg-deep p-[28px] lg:gap-[38px] lg:px-[30px] lg:py-[55px]"
+            >
+              <span className="flex size-[68px] shrink-0 items-center justify-center rounded-full border-3 border-teal bg-lite text-teal lg:size-[92px]">
+                <LandingIcon name={card.icon} className="size-[34px] lg:size-[44px]" />
               </span>
-              <p className="text-[17px] leading-[26px] text-white">{card.text}</p>
+              <p className="text-[18px] leading-[1.35] text-white lg:text-[22px]">{card.text}</p>
             </article>
           ))}
         </div>
-        <div className="mt-[44px] flex justify-center">
-          <a href={content.cta.href} className="flex h-[64px] items-center gap-[12px] rounded-full bg-flame px-[36px] text-[18px] font-semibold text-white">
+        <div className="mt-[44px] flex justify-center lg:mt-[50px]">
+          <a
+            href={content.cta.href}
+            className="flex h-[60px] items-center justify-center rounded-full bg-flame px-[40px] text-[16px] font-bold uppercase tracking-[0.02em] text-white lg:h-[64px] lg:text-[20px]"
+          >
             {content.cta.label}
-            <ArrowRightIcon className="size-[28px]" />
           </a>
         </div>
       </div>
@@ -218,26 +298,41 @@ export function HelpWhen({ content }: { content: LandingPageContent["helpWhen"] 
 
 export function HowItWorks({ content }: { content: LandingPageContent["howItWorks"] }) {
   return (
-    <section className="bg-deep py-[48px] lg:py-[80px]">
-      <div className="mx-auto max-w-[1300px] px-6">
-        <h2 className="text-center font-heading text-[34px] font-semibold text-white lg:text-[46px]">
+    <section className="bg-deep py-[48px] lg:pt-[40px] lg:pb-[70px]">
+      <div className="mx-auto max-w-[1500px] px-6">
+        <h2 className="text-center font-heading text-[34px] text-white lg:text-[42px]">
           {content.heading}
         </h2>
-        <div className="mt-[56px] grid grid-cols-1 gap-[40px] md:grid-cols-3">
+        <div className="mt-[50px] grid grid-cols-1 gap-y-[48px] md:grid-cols-3 md:gap-x-0 lg:mt-[60px]">
           {content.steps.map((step) => (
-            <div key={step.title} className="flex flex-col items-center text-center">
+            <div
+              key={step.title}
+              className="flex flex-col items-center px-[40px] text-center md:border-l md:border-white md:first:border-l-0"
+            >
               <div className="relative">
-                <span className="flex size-[110px] items-center justify-center rounded-full bg-mint text-deep">
-                  <LandingIcon name={step.icon} className="size-[48px]" />
+                <span className="flex size-[120px] items-center justify-center rounded-full border-3 border-white bg-mint text-deep lg:size-[150px]">
+                  <LandingIcon name={step.icon} className="size-[52px] lg:size-[62px]" />
                 </span>
-                <span className="absolute -right-1 -top-1 flex size-[40px] items-center justify-center rounded-full border-2 border-mint bg-deep font-numeral text-[20px] text-mint">
+                <span className="absolute -left-[31px] -top-[24px] flex size-[62px] items-center justify-center rounded-full border-3 border-mint bg-deep font-numeral text-[26px] text-mint lg:size-[78px] lg:text-[45px] pb-[10px]">
                   {step.numeral}
                 </span>
               </div>
-              <h3 className="mt-[24px] font-heading text-[24px] font-semibold text-white">{step.title}</h3>
-              <p className="mt-[14px] max-w-[320px] text-[17px] leading-[26px] text-white/85">{step.text}</p>
+              <h3 className="mt-[24px] font-heading text-[26px] font-semibold text-white lg:mt-[28px]">
+                {step.title}
+              </h3>
+              <p className="mt-[14px] max-w-[340px] text-[18px] leading-[1.4] text-white lg:mt-[16px] lg:text-[22px]">
+                {step.text}
+              </p>
             </div>
           ))}
+        </div>
+        <div className="mt-[44px] flex justify-center lg:mt-[56px]">
+          <a
+            href="#assessment"
+            className="flex h-[60px] items-center justify-center rounded-full bg-flame px-[40px] text-[16px] font-bold uppercase tracking-[0.02em] text-white lg:h-[64px] lg:text-[20px]"
+          >
+            Request Your Free Case Assessment
+          </a>
         </div>
       </div>
     </section>
@@ -248,35 +343,62 @@ export function HowItWorks({ content }: { content: LandingPageContent["howItWork
 
 export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGet"] }) {
   return (
-    <section className="bg-ice py-[48px] lg:py-[80px]">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-[50px] px-6 lg:grid-cols-[1fr_420px]">
-        <div>
-          <h2 className="font-heading text-[32px] font-semibold leading-[1.2] text-teal lg:text-[42px]">
+    <section className="relative overflow-hidden bg-ice py-[48px] lg:py-[70px]">
+      {/* Mint background panel behind the shield (desktop) */}
+      <div aria-hidden className="absolute inset-y-0 right-0 hidden w-[380px] bg-mint lg:block" />
+      {/* Duotone shield (desktop) */}
+      <Image
+        src={content.image.src}
+        alt={content.image.alt}
+        width={content.image.width}
+        height={content.image.height}
+        className="pointer-events-none absolute -right-[0] top-[-48px] hidden w-[815px] lg:block"
+      />
+
+      <div className="relative mx-auto max-w-[1920px] px-6 lg:pl-[105px] lg:pr-0">
+        <div className="lg:max-w-[1000px]">
+          <h2 className="font-heading text-[32px] font-semibold leading-[1.25] text-teal lg:text-[42px]">
             {content.headingBefore}
-            <span className="text-teal underline underline-offset-[4px]">{content.headingAccent}</span>
+            <span className="underline decoration-2 underline-offset-[6px] text-deep">{content.headingAccent}</span>
             {content.headingAfter}
           </h2>
-          <ul className="mt-[36px]">
+          <ul className="mt-[36px] lg:mt-[44px] ml-[25px]">
             {content.items.map((item, i) => (
               <li
                 key={item}
-                className={`flex items-center gap-[18px] py-[20px] text-[18px] text-deep lg:text-[19px] ${
-                  i < content.items.length - 1 ? "border-b border-teal/20" : ""
+                className={`flex items-center gap-[20px] border-t border-teal/60 py-[16px] text-[20px] text-deep lg:gap-[22px] lg:py-[18px] lg:text-[28px] ${
+                  i === content.items.length - 1 ? "border-b" : ""
                 }`}
               >
-                <CheckCircleIcon className="size-[28px] shrink-0" />
+                <svg
+                  viewBox="0 0 30 30"
+                  className="size-[48px] shrink-0 lg:size-[64px]"
+                  fill="none"
+                  aria-hidden
+                >
+                  <circle cx="15" cy="15" r="14" fill="#2ab3a3" stroke="#1b3542" strokeWidth="1.2" />
+                  <path
+                    d="M9 15.5 13 19.5 21.5 11"
+                    stroke="#f1fffd"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
                 {item}
               </li>
             ))}
           </ul>
         </div>
-        <div className="hidden lg:block">
+
+        {/* Shield (mobile) */}
+        <div className="mt-[40px] flex justify-center lg:hidden">
           <Image
             src={content.image.src}
             alt={content.image.alt}
             width={content.image.width}
             height={content.image.height}
-            className="h-auto w-full"
+            className="h-auto w-[320px] max-w-full"
           />
         </div>
       </div>
@@ -288,34 +410,70 @@ export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGe
 
 export function SplitSection({ content }: { content: LandingPageContent["split"] }) {
   return (
-    <section className="relative overflow-hidden bg-deeper py-[48px] lg:py-[70px]">
-      <div className="mx-auto max-w-[1400px] px-6">
+    <section className="relative overflow-hidden bg-deeper py-[56px] lg:py-[80px]">
+      {/* Background photo + overlay */}
+      <Image
+        src="/images/upfront-ctsts-bg.png"
+        alt=""
+        fill
+        aria-hidden
+        className="object-cover"
+      />
+      <div aria-hidden className="absolute inset-0" style={{ background: "rgba(27, 53, 66, 0.45)" }} />
+
+      <div className="relative mx-auto max-w-[1623px] px-6">
+        {/* Two-tone heading pill */}
         <div className="flex justify-center">
-          <h2 className="rounded-[10px] bg-deep px-[28px] py-[14px] text-center font-heading text-[26px] font-semibold text-white lg:text-[36px]">
-            {content.heading} <span className="bg-mint px-[10px] text-deep">{content.headingHighlight}</span>
-          </h2>
+          <div className="inline-flex overflow-hidden rounded-[30px] font-heading text-[22px] leading-[1.15] lg:text-[42px]">
+            <span className="bg-deep px-[30px] py-[11px] text-mint lg:pb-[18px] lg:pl-[80px] lg:pr-[15px] lg:pt-[13px]">
+              {content.heading}
+            </span>
+            <span className="bg-mint px-[30px] py-[11px] text-deep lg:pb-[16px] lg:pl-[15px] lg:pr-[80px] lg:pt-[14px]">
+              {content.headingHighlight}
+            </span>
+          </div>
         </div>
-        <div className="mt-[44px] grid grid-cols-1 gap-[30px] lg:grid-cols-2">
-          <div className="rounded-[20px] bg-deep p-[36px]">
-            <ul className="space-y-[18px] text-[18px] leading-[26px] text-white">
+
+        {/* Cards */}
+        <div className="mt-[64px] grid grid-cols-1 items-stretch gap-[64px] lg:mt-[120px] lg:grid-cols-2 lg:gap-[111px]">
+          {/* Left — bullet list */}
+          <div className="relative rounded-[30px] border-5 border-white bg-deep px-[36px] pb-[44px] pt-[70px] lg:px-[90px] lg:pb-[60px] lg:pt-[90px]">
+            <span className="absolute -top-[60px] left-1/2 flex size-[110px] -translate-x-1/2 items-center justify-center rounded-full border-[7px] border-deep bg-mint text-deep lg:-top-[75px] lg:size-[150px] lg:border-[10px]">
+              <svg viewBox="0 0 30 30" className="size-[48px] lg:size-[66px]" fill="none" aria-hidden>
+                <rect x="6" y="4" width="18" height="22" rx="2.5" stroke="currentColor" strokeWidth="2" />
+                <path d="M10 14l3 3 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <ul className="space-y-[20px] text-[19px] font-semibold leading-[1.4] text-white lg:space-y-[24px] lg:text-[28px]">
               {content.bullets.map((b) => (
-                <li key={b} className="flex gap-[14px]">
-                  <span className="mt-[9px] size-[7px] shrink-0 rounded-full bg-mint" />
+                <li key={b} className="flex gap-[16px]">
+                  <span className="mt-[11px] size-[8px] shrink-0 rounded-full bg-mint lg:mt-[14px]" />
                   {b}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="flex items-center justify-center rounded-[20px] bg-mint p-[40px]">
-            <p className="text-center font-heading text-[24px] font-semibold leading-[1.4] text-deep lg:text-[30px]">
+
+          {/* Right — quote */}
+          <div className="relative flex items-center justify-center rounded-[30px] border-5 border-deep bg-mint px-[36px] pb-[44px] pt-[70px] lg:px-[90px] lg:pb-[60px] lg:pt-[90px]">
+            <span className="absolute -top-[60px] left-1/2 flex size-[110px] -translate-x-1/2 items-center justify-center rounded-full border-[7px] border-mint bg-deep text-mint lg:-top-[75px] lg:size-[150px] lg:border-[10px]">
+              <svg viewBox="0 0 40 32" className="size-[52px] lg:size-[66px]" fill="currentColor" aria-hidden>
+                <path d="M0 32V19C0 8 6 2 16 0l2 5C11 7 8 10 8 15h6v17H0zm22 0V19C22 8 28 2 38 0l2 5c-7 2-10 5-10 10h6v17H22z" />
+              </svg>
+            </span>
+            <p className="text-center font-heading text-[24px] leading-[1.4] text-deep lg:text-[36px]">
               {content.quote}
             </p>
           </div>
         </div>
-        <div className="mt-[44px] flex justify-center">
-          <a href={content.cta.href} className="flex h-[62px] items-center gap-[12px] rounded-full bg-flame px-[34px] text-center text-[16px] font-semibold text-white lg:text-[18px]">
+
+        {/* Button */}
+        <div className="mt-[44px] flex justify-center lg:mt-[70px]">
+          <a
+            href={content.cta.href}
+            className="flex h-[56px] items-center justify-center rounded-full border-3 border-white bg-flame px-[36px] text-center text-[13px] font-semibold uppercase tracking-[0.02em] text-white lg:h-[64px] lg:px-[44px] lg:text-[20px]"
+          >
             {content.cta.label}
-            <ArrowRightIcon className="size-[26px]" />
           </a>
         </div>
       </div>

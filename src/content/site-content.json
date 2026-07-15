@@ -848,6 +848,58 @@
               "answer": ""
             }
           ]
+        },
+        "services": {
+          "eyebrow": "EXPLORE OUR SERVICES",
+          "headingLine1": "Complete estate planning,",
+          "headingLine2": "under one firm",
+          "cards": [
+            {
+              "label": "SERVICE",
+              "title": "Power of Attorney",
+              "image": {
+                "src": "/images/card-lpa.png",
+                "alt": "Power of Attorney service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Secure who speaks on your behalf, when you are unable to do so.",
+              "link": {
+                "label": "Explore LPA",
+                "href": "/power-of-attorney"
+              }
+            },
+            {
+              "label": "SERVICE",
+              "title": "Trusts",
+              "image": {
+                "src": "/images/card-trusts.png",
+                "alt": "Trusts service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Ring-fence and control how your wealth passes to the next generation.",
+              "link": {
+                "label": "Explore Trusts",
+                "href": "/trusts"
+              }
+            },
+            {
+              "label": "SERVICE",
+              "title": "Probate",
+              "image": {
+                "src": "/images/card-probate.png",
+                "alt": "Probate service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Compassionate, fixed-fee help administering a loved one's estate.",
+              "link": {
+                "label": "Explore Probate",
+                "href": "/probate"
+              }
+            }
+          ]
         }
       },
       "trusts": {
@@ -1078,6 +1130,58 @@
             {
               "question": "Do trusts have to be registered?",
               "answer": ""
+            }
+          ]
+        },
+        "services": {
+          "eyebrow": "EXPLORE OUR SERVICES",
+          "headingLine1": "Complete estate planning,",
+          "headingLine2": "under one firm",
+          "cards": [
+            {
+              "label": "SERVICE",
+              "title": "Wills",
+              "image": {
+                "src": "/images/card-wills.png",
+                "alt": "Wills service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Protect your loved ones with a clear, valid will built around your wishes.",
+              "link": {
+                "label": "Explore Wills",
+                "href": "/wills"
+              }
+            },
+            {
+              "label": "SERVICE",
+              "title": "Probate",
+              "image": {
+                "src": "/images/card-probate.png",
+                "alt": "Probate service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Compassionate, fixed-fee help administering a loved one's estate.",
+              "link": {
+                "label": "Explore Probate",
+                "href": "/probate"
+              }
+            },
+            {
+              "label": "SERVICE",
+              "title": "Power of Attorney",
+              "image": {
+                "src": "/images/card-lpa.png",
+                "alt": "Power of Attorney service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Secure who speaks on your behalf, when you are unable to do so.",
+              "link": {
+                "label": "Explore LPA",
+                "href": "/power-of-attorney"
+              }
             }
           ]
         }
@@ -1312,6 +1416,58 @@
               "answer": ""
             }
           ]
+        },
+        "services": {
+          "eyebrow": "EXPLORE OUR SERVICES",
+          "headingLine1": "Complete estate planning,",
+          "headingLine2": "under one firm",
+          "cards": [
+            {
+              "label": "SERVICE",
+              "title": "Wills",
+              "image": {
+                "src": "/images/card-wills.png",
+                "alt": "Wills service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Protect your loved ones with a clear, valid will built around your wishes.",
+              "link": {
+                "label": "Explore Wills",
+                "href": "/wills"
+              }
+            },
+            {
+              "label": "SERVICE",
+              "title": "Trusts",
+              "image": {
+                "src": "/images/card-trusts.png",
+                "alt": "Trusts service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Ring-fence and control how your wealth passes to the next generation.",
+              "link": {
+                "label": "Explore Trusts",
+                "href": "/trusts"
+              }
+            },
+            {
+              "label": "SERVICE",
+              "title": "Power of Attorney",
+              "image": {
+                "src": "/images/card-lpa.png",
+                "alt": "Power of Attorney service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Secure who speaks on your behalf, when you are unable to do so.",
+              "link": {
+                "label": "Explore LPA",
+                "href": "/power-of-attorney"
+              }
+            }
+          ]
         }
       },
       "power-of-attorney": {
@@ -1544,6 +1700,58 @@
               "answer": ""
             }
           ]
+        },
+        "services": {
+          "eyebrow": "EXPLORE OUR SERVICES",
+          "headingLine1": "Complete estate planning,",
+          "headingLine2": "under one firm",
+          "cards": [
+            {
+              "label": "SERVICE",
+              "title": "Wills",
+              "image": {
+                "src": "/images/card-wills.png",
+                "alt": "Wills service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Protect your loved ones with a clear, valid will built around your wishes.",
+              "link": {
+                "label": "Explore Wills",
+                "href": "/wills"
+              }
+            },
+            {
+              "label": "SERVICE",
+              "title": "Trusts",
+              "image": {
+                "src": "/images/card-trusts.png",
+                "alt": "Trusts service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Ring-fence and control how your wealth passes to the next generation.",
+              "link": {
+                "label": "Explore Trusts",
+                "href": "/trusts"
+              }
+            },
+            {
+              "label": "SERVICE",
+              "title": "Probate",
+              "image": {
+                "src": "/images/card-probate.png",
+                "alt": "Probate service",
+                "width": 410,
+                "height": 210
+              },
+              "text": "Compassionate, fixed-fee help administering a loved one's estate.",
+              "link": {
+                "label": "Explore Probate",
+                "href": "/probate"
+              }
+            }
+          ]
         }
       }
     },
@@ -1601,21 +1809,39 @@
         "headingAccent": "trusted",
         "logos": [
           {
-            "label": "Solicitors Regulation Authority"
+            "label": "Solicitors Regulation Authority",
+            "image": {
+              "src": "/images/SRA-Logo.svg",
+              "alt": "Solicitors Regulation Authority",
+              "width": 192,
+              "height": 84
+            }
           },
           {
-            "label": "The Law Society"
+            "label": "The Law Society",
+            "image": {
+              "src": "/images/The-Law-Society-logo-tranter-mills.svg",
+              "alt": "The Law Society",
+              "width": 144,
+              "height": 95
+            }
           },
           {
-            "label": "Legal500"
+            "label": "Legal500",
+            "image": {
+              "src": "/images/Legal-500-logo.svg",
+              "alt": "Legal 500",
+              "width": 226,
+              "height": 64
+            }
           },
           {
             "label": "The Times",
             "image": {
-              "src": "/images/times-logo.png",
+              "src": "/images/the-times-logo.svg",
               "alt": "The Times",
-              "width": 174,
-              "height": 105
+              "width": 166,
+              "height": 86
             }
           }
         ]
@@ -1680,10 +1906,10 @@
           "Funding options explained (fixed fees, no win no fee where suitable)"
         ],
         "image": {
-          "src": "/images/hero-shield.png",
+          "src": "/images/Case-Assessment-shield-image.png",
           "alt": "Devonshires Claims specialist team",
-          "width": 909,
-          "height": 909
+          "width": 781,
+          "height": 818
         }
       },
       "split": {
