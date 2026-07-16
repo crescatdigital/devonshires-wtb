@@ -17,48 +17,80 @@ function LandingIcon({ name, className }: { name: string; className?: string }) 
   switch (name) {
     case "user-x":
       return (
-        <svg {...common}>
-          <circle cx="9" cy="8" r="4" />
-          <path d="M2 21a7 7 0 0 1 12-4.9M16 8l5 5M21 8l-5 5" />
-        </svg>
+        <Image
+          src="/images/wrong-user.svg"
+          alt=""
+          width={44}
+          height={44}
+          className={className}
+          aria-hidden
+        />
       );
     case "hourglass":
       return (
-        <svg {...common}>
-          <path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9" />
-        </svg>
+        <Image
+          src="/images/hourglass.svg"
+          alt=""
+          width={44}
+          height={44}
+          className={className}
+          aria-hidden
+        />
       );
     case "scales":
       return (
-        <svg {...common}>
-          <path d="M12 3v18M6 21h12M3 8l3-4 3 4a3 3 0 0 1-6 0ZM15 8l3-4 3 4a3 3 0 0 1-6 0ZM6 4h12" />
-        </svg>
+        <Image
+          src="/images/balance-two.svg"
+          alt=""
+          width={44}
+          height={44}
+          className={className}
+          aria-hidden
+        />
       );
     case "document":
       return (
-        <svg {...common}>
-          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
-          <path d="M14 3v5h5M9 13h6M9 17h6" />
-        </svg>
+        <Image
+          src="/images/copy-one.svg"
+          alt=""
+          width={44}
+          height={44}
+          className={className}
+          aria-hidden
+        />
       );
     case "user":
       return (
-        <svg {...common}>
-          <circle cx="12" cy="8" r="4" />
-          <path d="M4 21a8 8 0 0 1 16 0" />
-        </svg>
+        <Image
+          src="/images/right-user.svg"
+          alt=""
+          width={62}
+          height={62}
+          className={className}
+          aria-hidden
+        />
       );
     case "chat":
       return (
-        <svg {...common}>
-          <path d="M21 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z" />
-        </svg>
+        <Image
+          src="/images/comment.svg"
+          alt=""
+          width={62}
+          height={62}
+          className={className}
+          aria-hidden
+        />
       );
     case "folder":
       return (
-        <svg {...common}>
-          <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        </svg>
+        <Image
+          src="/images/folder-open.svg"
+          alt=""
+          width={62}
+          height={62}
+          className={className}
+          aria-hidden
+        />
       );
     default:
       return null;
@@ -106,11 +138,11 @@ export function LandingHero({ content }: { content: LandingPageContent["banner"]
         className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[697px] object-cover lg:block"
       />
 
-      <div className="relative mx-auto flex max-w-[1920px] flex-col gap-[48px] px-6 py-[52px] lg:flex-row lg:items-start lg:justify-between lg:gap-[80px] lg:py-[90px] lg:pl-[175px] lg:pr-[262px]">
+      <div className="relative mx-auto flex max-w-[1920px] flex-col gap-[32px] px-6 py-[52px] md:gap-[48px] lg:flex-row lg:items-start lg:justify-between lg:gap-[80px] lg:py-[90px] lg:pl-[175px] lg:pr-[262px]">
         {/* Left — pitch */}
         <div className="relative lg:flex-1">
           <Eyebrow>{content.eyebrow}</Eyebrow>
-          <h1 className="mt-[20px] font-heading text-[44px] font-semibold leading-[1.4] text-white lg:mt-[10px] lg:text-[70px]">
+          <h1 className="mt-[20px] font-heading text-[32px] font-semibold leading-[1.2] text-white md:text-[44px] md:leading-[1.4] lg:mt-[10px] lg:text-[70px]">
             {content.headingSegments.map((seg, i) => (
               <span key={i}>
                 {seg.script ? (
@@ -166,53 +198,55 @@ export function LandingHero({ content }: { content: LandingPageContent["banner"]
         <form
           action="#"
           method="post"
-          className="relative w-full shrink-0 rounded-[30px] border-[3px] border-deep bg-lite px-[24px] pb-[42px] pt-[38px] shadow-[2px_4px_4px_2px_rgba(0,0,0,0.25)] lg:w-[571px] lg:px-[25px] lg:pb-[45px] lg:pt-[40px]"
+          className="relative w-full shrink-0 rounded-[20px] border-[3px] border-deep bg-lite px-[18px] pb-[28px] pt-[28px] shadow-[2px_4px_4px_2px_rgba(0,0,0,0.25)] md:rounded-[30px] md:px-[24px] md:pb-[42px] md:pt-[38px] lg:w-[571px] lg:px-[25px] lg:pb-[45px] lg:pt-[40px]"
         >
-          <h2 className="px-[8px] font-heading text-[24px] font-semibold text-deep lg:text-[30px]">
+          <h2 className="px-[8px] font-heading text-[20px] font-semibold text-deep md:text-[24px] lg:text-[30px]">
             {titleBefore}
             <span className="text-teal underline decoration-2 underline-offset-[4px]">{form.titleAccent}</span>
             {titleAfter}
           </h2>
-          <div className="mt-[28px] space-y-[18px] lg:mt-[34px] lg:space-y-[20px]">
-            <input
-              placeholder={form.placeholders.name}
-              className="h-[52px] w-full rounded-[20px] border-2 border-deep bg-mint px-[26px] text-[15px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none lg:h-[56px] lg:text-[17px]"
-            />
-            <input
-              placeholder={form.placeholders.phone}
-              className="h-[52px] w-full rounded-[20px] border-2 border-deep bg-mint px-[26px] text-[15px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none lg:h-[56px] lg:text-[17px]"
-            />
+          <div className="mt-[20px] space-y-[12px] md:mt-[28px] md:space-y-[18px] lg:mt-[34px] lg:space-y-[20px]">
+            <div className="grid grid-cols-2 gap-[12px] md:grid-cols-1 md:gap-[18px] lg:gap-[20px]">
+              <input
+                placeholder={form.placeholders.name}
+                className="h-[35px] w-full rounded-[20px] border-2 border-deep bg-mint px-[18px] text-[13px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none md:h-[52px] md:px-[26px] md:text-[15px] lg:h-[56px] lg:text-[17px]"
+              />
+              <input
+                placeholder={form.placeholders.phone}
+                className="h-[35px] w-full rounded-[20px] border-2 border-deep bg-mint px-[18px] text-[13px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none md:h-[52px] md:px-[26px] md:text-[15px] lg:h-[56px] lg:text-[17px]"
+              />
+            </div>
             <input
               placeholder={form.placeholders.email}
-              className="h-[52px] w-full rounded-[20px] border-2 border-deep bg-mint px-[26px] text-[15px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none lg:h-[56px] lg:text-[17px]"
+              className="h-[35px] w-full rounded-[20px] border-2 border-deep bg-mint px-[18px] text-[13px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none md:h-[52px] md:px-[26px] md:text-[15px] lg:h-[56px] lg:text-[17px]"
             />
-            <fieldset className="rounded-[20px] border-2 border-deep px-[24px] pb-[16px] pt-[4px]">
-              <legend className="px-[8px] text-[12px] font-bold uppercase tracking-[0.02em] text-deep lg:text-[14px]">
+            <fieldset className="rounded-[20px] border-2 border-deep px-[16px] pb-[12px] pt-[4px] md:px-[24px] md:pb-[16px]">
+              <legend className="px-[8px] text-[11px] font-bold uppercase tracking-[0.02em] text-deep md:text-[12px] lg:text-[14px]">
                 {form.helpLabel}
               </legend>
               <div className="flex items-center justify-between gap-[16px]">
-                <p className="pt-[10px] pr-[20px] pb-[5px] pl-[25px] text-[15px] font-semibold leading-[1.35] text-deep lg:text-[17px]">
+                <p className="pt-[8px] pr-[12px] pb-[4px] pl-[12px] text-[12px] font-semibold leading-[1.35] text-deep md:pt-[10px] md:pr-[20px] md:pb-[5px] md:pl-[25px] md:text-[15px] lg:text-[17px]">
                   {form.helpOptions.join(" / ")}
                 </p>
-                <svg viewBox="0 0 24 24" className="size-[24px] shrink-0 text-deep" fill="none" aria-hidden>
+                <svg viewBox="0 0 24 24" className="size-[20px] shrink-0 text-deep md:size-[24px]" fill="none" aria-hidden>
                   <path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
             </fieldset>
             <textarea
               placeholder={form.placeholders.situation}
-              className="h-[150px] w-full resize-none rounded-[20px] border-2 border-deep bg-mint px-[26px] py-[18px] text-[15px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none lg:h-[190px] lg:text-[17px]"
+              className="h-[110px] w-full resize-none rounded-[20px] border-2 border-deep bg-mint px-[18px] py-[14px] text-[13px] font-semibold text-deep placeholder:font-semibold placeholder:text-deep focus:outline-none md:h-[150px] md:px-[26px] md:py-[18px] md:text-[15px] lg:h-[190px] lg:text-[17px]"
             />
           </div>
-          <div className="mt-[26px] px-[20px] lg:px-[33px]">
+          <div className="mt-[20px] px-0 md:mt-[26px] md:px-[20px] lg:px-[33px]">
             <button
               type="submit"
-              className="flex h-[60px] w-full items-center justify-center rounded-full bg-flame text-[15px] font-semibold uppercase tracking-[0.03em] text-white lg:h-[64px] lg:text-[20px]"
+              className="flex h-[50px] w-full items-center justify-center whitespace-nowrap rounded-full bg-flame px-[16px] text-[12px] font-semibold uppercase tracking-[0.03em] text-white md:h-[60px] md:whitespace-normal md:px-0 md:text-[15px] lg:h-[64px] lg:text-[20px]"
             >
               {form.submitLabel}
             </button>
           </div>
-          <p className="mt-[30px] text-center text-[13px] text-deep lg:text-[16px]">
+          <p className="mt-[20px] text-center text-[12px] text-deep md:mt-[30px] md:text-[13px] lg:text-[16px]">
             <span className="text-teal">*</span>
             {form.disclaimer.startsWith("*") ? form.disclaimer.slice(1) : form.disclaimer}
           </p>
@@ -238,7 +272,7 @@ export function TrustBadges({ content }: { content: LandingPageContent["trustBad
           {content.logos.map((logo) => (
             <div
               key={logo.label}
-              className="flex h-[116px] w-[309px] items-center justify-center rounded-[12px] border-2 border-teal/30 bg-white px-[30px] py-[10px] text-center font-heading text-[18px] font-semibold text-deep/75"
+              className="flex h-[116px] w-[309px] items-center justify-center rounded-[12px] border-2 border-teal bg-white px-[30px] py-[10px] text-center font-heading text-[18px] font-semibold text-deep/75"
             >
               {"image" in logo && logo.image ? (
                 <Image
@@ -263,28 +297,28 @@ export function TrustBadges({ content }: { content: LandingPageContent["trustBad
 
 export function HelpWhen({ content }: { content: LandingPageContent["helpWhen"] }) {
   return (
-    <section className="bg-mint py-[48px] lg:pt-[30px] lg:pb-[60px]">
+    <section className="bg-mint py-[32px] md:py-[48px] lg:pt-[30px] lg:pb-[60px]">
       <div className="mx-auto max-w-[1810px] px-6">
-        <h2 className="text-center font-heading text-[34px] text-deep lg:text-[42px]">
+        <h2 className="text-center font-heading text-[26px] text-deep md:text-[34px] lg:text-[42px]">
           {content.heading}
         </h2>
-        <div className="mt-[40px] grid grid-cols-1 gap-[22px] sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-[24px] grid grid-cols-1 gap-[14px] sm:grid-cols-2 md:mt-[40px] md:gap-[22px] xl:grid-cols-4">
           {content.cards.map((card) => (
             <article
               key={card.text}
-              className="flex items-start gap-[24px] rounded-[30px] border border-3 border-white bg-deep p-[28px] lg:gap-[38px] lg:px-[30px] lg:py-[55px]"
+              className="flex items-start gap-[16px] rounded-[20px] border border-3 border-white bg-deep p-[25px] md:gap-[24px] md:rounded-[30px] md:p-[28px] lg:gap-[38px] lg:px-[30px] lg:py-[55px]"
             >
-              <span className="flex size-[68px] shrink-0 items-center justify-center rounded-full border-3 border-teal bg-lite text-teal lg:size-[92px]">
-                <LandingIcon name={card.icon} className="size-[34px] lg:size-[44px]" />
+              <span className="flex size-[60px] shrink-0 items-center justify-center rounded-full border-3 border-teal bg-lite text-teal md:size-[68px] lg:size-[92px]">
+                <LandingIcon name={card.icon} className="size-[26px] md:size-[34px] lg:size-[44px]" />
               </span>
-              <p className="text-[18px] leading-[1.35] text-white lg:text-[22px]">{card.text}</p>
+              <p className="text-[16px] leading-[1.35] text-white md:text-[18px] lg:text-[22px]">{card.text}</p>
             </article>
           ))}
         </div>
-        <div className="mt-[44px] flex justify-center lg:mt-[50px]">
+        <div className="mt-[28px] flex justify-center md:mt-[44px] lg:mt-[50px]">
           <a
             href={content.cta.href}
-            className="flex h-[60px] items-center justify-center rounded-full bg-flame px-[40px] text-[16px] font-bold uppercase tracking-[0.02em] text-white lg:h-[64px] lg:text-[20px]"
+            className="flex h-[48px] items-center justify-center whitespace-nowrap rounded-full bg-flame px-[24px] text-[13px] font-bold uppercase tracking-[0.02em] text-white md:h-[60px] md:whitespace-normal md:px-[40px] md:text-[16px] lg:h-[64px] lg:text-[20px]"
           >
             {content.cta.label}
           </a>
@@ -298,38 +332,38 @@ export function HelpWhen({ content }: { content: LandingPageContent["helpWhen"] 
 
 export function HowItWorks({ content }: { content: LandingPageContent["howItWorks"] }) {
   return (
-    <section className="bg-deep py-[48px] lg:pt-[40px] lg:pb-[70px]">
+    <section className="bg-deep py-[32px] md:py-[48px] lg:pt-[40px] lg:pb-[70px]">
       <div className="mx-auto max-w-[1500px] px-6">
-        <h2 className="text-center font-heading text-[34px] text-white lg:text-[42px]">
+        <h2 className="mb-[50px] text-center font-heading text-[26px] text-white md:mb-0 md:text-[34px] lg:text-[42px]">
           {content.heading}
         </h2>
-        <div className="mt-[50px] grid grid-cols-1 gap-y-[48px] md:grid-cols-3 md:gap-x-0 lg:mt-[60px]">
+        <div className="mt-[28px] grid grid-cols-1 gap-y-[28px] md:mt-[50px] md:grid-cols-3 md:gap-x-0 md:gap-y-[48px] lg:mt-[60px]">
           {content.steps.map((step) => (
             <div
               key={step.title}
-              className="flex flex-col items-center px-[40px] text-center md:border-l md:border-white md:first:border-l-0"
+              className="flex flex-col items-center px-[24px] text-center md:border-l md:border-white md:px-[40px] md:first:border-l-0"
             >
               <div className="relative">
-                <span className="flex size-[120px] items-center justify-center rounded-full border-3 border-white bg-mint text-deep lg:size-[150px]">
-                  <LandingIcon name={step.icon} className="size-[52px] lg:size-[62px]" />
+                <span className="flex size-[84px] items-center justify-center rounded-full border-3 border-white bg-mint text-deep md:size-[120px] lg:size-[150px]">
+                  <LandingIcon name={step.icon} className="size-[38px] md:size-[52px] lg:size-[62px]" />
                 </span>
-                <span className="absolute -left-[31px] -top-[24px] flex size-[62px] items-center justify-center rounded-full border-3 border-mint bg-deep font-numeral text-[26px] text-mint lg:size-[78px] lg:text-[45px] pb-[10px]">
+                <span className="absolute -left-[20px] -top-[16px] flex size-[44px] items-center justify-center rounded-full border-3 border-mint bg-deep font-numeral text-[20px] text-mint pb-[10px] md:-left-[31px] md:-top-[24px] md:size-[62px] md:text-[26px] lg:size-[78px] lg:text-[45px]">
                   {step.numeral}
                 </span>
               </div>
-              <h3 className="mt-[24px] font-heading text-[26px] font-semibold text-white lg:mt-[28px]">
+              <h3 className="mt-[16px] font-heading text-[22px] font-semibold text-white md:mt-[24px] md:text-[26px] lg:mt-[28px]">
                 {step.title}
               </h3>
-              <p className="mt-[14px] max-w-[340px] text-[18px] leading-[1.4] text-white lg:mt-[16px] lg:text-[22px]">
+              <p className="mt-[10px] max-w-[340px] text-[16px] leading-[1.4] text-white md:mt-[14px] md:text-[18px] lg:mt-[16px] lg:text-[22px]">
                 {step.text}
               </p>
             </div>
           ))}
         </div>
-        <div className="mt-[44px] flex justify-center lg:mt-[56px]">
+        <div className="mt-[28px] flex justify-center md:mt-[44px] lg:mt-[56px]">
           <a
             href="#assessment"
-            className="flex h-[60px] items-center justify-center rounded-full bg-flame px-[40px] text-[16px] font-bold uppercase tracking-[0.02em] text-white lg:h-[64px] lg:text-[20px]"
+            className="flex h-[48px] items-center justify-center whitespace-nowrap rounded-full bg-flame px-[24px] text-[13px] font-bold uppercase tracking-[0.02em] text-white md:h-[60px] md:whitespace-normal md:px-[40px] md:text-[16px] lg:h-[64px] lg:text-[20px]"
           >
             Request Your Free Case Assessment
           </a>
@@ -439,10 +473,14 @@ export function SplitSection({ content }: { content: LandingPageContent["split"]
           {/* Left — bullet list */}
           <div className="relative rounded-[30px] border-5 border-white bg-deep px-[36px] pb-[44px] pt-[70px] lg:px-[90px] lg:pb-[60px] lg:pt-[90px]">
             <span className="absolute -top-[60px] left-1/2 flex size-[110px] -translate-x-1/2 items-center justify-center rounded-full border-[7px] border-deep bg-mint text-deep lg:-top-[75px] lg:size-[150px] lg:border-[10px]">
-              <svg viewBox="0 0 30 30" className="size-[48px] lg:size-[66px]" fill="none" aria-hidden>
-                <rect x="6" y="4" width="18" height="22" rx="2.5" stroke="currentColor" strokeWidth="2" />
-                <path d="M10 14l3 3 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <Image
+                src="/images/doc-success.svg"
+                alt=""
+                width={66}
+                height={66}
+                className="size-[48px] lg:size-[66px]"
+                aria-hidden
+              />
             </span>
             <ul className="space-y-[20px] text-[19px] font-semibold leading-[1.4] text-white lg:space-y-[24px] lg:text-[28px]">
               {content.bullets.map((b) => (
@@ -457,9 +495,14 @@ export function SplitSection({ content }: { content: LandingPageContent["split"]
           {/* Right — quote */}
           <div className="relative flex items-center justify-center rounded-[30px] border-5 border-deep bg-mint px-[36px] pb-[44px] pt-[70px] lg:px-[90px] lg:pb-[60px] lg:pt-[90px]">
             <span className="absolute -top-[60px] left-1/2 flex size-[110px] -translate-x-1/2 items-center justify-center rounded-full border-[7px] border-mint bg-deep text-mint lg:-top-[75px] lg:size-[150px] lg:border-[10px]">
-              <svg viewBox="0 0 40 32" className="size-[52px] lg:size-[66px]" fill="currentColor" aria-hidden>
-                <path d="M0 32V19C0 8 6 2 16 0l2 5C11 7 8 10 8 15h6v17H0zm22 0V19C22 8 28 2 38 0l2 5c-7 2-10 5-10 10h6v17H22z" />
-              </svg>
+              <Image
+                src="/images/apostrophy.svg"
+                alt=""
+                width={53}
+                height={45}
+                className="h-[44px] w-auto lg:h-[56px]"
+                aria-hidden
+              />
             </span>
             <p className="text-center font-heading text-[24px] leading-[1.4] text-deep lg:text-[36px]">
               {content.quote}

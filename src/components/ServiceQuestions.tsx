@@ -36,7 +36,7 @@ export default function ServiceQuestions({
                     <ChevronCircleIcon className="size-[54px] shrink-0 lg:size-[60px]" open={isOpen} />
                   </button>
                   {isOpen && hasAnswer && (
-                    <p className="pb-[26px] pr-[60px] text-[17px] leading-[30px] text-white/90">
+                    <p className="pb-[26px] pr-[60px] text-[16px] leading-[30px] text-white/90 lg:text-[18px]">
                       {item.answer}
                     </p>
                   )}

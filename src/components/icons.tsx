@@ -66,10 +66,15 @@ export function StarIcon({ className }: { className?: string }) {
 export function ChevronCircleIcon({
   className,
   open = false,
+  variant = "onDark",
 }: {
   className?: string;
   open?: boolean;
+  variant?: "onDark" | "onLight";
 }) {
+  // ring = circle colour, mark = closed-state chevron colour (for contrast).
+  const ring = variant === "onLight" ? "#142C38" : "#A3F4BA";
+  const mark = variant === "onLight" ? "#A3F4BA" : "#142C38";
   return (
     <svg
       className={className}
@@ -81,14 +86,14 @@ export function ChevronCircleIcon({
         cx="25"
         cy="25"
         r="20.8"
-        fill={open ? "none" : "#A3F4BA"}
-        stroke="#A3F4BA"
+        fill={open ? "none" : ring}
+        stroke={ring}
         strokeWidth="2.4"
       />
 
       <path
         d={open ? "M16 28L25 19L34 28" : "M16 22L25 31L34 22"}
-        stroke={open ? "#A3F4BA" : "#142C38"}
+        stroke={open ? ring : mark}
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"

@@ -558,7 +558,7 @@
             "label": "SERVICE",
             "title": "Wills",
             "image": {
-              "src": "/images/card-wills.png",
+              "src": "/images/service-wills.png",
               "alt": "Wills service",
               "width": 410,
               "height": 210
@@ -573,7 +573,7 @@
             "label": "SERVICE",
             "title": "Trusts",
             "image": {
-              "src": "/images/card-trusts.png",
+              "src": "/images/service-trust.png",
               "alt": "Trusts service",
               "width": 410,
               "height": 210
@@ -588,7 +588,7 @@
             "label": "SERVICE",
             "title": "Probate",
             "image": {
-              "src": "/images/card-probate.png",
+              "src": "/images/service-probate.png",
               "alt": "Probate service",
               "width": 410,
               "height": 210
@@ -603,7 +603,7 @@
             "label": "SERVICE",
             "title": "Power of Attorney",
             "image": {
-              "src": "/images/card-lpa.png",
+              "src": "/images/service-power-of-attorny.png",
               "alt": "Power of Attorney service",
               "width": 410,
               "height": 210
@@ -648,6 +648,12 @@
           "secondaryCta": {
             "label": "SEE HOW IT WORKS",
             "href": "#journey"
+          },
+          "shieldImage": {
+            "src": "/images/wills-hero-shield.png",
+            "alt": "Duotone shield artwork",
+            "width": 909,
+            "height": 909
           }
         },
         "overview": {
@@ -858,7 +864,7 @@
               "label": "SERVICE",
               "title": "Power of Attorney",
               "image": {
-                "src": "/images/card-lpa.png",
+                "src": "/images/service-power-of-attorny.png",
                 "alt": "Power of Attorney service",
                 "width": 410,
                 "height": 210
@@ -873,7 +879,7 @@
               "label": "SERVICE",
               "title": "Trusts",
               "image": {
-                "src": "/images/card-trusts.png",
+                "src": "/images/service-trust.png",
                 "alt": "Trusts service",
                 "width": 410,
                 "height": 210
@@ -888,7 +894,7 @@
               "label": "SERVICE",
               "title": "Probate",
               "image": {
-                "src": "/images/card-probate.png",
+                "src": "/images/service-probate.png",
                 "alt": "Probate service",
                 "width": 410,
                 "height": 210
@@ -932,6 +938,12 @@
           "secondaryCta": {
             "label": "SEE HOW IT WORKS",
             "href": "#journey"
+          },
+          "shieldImage": {
+            "src": "/images/trust-hero-shield.png",
+            "alt": "Duotone shield artwork",
+            "width": 909,
+            "height": 909
           }
         },
         "overview": {
@@ -1142,7 +1154,7 @@
               "label": "SERVICE",
               "title": "Wills",
               "image": {
-                "src": "/images/card-wills.png",
+                "src": "/images/service-wills.png",
                 "alt": "Wills service",
                 "width": 410,
                 "height": 210
@@ -1157,7 +1169,7 @@
               "label": "SERVICE",
               "title": "Probate",
               "image": {
-                "src": "/images/card-probate.png",
+                "src": "/images/service-probate.png",
                 "alt": "Probate service",
                 "width": 410,
                 "height": 210
@@ -1172,7 +1184,7 @@
               "label": "SERVICE",
               "title": "Power of Attorney",
               "image": {
-                "src": "/images/card-lpa.png",
+                "src": "/images/service-power-of-attorny.png",
                 "alt": "Power of Attorney service",
                 "width": 410,
                 "height": 210
@@ -1216,6 +1228,12 @@
           "secondaryCta": {
             "label": "SEE HOW IT WORKS",
             "href": "#journey"
+          },
+          "shieldImage": {
+            "src": "/images/probate-hero-shield.png",
+            "alt": "Duotone shield artwork",
+            "width": 909,
+            "height": 909
           }
         },
         "overview": {
@@ -1426,7 +1444,7 @@
               "label": "SERVICE",
               "title": "Wills",
               "image": {
-                "src": "/images/card-wills.png",
+                "src": "/images/service-wills.png",
                 "alt": "Wills service",
                 "width": 410,
                 "height": 210
@@ -1441,7 +1459,7 @@
               "label": "SERVICE",
               "title": "Trusts",
               "image": {
-                "src": "/images/card-trusts.png",
+                "src": "/images/service-trust.png",
                 "alt": "Trusts service",
                 "width": 410,
                 "height": 210
@@ -1456,7 +1474,7 @@
               "label": "SERVICE",
               "title": "Power of Attorney",
               "image": {
-                "src": "/images/card-lpa.png",
+                "src": "/images/service-power-of-attorny.png",
                 "alt": "Power of Attorney service",
                 "width": 410,
                 "height": 210
@@ -1500,6 +1518,12 @@
           "secondaryCta": {
             "label": "SEE HOW IT WORKS",
             "href": "#journey"
+          },
+          "shieldImage": {
+            "src": "/images/power-of-attorney-hero-shield.png",
+            "alt": "Duotone shield artwork",
+            "width": 909,
+            "height": 909
           }
         },
         "overview": {
@@ -1710,7 +1734,7 @@
               "label": "SERVICE",
               "title": "Wills",
               "image": {
-                "src": "/images/card-wills.png",
+                "src": "/images/service-wills.png",
                 "alt": "Wills service",
                 "width": 410,
                 "height": 210
@@ -1725,7 +1749,7 @@
               "label": "SERVICE",
               "title": "Trusts",
               "image": {
-                "src": "/images/card-trusts.png",
+                "src": "/images/service-trust.png",
                 "alt": "Trusts service",
                 "width": 410,
                 "height": 210
@@ -1740,7 +1764,7 @@
               "label": "SERVICE",
               "title": "Probate",
               "image": {
-                "src": "/images/card-probate.png",
+                "src": "/images/service-probate.png",
                 "alt": "Probate service",
                 "width": 410,
                 "height": 210
@@ -1933,7 +1957,7 @@
         "items": [
           {
             "question": "Do I have to pay for the first call?",
-            "answer": ""
+            "answer": "No. Your first call and case assessment are completely free and carry no obligation. We'll review your situation, explain your legal options and outline any likely costs before you decide whether to go ahead."
           },
           {
             "question": "What if I can't afford legal fees?",

@@ -47,8 +47,10 @@ export async function getServicePage(
   if (!page) return null;
   // Merge the shared banner artwork (shield, badge, testimonial, review logos)
   // into each service banner so the content JSON stays free of duplication.
+  // Shared assets come first so a page's own banner can override any of them
+  // (e.g. a page-specific shield image).
   return {
     ...page,
-    banner: { ...page.banner, ...content.site.bannerAssets },
+    banner: { ...content.site.bannerAssets, ...page.banner },
   } as ServicePageContent;
 }
