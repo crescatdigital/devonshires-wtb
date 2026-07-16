@@ -70,7 +70,7 @@ export default async function SiteIndexPage() {
       <main className="bg-ice py-[70px]">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="flex items-center gap-[24px]">
-            <span className="h-px w-[74px] bg-teal" />
+            <span className="hidden h-px w-[74px] bg-teal xl:block" />
             <p className="font-heading text-[18px] font-semibold uppercase tracking-[0.04em] text-teal lg:text-[22px]">
               Site Index
             </p>

@@ -13,7 +13,9 @@ export default function SectionIntro({
   scheme,
   align = "center",
   headingSize = "large",
-  hideMobileLines = false,
+  headingClassName,
+  headingMtClassName,
+  introMtClassName,
 }: {
   eyebrow: string;
   headingLine1: string;
@@ -22,7 +24,12 @@ export default function SectionIntro({
   scheme: Scheme;
   align?: "center" | "left";
   headingSize?: "large" | "medium";
-  hideMobileLines?: boolean;
+  /** Overrides the default responsive heading size/leading classes. */
+  headingClassName?: string;
+  /** Overrides the default heading top margin (mt-[28px]). */
+  headingMtClassName?: string;
+  /** Overrides the default intro paragraph top margin (mt-[50px]). */
+  introMtClassName?: string;
 }) {
   const eyebrowColor = scheme === "dark" ? "text-mint" : "text-teal";
   const headingColor = scheme === "dark" ? "text-white" : "text-deep";
@@ -38,20 +45,20 @@ export default function SectionIntro({
   return (
     <div className={centered ? "text-center" : ""}>
       <div className={`flex items-center gap-[24px] ${centered ? "justify-center" : ""}`}>
-        <span className={`h-px w-[74px] ${lineColor} ${hideMobileLines ? "hidden xl:block" : ""}`} />
+        <span className={`hidden h-px w-[74px] xl:block ${lineColor}`} />
         <p className={`font-heading text-[20px] font-semibold uppercase lg:text-[26px] ${eyebrowColor}`}>
           {eyebrow}
         </p>
-        <span className={`h-px w-[74px] ${lineColor} ${hideMobileLines ? "hidden xl:block" : ""}`} />
+        <span className={`hidden h-px w-[74px] xl:block ${lineColor}`} />
       </div>
-      <h2 className={`mt-[28px] font-heading font-semibold ${headingClass} ${headingColor}`}>
+      <h2 className={`${headingMtClassName ?? "mt-[28px]"} font-heading font-semibold ${headingClassName ?? headingClass} ${headingColor}`}>
         {headingLine1}
         <br />
         <span className={`heading-accent ${accentColor}`}>{headingLine2}</span>
       </h2>
       {intro && (
         <p
-          className={`mx-auto mt-[50px] max-w-[1230px] text-[18px] leading-normal lg:text-[24px] ${introColor} ${centered ? "" : "mx-0"}`}
+          className={`mx-auto ${introMtClassName ?? "mt-[50px]"} max-w-[1230px] text-[18px] leading-normal lg:text-[24px] ${introColor} ${centered ? "" : "mx-0"}`}
         >
           {intro}
         </p>

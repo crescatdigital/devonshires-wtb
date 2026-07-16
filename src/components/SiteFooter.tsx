@@ -13,7 +13,7 @@ function Field({
 }) {
   return (
     <label className="flex flex-col gap-[8px]">
-      <span className="text-[18px] font-bold text-white">
+      <span className="text-[15px] font-bold text-white md:text-[18px]">
         {label}
         {required && <span className="text-[#ff5b45]"> *</span>}
       </span>
@@ -27,24 +27,24 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
   return (
     <footer id="contact">
       <div className="bg-deep py-[52px] lg:pt-[66px] lg:pb-[90px]">
-        <div className="mx-auto flex max-w-[1470px] flex-col justify-center gap-[70px] px-6 lg:flex-row lg:gap-[120px]">
+        <div className="mx-auto flex max-w-[1470px] flex-col justify-center gap-[30px] px-6 md:gap-[70px] lg:flex-row lg:gap-[120px]">
           {/* Get in touch */}
           <div className="pt-[20px]">
-            <h2 className="font-[family-name:var(--font-montserrat)] text-[40px] text-teal">
+            <h2 className="font-[family-name:var(--font-montserrat)] text-[30px] text-teal md:text-[40px]">
               {footer.heading}
             </h2>
-            <div className="mt-[30px] space-y-[6px] text-[24px] leading-[1.6] text-white">
+            <div className="mt-[20px] space-y-[6px] text-[17px] leading-[1.6] text-white md:mt-[30px] md:text-[24px]">
               {footer.addressLines.map((line) => (
                 <p key={line}>{line}</p>
               ))}
             </div>
             <div className="mt-[28px] space-y-[10px] text-[24px] text-white sm:text-[20px]">
-              <p className="flex items-center gap-[12px] text-[24px]">
-                <PhoneIcon className="size-[26px] shrink-0" />
+              <p className="flex items-center gap-[12px] text-[17px] md:text-[24px]">
+                <PhoneIcon className="size-[18px] shrink-0 md:size-[26px]" />
                 <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
               </p>
-              <p className="flex items-start gap-[12px] text-[24px]">
-                <EnvelopeIcon className="mt-[3px] size-[26px] shrink-0" />
+              <p className="flex items-start gap-[12px] text-[17px] md:text-[24px]">
+                <EnvelopeIcon className="mt-[3px] size-[18px] shrink-0 md:size-[26px]" />
                 <a href={`mailto:${site.email}`} className="min-w-0 break-all">
                   {site.email}
                 </a>
@@ -59,11 +59,11 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
 
           {/* Case evaluation form */}
           <form
-            className="w-full max-w-[680px] bg-deeper p-[35px] lg:p-[45px]"
+            className="-mx-6 w-[calc(100%+48px)] max-w-[680px] bg-deeper px-[24px] pb-[36px] pt-[30px] md:mx-0 md:w-full md:p-[35px] lg:p-[45px]"
             action="#"
             method="post"
           >
-            <h2 className="font-[family-name:var(--font-montserrat)] text-[40px] text-white">
+            <h2 className="font-[family-name:var(--font-montserrat)] text-[26px] text-white md:text-[40px]">
               {footer.form.heading}
             </h2>
             <div className="mt-[28px] grid grid-cols-1 gap-[20px] sm:grid-cols-3">
@@ -72,7 +72,7 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
                   type="text"
                   name="firstName"
                   placeholder="First name"
-                  className="h-[42px] rounded-[4px] bg-white px-[12px] text-[18px] text-deep placeholder:text-deep/50 focus:outline-none"
+                  className="h-[44px] rounded-[4px] bg-white px-[14px] text-[16px] text-deep placeholder:text-deep/50 focus:outline-none md:h-[42px] md:px-[12px] md:text-[18px]"
                 />
               </Field>
               <Field label="Last Name" required>
@@ -80,7 +80,7 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
                   type="text"
                   name="lastName"
                   placeholder="Last name"
-                  className="h-[42px] rounded-[4px] bg-white px-[12px] text-[18px] text-deep placeholder:text-deep/50 focus:outline-none"
+                  className="h-[44px] rounded-[4px] bg-white px-[14px] text-[16px] text-deep placeholder:text-deep/50 focus:outline-none md:h-[42px] md:px-[12px] md:text-[18px]"
                 />
               </Field>
               <Field label="Email" required>
@@ -88,7 +88,7 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="h-[42px] rounded-[4px] bg-white px-[12px] text-[18px] text-deep placeholder:text-deep/50 focus:outline-none"
+                  className="h-[44px] rounded-[4px] bg-white px-[14px] text-[16px] text-deep placeholder:text-deep/50 focus:outline-none md:h-[42px] md:px-[12px] md:text-[18px]"
                 />
               </Field>
             </div>
@@ -98,13 +98,13 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
                   type="tel"
                   name="contactNumber"
                   placeholder="Contact number"
-                  className="h-[42px] rounded-[4px] bg-white px-[12px] text-[18px] text-deep placeholder:text-deep/50 focus:outline-none"
+                  className="h-[44px] rounded-[4px] bg-white px-[14px] text-[16px] text-deep placeholder:text-deep/50 focus:outline-none md:h-[42px] md:px-[12px] md:text-[18px]"
                 />
               </Field>
               <Field label="Best time to contact you:">
                 <select
                   name="bestTime"
-                  className="h-[42px] rounded-[4px] bg-white px-[10px] text-[18px] text-deep focus:outline-none"
+                  className="h-[44px] rounded-[4px] bg-white px-[10px] text-[16px] text-deep focus:outline-none md:h-[42px] md:text-[18px]"
                 >
                   {footer.form.bestTimeOptions.map((option) => (
                     <option key={option}>{option}</option>
@@ -112,7 +112,7 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
                 </select>
               </Field>
             </div>
-            <p className="mt-[22px] text-[18px] font-bold text-white">Recaptcha</p>
+            <p className="mt-[22px] text-[15px] font-bold text-white md:text-[18px]">Recaptcha</p>
             {/* Placeholder for the reCAPTCHA widget wired up with the real CMS/backend */}
             <div className="mt-[10px] flex h-[74px] w-[256px] items-center justify-between rounded-[3px] border border-[#d3d3d3] bg-[#f9f9f9] px-[12px]">
               <span className="flex items-center gap-[10px]">
@@ -130,11 +130,11 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
             </div>
             <button
               type="submit"
-              className="mt-[24px] h-[45px] rounded-[4px] bg-white px-[18px] text-[18px] text-deep hover:bg-white/90"
+              className="mt-[24px] h-[45px] rounded-[4px] bg-white px-[18px] text-[15px] text-deep hover:bg-white/90 md:text-[18px]"
             >
               {footer.form.submitLabel}
             </button>
-            <p className="mt-[18px] text-[18px] leading-[1.8] text-white pl-[20px]">
+            <p className="mt-[18px] text-[15px] leading-[1.8] text-white pl-[20px] md:text-[18px]">
               {footer.form.disclaimer}
             </p>
           </form>
@@ -142,11 +142,11 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
       </div>
 
       {/* Bottom bar */}
-      <div className="bg-[#111111] py-[60px]">
+      <div className="bg-[#111111] py-[40px] md:py-[60px]">
         <div className="mx-auto max-w-[1470px] px-6">
           <div className="flex flex-col items-start justify-between gap-[20px] md:flex-row md:items-center">
-            <p className="text-[18px] text-white">{footer.copyright}</p>
-            <p className="text-[18px]">
+            <p className="mb-[28px] text-[15px] text-white md:mb-0 md:text-[18px]">{footer.copyright}</p>
+            <p className="text-[15px] md:text-[18px]">
               {footer.legalLinks.map((link, i) => (
                 <span key={link.label}>
                   <a
@@ -167,8 +167,8 @@ export default function SiteFooter({ site }: { site: SiteSettings }) {
               ))}
             </div>
           </div>
-          <div className="mt-[70px] flex flex-col items-start justify-between gap-[20px] md:flex-row md:items-center">
-            <p className="text-[18px] text-white">{footer.regulatory}</p>
+          <div className="mt-[40px] flex flex-col items-start justify-between gap-[20px] md:mt-[70px] md:flex-row md:items-center">
+            <p className="text-[15px] text-white md:text-[18px]">{footer.regulatory}</p>
             {/* SRA digital badge placeholder — replace with the official embed */}
             <div className="flex h-[44px] w-[92px] items-center justify-center rounded-[4px] bg-white">
               <span className="text-[11px] font-bold leading-tight text-[#c8102e]">

@@ -57,8 +57,8 @@ export default function Banner({ banner }: { banner: BannerData }) {
             </div>
           </div>
 
-          <p className="text-center font-heading text-[20px] text-mint leading-[100%] lg:text-[26px] xl:text-left">{banner.eyebrow}</p>
-          <h1 className="mt-[20px] text-center font-heading text-[34px] font-semibold leading-[1.12] text-white min-[360px]:text-[40px] sm:text-[52px] lg:text-[72px] xl:mt-[24px] xl:text-[96px] xl:leading-[115px] xl:text-left">
+          <p className="text-center font-heading text-[18px] text-mint leading-[100%] md:text-[20px] lg:text-[26px] xl:text-left">{banner.eyebrow}</p>
+          <h1 className="mt-[12px] text-center font-heading text-[34px] font-semibold leading-[1.12] text-white min-[360px]:text-[40px] sm:text-[52px] md:mt-[20px] lg:text-[72px] xl:mt-[24px] xl:text-[96px] xl:leading-[115px] xl:text-left">
             {banner.headingSegments.map((seg, i) => (
               <span key={i}>
                 {seg.script ? (

@@ -9,7 +9,7 @@ export default function PracticeAreas({
   content: HubPageContent["practiceAreas"];
 }) {
   return (
-    <section id="services" className="bg-ice py-[52px] lg:py-[85px]">
+    <section id="services" className="bg-ice pb-[55px] pt-[30px] lg:py-[85px]">
       <div className="mx-auto max-w-[1810px] px-6">
         <SectionIntro
           scheme="light"
@@ -17,9 +17,10 @@ export default function PracticeAreas({
           headingLine1={content.headingLine1}
           headingLine2={content.headingLine2}
           intro={content.intro}
-          hideMobileLines
+          headingMtClassName="mt-[15px] md:mt-[28px]"
+          introMtClassName="mt-[18px] md:mt-[50px]"
         />
-        <div className="mt-[50px] flex flex-wrap justify-center gap-[20px] lg:mt-[70px]">
+        <div className="mt-[22px] flex flex-wrap justify-center gap-[20px] md:mt-[50px] lg:mt-[70px]">
           {content.cards.map((card) => (
             <article
               key={card.title}
@@ -28,12 +29,14 @@ export default function PracticeAreas({
               } ${
                 card.highlighted
                   ? "border-teal bg-white shadow-[2px_4px_4px_4px_rgba(0,0,0,0.1)] xl:bg-lite"
-                  : "border-deep bg-white"
+                  : "border-teal bg-white xl:border-deep"
               }`}
             >
-              {card.highlighted && (
-                <div className="absolute inset-x-0 top-0 h-[11px] rounded-t-[16px] bg-teal xl:rounded-t-[10px]" />
-              )}
+              <div
+                className={`absolute inset-x-0 top-0 h-[11px] rounded-t-[16px] bg-teal xl:rounded-t-[10px] ${
+                  card.highlighted ? "" : "xl:hidden"
+                }`}
+              />
 
               {/* Mobile header — shield left, numeral + title on the right */}
               <div className="flex gap-[0] xl:hidden">
@@ -46,7 +49,7 @@ export default function PracticeAreas({
                 />
                 <div className="flex min-w-0 flex-1 flex-col">
                   <span
-                    className={`self-end font-numeral text-[56px] leading-none ${
+                    className={`self-end font-numeral text-[45px] leading-none md:text-[56px] ${
                       card.highlighted ? "text-teal" : "text-teal/50"
                     }`}
                   >
@@ -80,19 +83,25 @@ export default function PracticeAreas({
                 <h3 className="hidden font-heading text-[48px] font-semibold leading-[1.3] text-deep xl:mt-[24px] xl:block">
                   {card.title}
                 </h3>
-                <p className="text-[17px] leading-[26px] text-deep xl:mt-[22px] xl:text-[22px] xl:leading-[35px]">
+                <p className="text-[16px] leading-[1.4] text-deep md:text-[17px] md:leading-[26px] xl:mt-[22px] xl:text-[22px] xl:leading-[35px]">
                   {card.description}
                 </p>
-                <ul className="mt-[16px] list-disc ps-[22px] text-[17px] font-semibold leading-[32px] text-deep xl:mt-[22px] xl:text-[22px] xl:font-normal xl:leading-[50px]">
+                <ul className="mt-[16px] list-disc ps-[22px] text-[16px] font-semibold leading-[32px] text-deep md:text-[17px] xl:mt-[22px] xl:text-[22px] xl:font-normal xl:leading-[50px]">
                   {card.bullets.map((bullet) => (
                     <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
 
-                <div className="relative ml-auto mt-[26px] w-fit xl:absolute xl:bottom-[52px] xl:ml-0 xl:mt-auto xl:w-auto xl:pt-[30px]">
+                <div
+                  className={`relative ml-auto w-fit xl:absolute xl:bottom-[52px] xl:ml-0 xl:mt-auto xl:w-auto xl:pt-[30px] ${
+                    card.title === "Trusts" || card.title === "Probate"
+                      ? "mt-[64px]"
+                      : "mt-[26px]"
+                  }`}
+                >
                   <a
                     href={card.link.href}
-                    className={`flex items-center gap-[14px] font-heading text-[20px] font-semibold xl:text-[22px] ${
+                    className={`flex items-center gap-[14px] font-heading text-[18px] font-semibold xl:text-[22px] ${
                       card.highlighted ? "text-flame" : "text-flame xl:text-deep"
                     }`}
                   >
@@ -100,7 +109,7 @@ export default function PracticeAreas({
                     <ArrowRightIcon className="size-[24px]" />
                   </a>
                   <div
-                    className={`mt-[18px] h-[2px] w-full max-w-full xl:w-[200px] ${
+                    className={`mt-[12px] h-[2px] w-full max-w-full md:mt-[18px] xl:w-[200px] ${
                       card.highlighted ? "bg-flame" : "bg-flame xl:bg-teal"
                     }`}
                   />
