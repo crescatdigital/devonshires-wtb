@@ -337,7 +337,7 @@ export function HowItWorks({ content }: { content: LandingPageContent["howItWork
         <h2 className="mb-[50px] text-center font-heading text-[26px] text-white md:mb-0 md:text-[34px] lg:text-[42px]">
           {content.heading}
         </h2>
-        <div className="mt-[28px] grid grid-cols-1 gap-y-[28px] md:mt-[50px] md:grid-cols-3 md:gap-x-0 md:gap-y-[48px] lg:mt-[60px]">
+        <div className="mt-[28px] grid grid-cols-1 gap-y-[50px] md:mt-[50px] md:grid-cols-3 md:gap-x-0 md:gap-y-[48px] lg:mt-[60px]">
           {content.steps.map((step) => (
             <div
               key={step.title}
@@ -360,10 +360,10 @@ export function HowItWorks({ content }: { content: LandingPageContent["howItWork
             </div>
           ))}
         </div>
-        <div className="mt-[28px] flex justify-center md:mt-[44px] lg:mt-[56px]">
+        <div className="mt-0 flex justify-center md:mt-[44px] lg:mt-[56px]">
           <a
             href="#assessment"
-            className="flex h-[48px] items-center justify-center whitespace-nowrap rounded-full bg-flame px-[24px] text-[13px] font-bold uppercase tracking-[0.02em] text-white md:h-[60px] md:whitespace-normal md:px-[40px] md:text-[16px] lg:h-[64px] lg:text-[20px]"
+            className="mt-[45px] mb-[25px] flex h-[48px] items-center justify-center whitespace-nowrap rounded-full bg-flame px-[24px] text-[13px] font-bold uppercase tracking-[0.02em] text-white md:mt-0 md:mb-0 md:h-[60px] md:whitespace-normal md:px-[40px] md:text-[16px] lg:h-[64px] lg:text-[20px]"
           >
             Request Your Free Case Assessment
           </a>
@@ -377,7 +377,7 @@ export function HowItWorks({ content }: { content: LandingPageContent["howItWork
 
 export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGet"] }) {
   return (
-    <section className="relative overflow-hidden bg-ice py-[48px] lg:py-[70px]">
+    <section className="relative overflow-hidden bg-ice pt-[40px] pb-[25px] md:py-[48px] lg:py-[70px]">
       {/* Mint background panel behind the shield (desktop) */}
       <div aria-hidden className="absolute inset-y-0 right-0 hidden w-[380px] bg-mint lg:block" />
       {/* Duotone shield (desktop) */}
@@ -396,17 +396,17 @@ export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGe
             <span className="underline decoration-2 underline-offset-[6px] text-deep">{content.headingAccent}</span>
             {content.headingAfter}
           </h2>
-          <ul className="mt-[36px] lg:mt-[44px] ml-[25px]">
+          <ul className="mt-[36px] lg:mt-[44px] ml-0 md:ml-[25px]">
             {content.items.map((item, i) => (
               <li
                 key={item}
-                className={`flex items-center gap-[20px] border-t border-teal/60 py-[16px] text-[20px] text-deep lg:gap-[22px] lg:py-[18px] lg:text-[28px] ${
+                className={`flex items-start gap-[16px] border-t border-teal/60 py-[16px] text-[18px] leading-[1.4] text-deep md:items-center md:gap-[20px] md:text-[20px] md:leading-normal lg:gap-[22px] lg:py-[18px] lg:text-[28px] ${
                   i === content.items.length - 1 ? "border-b" : ""
                 }`}
               >
                 <svg
                   viewBox="0 0 30 30"
-                  className="size-[48px] shrink-0 lg:size-[64px]"
+                  className="mt-[2px] size-[36px] shrink-0 md:mt-0 md:size-[48px] lg:size-[64px]"
                   fill="none"
                   aria-hidden
                 >
@@ -458,18 +458,18 @@ export function SplitSection({ content }: { content: LandingPageContent["split"]
       <div className="relative mx-auto max-w-[1623px] px-6">
         {/* Two-tone heading pill */}
         <div className="flex justify-center">
-          <div className="inline-flex overflow-hidden rounded-[30px] font-heading text-[22px] leading-[1.15] lg:text-[42px]">
-            <span className="bg-deep px-[30px] py-[11px] text-mint lg:pb-[18px] lg:pl-[80px] lg:pr-[15px] lg:pt-[13px]">
+          <div className="inline-flex overflow-hidden rounded-[30px] font-heading text-[20px] leading-[1.15] md:text-[22px] lg:text-[42px]">
+            <span className="bg-deep pl-[25px] pr-[16px] pt-[11px] pb-[14px] text-mint md:px-[30px] md:py-[11px] lg:pb-[18px] lg:pl-[80px] lg:pr-[15px] lg:pt-[13px]">
               {content.heading}
             </span>
-            <span className="bg-mint px-[30px] py-[11px] text-deep lg:pb-[16px] lg:pl-[15px] lg:pr-[80px] lg:pt-[14px]">
+            <span className="bg-mint pl-[16px] pr-[25px] pt-[11px] pb-[14px] text-deep md:px-[30px] md:py-[11px] lg:pb-[16px] lg:pl-[15px] lg:pr-[80px] lg:pt-[14px]">
               {content.headingHighlight}
             </span>
           </div>
         </div>
 
         {/* Cards */}
-        <div className="mt-[64px] grid grid-cols-1 items-stretch gap-[64px] lg:mt-[120px] lg:grid-cols-2 lg:gap-[111px]">
+        <div className="mt-[90px] grid grid-cols-1 items-stretch gap-[90px] md:mt-[64px] md:gap-[64px] lg:mt-[120px] lg:grid-cols-2 lg:gap-[111px]">
           {/* Left — bullet list */}
           <div className="relative rounded-[30px] border-5 border-white bg-deep px-[36px] pb-[44px] pt-[70px] lg:px-[90px] lg:pb-[60px] lg:pt-[90px]">
             <span className="absolute -top-[60px] left-1/2 flex size-[110px] -translate-x-1/2 items-center justify-center rounded-full border-[7px] border-deep bg-mint text-deep lg:-top-[75px] lg:size-[150px] lg:border-[10px]">
@@ -514,7 +514,7 @@ export function SplitSection({ content }: { content: LandingPageContent["split"]
         <div className="mt-[44px] flex justify-center lg:mt-[70px]">
           <a
             href={content.cta.href}
-            className="flex h-[56px] items-center justify-center rounded-full border-3 border-white bg-flame px-[36px] text-center text-[13px] font-semibold uppercase tracking-[0.02em] text-white lg:h-[64px] lg:px-[44px] lg:text-[20px]"
+            className="flex min-h-[56px] items-center justify-center rounded-full border-3 border-white bg-flame px-[36px] py-[8px] text-center text-[13px] font-semibold uppercase tracking-[0.02em] text-white md:h-[56px] md:min-h-0 md:py-0 lg:h-[64px] lg:px-[44px] lg:text-[20px]"
           >
             {content.cta.label}
           </a>

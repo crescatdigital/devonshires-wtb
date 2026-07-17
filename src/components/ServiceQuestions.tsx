@@ -14,8 +14,8 @@ export default function ServiceQuestions({
   return (
     <section className="bg-lite py-[52px] lg:py-[40px]">
       <div className="mx-auto max-w-[1484px] px-6">
-        <div className="rounded-[24px] bg-deep px-[40px] pt-[30px] pb-[50px] lg:px-[110px]">
-          <h2 className="text-center font-heading text-[34px] font-normal text-white lg:text-[42px]">
+        <div className="rounded-[24px] bg-deep px-[24px] pt-[30px] pb-[50px] md:px-[40px] lg:px-[110px]">
+          <h2 className="text-center font-heading text-[28px] font-normal text-white md:text-[34px] lg:text-[42px]">
             {content.heading}
           </h2>
           <div className="mt-[30px]">
@@ -33,10 +33,10 @@ export default function ServiceQuestions({
                     <span className="font-heading text-[18px] font-semibold text-lite lg:text-[24px]">
                       {item.question}
                     </span>
-                    <ChevronCircleIcon className="size-[54px] shrink-0 lg:size-[60px]" open={isOpen} />
+                    <ChevronCircleIcon className="size-[40px] shrink-0 md:size-[54px] lg:size-[60px]" open={isOpen} />
                   </button>
                   {isOpen && hasAnswer && (
-                    <p className="pb-[26px] pr-[60px] text-[16px] leading-[30px] text-white/90 lg:text-[18px]">
+                    <p className="pb-[26px] pr-0 text-[16px] leading-[30px] text-white/90 md:pr-[60px] lg:text-[18px]">
                       {item.answer}
                     </p>
                   )}
@@ -45,9 +45,9 @@ export default function ServiceQuestions({
             })}
           </div>
         </div>
-        <p className="mt-[36px] text-center font-heading text-[26px] text-deep">
+        <p className="mt-[25px] text-center font-heading text-[18px] text-deep md:mt-[36px] md:text-[26px]">
           {content.stillUnsureText}
-          <a href="#assessment" className="text-flame font-semibold underline">
+          <a href="#assessment" className="block md:inline text-flame font-semibold underline">
             {content.stillUnsureLink}
           </a>
         </p>
