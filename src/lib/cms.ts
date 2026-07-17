@@ -25,6 +25,7 @@ export type ServiceSlug = keyof ServicePages;
 /** Fetch every global row keyed by `key`, or null on any failure. */
 async function fetchGlobals(): Promise<Record<string, unknown> | null> {
   try {
+    if (!supabaseRead) return null;
     const { data, error } = await supabaseRead.from("globals").select("key,data");
     if (error || !data) return null;
     return Object.fromEntries(data.map((r) => [r.key, r.data]));
@@ -36,6 +37,7 @@ async function fetchGlobals(): Promise<Record<string, unknown> | null> {
 /** Fetch a page's sections keyed by `section_key`, or null on any failure. */
 async function fetchSections(pageKey: string): Promise<Record<string, unknown> | null> {
   try {
+    if (!supabaseRead) return null;
     const { data, error } = await supabaseRead
       .from("page_sections")
       .select("section_key,data")
@@ -50,6 +52,7 @@ async function fetchSections(pageKey: string): Promise<Record<string, unknown> |
 /** Fetch a single global's `data`, or null on any failure. */
 async function fetchGlobal(key: string): Promise<unknown | null> {
   try {
+    if (!supabaseRead) return null;
     const { data, error } = await supabaseRead
       .from("globals")
       .select("data")
@@ -114,6 +117,7 @@ export type PageSeo = { metaTitle: string; metaDescription: string; ogImage: str
 /** Editable per-page SEO. Returns null if unset (caller falls back to defaults). */
 export async function getPageSeo(refKey: string): Promise<PageSeo | null> {
   try {
+    if (!supabaseRead) return null;
     const { data } = await supabaseRead
       .from("seo")
       .select("meta_title,meta_description,og_image")
