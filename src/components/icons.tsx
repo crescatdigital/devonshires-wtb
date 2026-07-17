@@ -140,21 +140,21 @@ export function SocialIcon({ network, href }: { network: string; href: string })
       aria-label={style.label}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex size-[30px] items-center justify-center rounded-full text-white"
+      className="flex size-[40px] items-center justify-center rounded-full text-white"
       style={{ backgroundColor: style.bg }}
     >
       {network === "facebook" && (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="size-[16px]" aria-hidden>
+        <svg viewBox="0 0 24 24" fill="currentColor" className="size-[22px]" aria-hidden>
           <path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.87.24-1.46 1.49-1.46h1.4V5.03c-.28-.04-1.22-.12-2.32-.12-2.3 0-3.87 1.4-3.87 3.98V11H8v3h2.19v7h3.31Z" />
         </svg>
       )}
       {network === "youtube" && (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="size-[16px]" aria-hidden>
+        <svg viewBox="0 0 24 24" fill="currentColor" className="size-[22px]" aria-hidden>
           <path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26.2 26.2 0 0 0 2 12c0 1.62.13 3.24.4 4.8a2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77c.27-1.56.4-3.18.4-4.8 0-1.62-.13-3.24-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" />
         </svg>
       )}
       {network === "linkedin" && (
-        <svg viewBox="0 0 24 24" fill="currentColor" className="size-[15px]" aria-hidden>
+        <svg viewBox="0 0 24 24" fill="currentColor" className="size-[22px]" aria-hidden>
           <path d="M6.94 8.5H3.56V20.4h3.38V8.5ZM5.25 3.5a1.96 1.96 0 1 0 0 3.92 1.96 1.96 0 0 0 0-3.92ZM13 10.14V8.5H9.7V20.4h3.38v-6.27c0-1.42.66-2.27 1.93-2.27 1.17 0 1.73.82 1.73 2.27v6.27h3.5v-7.04c0-3.04-1.72-4.5-4.13-4.5A3.96 3.96 0 0 0 13 10.14Z" />
         </svg>
       )}
