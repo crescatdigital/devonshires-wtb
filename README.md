@@ -68,13 +68,36 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Content / CMS
 
-All page content lives in [`src/content/site-content.json`](src/content/site-content.json)
-and is accessed exclusively through [`src/lib/cms.ts`](src/lib/cms.ts).
+Page content is served from a **Supabase** database and edited through the admin
+panel at [`/admin`](http://localhost:3000/admin). All reads go through
+[`src/lib/cms.ts`](src/lib/cms.ts), which queries Supabase and falls back to the
+bundled [`src/content/site-content.json`](src/content/site-content.json) if the
+database is unreachable or the env vars are unset — so the site never breaks.
 
-When the Supabase CMS is ready:
+### Setup
 
-1. Copy `.env.example` to `.env.local` and fill in the Supabase URL and anon key.
-2. Replace the function bodies in `src/lib/cms.ts` with Supabase queries.
+1. Copy `.env.example` to `.env.local` and fill in `NEXT_PUBLIC_SUPABASE_URL` and
+   `NEXT_PUBLIC_SUPABASE_ANON_KEY` (add `SUPABASE_SERVICE_ROLE_KEY` +
+   `SUPABASE_DB_*` only to run the seed scripts locally).
+2. Provision the schema and seed content:
+   ```bash
+   node scripts/migrate.cjs   # creates tables + RLS (idempotent)
+   node scripts/seed.cjs      # loads site-content.json → Supabase, creates the admin user + media bucket
+   ```
+3. `npm run dev`, then sign in at `/admin`.
 
-No page or component imports the JSON file directly, so the swap is contained
-to that one module.
+### Structure
+
+- `globals` — shared settings/sections (header, footer, socials, banner assets, mega menu).
+- `page_sections` — one row per section of each page (`home`, `wills`, `trusts`,
+  `probate`, `power-of-attorney`, `free-case-assessment`).
+- `seo` — per-page meta title/description.
+
+The static JSON remains only as a fallback. No page or component imports it
+directly — everything flows through `cms.ts`.
+
+### Deploying (Vercel)
+
+Set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in the project's
+environment variables (Production + Preview). Do **not** add the service-role or
+`SUPABASE_DB_*` values — they're only used by the local seed scripts.
