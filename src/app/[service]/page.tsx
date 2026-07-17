@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {
+  getPageSeo,
   getServicePage,
   getServicesGrid,
   getServiceSlugs,
@@ -29,6 +30,8 @@ export async function generateMetadata({
   params: Promise<{ service: string }>;
 }): Promise<Metadata> {
   const { service } = await params;
+  const seo = await getPageSeo(service);
+  if (seo) return { title: seo.metaTitle, description: seo.metaDescription };
   const page = await getServicePage(service as ServiceSlug);
   if (!page) return {};
   const title = page.overview.headingAccent;

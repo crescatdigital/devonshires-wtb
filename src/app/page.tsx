@@ -1,4 +1,5 @@
-import { getHubPage, getSiteSettings } from "@/lib/cms";
+import type { Metadata } from "next";
+import { getHubPage, getPageSeo, getSiteSettings } from "@/lib/cms";
 import SiteHeader from "@/components/SiteHeader";
 import Banner from "@/components/Banner";
 import PracticeAreas from "@/components/PracticeAreas";
@@ -7,6 +8,12 @@ import WhyUs from "@/components/WhyUs";
 import FaqSection from "@/components/FaqSection";
 import ServicesGrid from "@/components/ServicesGrid";
 import SiteFooter from "@/components/SiteFooter";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo("home");
+  if (!seo) return {};
+  return { title: seo.metaTitle, description: seo.metaDescription };
+}
 
 export default async function Home() {
   const [site, hub] = await Promise.all([getSiteSettings(), getHubPage()]);

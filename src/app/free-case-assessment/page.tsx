@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getLandingPage, getSiteSettings } from "@/lib/cms";
+import { getLandingPage, getPageSeo, getSiteSettings } from "@/lib/cms";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ServiceQuestions from "@/components/ServiceQuestions";
@@ -12,11 +12,15 @@ import {
   SplitSection,
 } from "@/components/landing";
 
-export const metadata: Metadata = {
-  title: "Free Case Assessment | Wills, Trusts & Probate | Devonshires Claims",
-  description:
-    "Specialist Wills, Trusts & Probate solicitors. Request a free, no-obligation case assessment — we review your situation, explain your options and outline costs before you decide.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await getPageSeo("free-case-assessment");
+  if (seo) return { title: seo.metaTitle, description: seo.metaDescription };
+  return {
+    title: "Free Case Assessment | Wills, Trusts & Probate | Devonshires Claims",
+    description:
+      "Specialist Wills, Trusts & Probate solicitors. Request a free, no-obligation case assessment — we review your situation, explain your options and outline costs before you decide.",
+  };
+}
 
 export default async function LandingPage() {
   const [site, page] = await Promise.all([getSiteSettings(), getLandingPage()]);
