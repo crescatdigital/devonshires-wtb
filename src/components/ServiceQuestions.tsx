@@ -28,7 +28,7 @@ export default function ServiceQuestions({
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between gap-6 py-[14px] text-left"
+                    className="flex w-full cursor-pointer items-center justify-between gap-6 py-[14px] text-left"
                   >
                     <span className="font-heading text-[18px] font-semibold text-lite lg:text-[24px]">
                       {item.question}

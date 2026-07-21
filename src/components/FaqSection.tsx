@@ -122,7 +122,7 @@ export default function FaqSection({
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-6 py-[16px] text-left md:py-[30px]"
+                  className="flex w-full cursor-pointer items-center justify-between gap-6 py-[16px] text-left md:py-[30px]"
                 >
                   <span className={`max-w-[672px] font-heading text-[20px] font-semibold leading-normal lg:text-[24px] ${headingColor}`}>
                     {item.question}
