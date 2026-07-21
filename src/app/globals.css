@@ -55,3 +55,60 @@ body {
   font-weight: 350;
   font-style: italic;
 }
+
+/*
+ * Flame CTA buttons invert on hover: white fill, flame text + border.
+ * Scoped to <a>/<button> so the flame underline bar (a plain div) is untouched.
+ * box-sizing: border-box (Preflight default) keeps the outer size fixed when the
+ * 2px border appears, so there's no layout shift. Unlayered, so it wins over the
+ * Tailwind utility layer (bg-flame / text-white / etc.).
+ */
+a.bg-flame,
+button.bg-flame {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+/*
+ * Reserve a transparent 2px border by default so the hover border only changes
+ * colour (never width) — otherwise the border-box content shifts and the button
+ * "flicks". The split-section CTA already has its own border, so skip it.
+ */
+a.bg-flame:not(.border-white),
+button.bg-flame:not(.border-white) {
+  border: 2px solid transparent;
+}
+a.bg-flame:hover,
+button.bg-flame:hover {
+  background-color: #ffffff;
+  color: var(--flame);
+  border-color: var(--flame);
+}
+
+/*
+ * Flame OUTLINE buttons (flame border, transparent fill, white text — e.g. the
+ * "SEE HOW IT WORKS" / "EXPLORE SERVICES" secondary CTA) fill white on hover.
+ * Text goes flame so it stays legible; the flame border is kept.
+ */
+a.border-flame {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+a.border-flame:hover {
+  background-color: #ffffff;
+  color: var(--flame);
+}
+
+/*
+ * Underline links on hover across the site. Excludes:
+ *  - the header/navigation area (nav links, mega-menu, header CTAs, logo),
+ *  - the flame pill CTA buttons (they have their own hover),
+ *  - the admin app (.cms), where links wrap whole cards/rows.
+ */
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+header a:hover,
+a.bg-flame:hover,
+a.border-flame:hover,
+.cms a:hover {
+  text-decoration: none;
+}

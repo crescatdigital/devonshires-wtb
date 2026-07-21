@@ -24,19 +24,11 @@ export default function PracticeAreas({
           {content.cards.map((card) => (
             <article
               key={card.title}
-              className={`relative w-full max-w-[410px] flex-col rounded-[16px] border-2 p-[20px] xl:rounded-[10px] xl:p-[25px_10px_0_10px] ${
+              className={`group relative w-full max-w-[410px] flex-col rounded-[16px] border-2 border-teal bg-white p-[20px] transition-all duration-200 xl:rounded-[10px] xl:border-deep xl:p-[25px_10px_0_10px] xl:hover:border-teal xl:hover:bg-lite xl:hover:shadow-[2px_4px_4px_4px_rgba(0,0,0,0.1)] ${
                 card.title === "Power of Attorney" ? "hidden xl:flex" : "flex"
-              } ${
-                card.highlighted
-                  ? "border-teal bg-white shadow-[2px_4px_4px_4px_rgba(0,0,0,0.1)] xl:bg-lite"
-                  : "border-teal bg-white xl:border-deep"
               }`}
             >
-              <div
-                className={`absolute inset-x-0 top-0 h-[11px] rounded-t-[16px] bg-teal xl:rounded-t-[10px] ${
-                  card.highlighted ? "" : "xl:hidden"
-                }`}
-              />
+              <div className="absolute inset-x-0 top-0 h-[11px] rounded-t-[16px] bg-teal transition-opacity duration-200 xl:rounded-t-[10px] xl:opacity-0 xl:group-hover:opacity-100" />
 
               {/* Mobile header — shield left, numeral + title on the right */}
               <div className="flex gap-[0] xl:hidden">
@@ -48,11 +40,7 @@ export default function PracticeAreas({
                   className="size-[140px] shrink-0 object-cover"
                 />
                 <div className="flex min-w-0 flex-1 flex-col">
-                  <span
-                    className={`self-end font-numeral text-[45px] leading-none md:text-[56px] ${
-                      card.highlighted ? "text-teal" : "text-teal/50"
-                    }`}
-                  >
+                  <span className="self-end font-numeral text-[45px] leading-none text-teal/50 md:text-[56px]">
                     {card.numeral}
                   </span>
                   <h3 className="mt-auto font-heading text-[36px] font-semibold leading-[1.1] text-deep">
@@ -70,11 +58,7 @@ export default function PracticeAreas({
                   height={card.image.height}
                   className="size-[210px] object-cover"
                 />
-                <span
-                  className={`font-numeral text-[86px] leading-none ${
-                    card.highlighted ? "text-teal" : "text-teal/50"
-                  }`}
-                >
+                <span className="font-numeral text-[86px] leading-none text-teal/50 transition-colors duration-200 group-hover:text-teal">
                   {card.numeral}
                 </span>
               </div>
@@ -101,18 +85,12 @@ export default function PracticeAreas({
                 >
                   <a
                     href={card.link.href}
-                    className={`flex items-center gap-[14px] font-heading text-[18px] font-semibold xl:text-[22px] ${
-                      card.highlighted ? "text-flame" : "text-flame xl:text-deep"
-                    }`}
+                    className="flex items-center gap-[14px] font-heading text-[18px] font-semibold text-flame transition-colors duration-200 xl:text-[22px] xl:text-deep xl:group-hover:text-flame"
                   >
                     {card.link.label}
                     <ArrowRightIcon className="size-[24px]" />
                   </a>
-                  <div
-                    className={`mt-[12px] h-[2px] w-full max-w-full md:mt-[18px] xl:w-[200px] ${
-                      card.highlighted ? "bg-flame" : "bg-flame xl:bg-teal"
-                    }`}
-                  />
+                  <div className="mt-[12px] h-[2px] w-full max-w-full bg-flame transition-colors duration-200 md:mt-[18px] xl:w-[200px] xl:bg-teal xl:group-hover:bg-flame" />
                 </div>
               </div>
             </article>

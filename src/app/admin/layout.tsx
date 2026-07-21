@@ -8,5 +8,5 @@ const inter = Inter({
 });
 
 export default function AdminRootLayout({ children }: { children: React.ReactNode }) {
-  return <div className={inter.className}>{children}</div>;
+  return <div className={`cms ${inter.className}`}>{children}</div>;
 }
