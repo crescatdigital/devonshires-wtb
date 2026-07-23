@@ -1,11 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useState } from "react";
 import Image from "next/image";
 import type { HubPageContent } from "@/lib/cms";
+import { submitLead, type LeadFormState } from "@/app/actions/leads";
 import { ArrowRightIcon, ChevronCircleIcon } from "./icons";
 
 export type FaqData = HubPageContent["faq"];
+
+const initialLeadState: LeadFormState = { status: "idle", message: "" };
 
 export default function FaqSection({
   content,
@@ -15,6 +18,7 @@ export default function FaqSection({
   variant?: "dark" | "light";
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [leadState, leadAction, leadPending] = useActionState(submitLead, initialLeadState);
   const light = variant === "light";
 
   const sectionBg = light ? "bg-lite" : "bg-deep";
@@ -54,10 +58,17 @@ export default function FaqSection({
           </p>
 
           <form
+            action={leadAction}
             className="mt-[30px] rounded-[10px] border border-mint bg-deeper p-[22px] md:mt-[53px] md:p-[30px] lg:p-[60px]"
-            action="#"
-            method="post"
           >
+            <input type="hidden" name="source" value="faq" />
+            {/* Honeypot — hidden from users, filled only by bots. */}
+            <div aria-hidden className="hidden">
+              <label>
+                Company
+                <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+              </label>
+            </div>
             <div className="flex flex-row items-start gap-[16px] md:flex-col md:items-stretch md:gap-6 lg:flex-row lg:items-start lg:gap-[35px]">
               <Image
                 src="/images/icon-mail-review.svg"
@@ -73,40 +84,62 @@ export default function FaqSection({
             <p className="mt-[16px] text-[16px] leading-[24px] text-white md:mt-[28px] md:text-[22px] md:leading-[35px]">
               {content.formCard.subtitle}
             </p>
-            <div className="mt-[28px] grid grid-cols-2 gap-[14px] md:mt-[40px] md:grid-cols-1 md:gap-[30px] lg:grid-cols-2">
-              <input
-                type="text"
-                name="name"
-                placeholder={content.formCard.placeholders.name}
-                className="h-[35px] rounded-[20px] border-2 border-white bg-mint px-[16px] text-[13px] text-deeper placeholder:text-deeper focus:outline-none md:h-[50px] md:px-[27px] md:text-[16px]"
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder={content.formCard.placeholders.phone}
-                className="h-[35px] rounded-[20px] border-2 border-white bg-mint px-[16px] text-[13px] text-deeper placeholder:text-deeper focus:outline-none md:h-[50px] md:px-[27px] md:text-[16px]"
-              />
-            </div>
-            <input
-              type="email"
-              name="email"
-              placeholder={content.formCard.placeholders.email}
-              className="mt-[16px] h-[35px] w-full rounded-[20px] border-2 border-white bg-mint px-[16px] text-[13px] text-deeper placeholder:text-deeper focus:outline-none md:mt-[30px] md:h-[50px] md:px-[27px] md:text-[16px]"
-            />
-            <textarea
-              name="message"
-              placeholder={content.formCard.placeholders.message}
-              className="mt-[16px] h-[100px] w-full resize-none rounded-[20px] border-2 border-white bg-mint px-[16px] py-[10px] text-[13px] text-deeper placeholder:text-deeper focus:outline-none md:mt-[30px] md:h-[137px] md:px-[27px] md:py-[12px] md:text-[16px]"
-            />
-            <div className="mt-[8px] flex justify-center md:mt-[45px]">
-              <button
-                type="submit"
-                className="flex h-[40px] items-center gap-[12px] rounded-full bg-flame px-[24px] text-[14px] font-semibold text-white md:h-[63px] md:px-[36px] md:text-[20px]"
+
+            {leadState.status === "success" ? (
+              <p
+                aria-live="polite"
+                className="mt-[28px] rounded-[20px] border-2 border-mint bg-mint px-[24px] py-[24px] text-[16px] leading-[1.5] text-deeper md:mt-[40px] md:text-[18px]"
               >
-                {content.formCard.submitLabel}
-                <ArrowRightIcon className="hidden size-[32px] md:block" />
-              </button>
-            </div>
+                {leadState.message}
+              </p>
+            ) : (
+              <>
+                <div className="mt-[28px] grid grid-cols-2 gap-[14px] md:mt-[40px] md:grid-cols-1 md:gap-[30px] lg:grid-cols-2">
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder={content.formCard.placeholders.name}
+                    className="h-[35px] rounded-[20px] border-2 border-white bg-mint px-[16px] text-[13px] text-deeper placeholder:text-deeper focus:outline-none md:h-[50px] md:px-[27px] md:text-[16px]"
+                  />
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder={content.formCard.placeholders.phone}
+                    className="h-[35px] rounded-[20px] border-2 border-white bg-mint px-[16px] text-[13px] text-deeper placeholder:text-deeper focus:outline-none md:h-[50px] md:px-[27px] md:text-[16px]"
+                  />
+                </div>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder={content.formCard.placeholders.email}
+                  className="mt-[16px] h-[35px] w-full rounded-[20px] border-2 border-white bg-mint px-[16px] text-[13px] text-deeper placeholder:text-deeper focus:outline-none md:mt-[30px] md:h-[50px] md:px-[27px] md:text-[16px]"
+                />
+                <textarea
+                  name="message"
+                  placeholder={content.formCard.placeholders.message}
+                  className="mt-[16px] h-[100px] w-full resize-none rounded-[20px] border-2 border-white bg-mint px-[16px] py-[10px] text-[13px] text-deeper placeholder:text-deeper focus:outline-none md:mt-[30px] md:h-[137px] md:px-[27px] md:py-[12px] md:text-[16px]"
+                />
+
+                {leadState.status === "error" && (
+                  <p aria-live="polite" className="mt-[16px] text-center text-[14px] font-semibold text-flame md:text-[16px]">
+                    {leadState.message}
+                  </p>
+                )}
+
+                <div className="mt-[8px] flex justify-center md:mt-[45px]">
+                  <button
+                    type="submit"
+                    disabled={leadPending}
+                    className="flex h-[40px] items-center gap-[12px] rounded-full bg-flame px-[24px] text-[14px] font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60 md:h-[63px] md:px-[36px] md:text-[20px]"
+                  >
+                    {leadPending ? "Sending…" : content.formCard.submitLabel}
+                    <ArrowRightIcon className="hidden size-[32px] md:block" />
+                  </button>
+                </div>
+              </>
+            )}
           </form>
         </div>
 
