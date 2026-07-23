@@ -47,6 +47,27 @@ create table if not exists public.seo (
   updated_at       timestamptz not null default now()
 );
 
+-- Public form submissions ("leads"). One row per website form submission.
+-- The lead is saved here FIRST, then the notification email is attempted, so a
+-- failed email send never loses an enquiry — email_sent/email_error record the
+-- outcome for admin follow-up.
+create table if not exists public.leads (
+  id          uuid primary key default gen_random_uuid(),
+  created_at  timestamptz not null default now(),
+  source      text not null,                         -- 'footer' | 'landing' | 'faq'
+  name        text not null default '',
+  email       text not null default '',
+  phone       text not null default '',
+  message     text not null default '',
+  data        jsonb not null default '{}'::jsonb,    -- full raw payload
+  email_sent  boolean not null default false,
+  email_error text,
+  emailed_at  timestamptz,
+  status      text not null default 'new'            -- 'new' | 'read' | 'archived'
+);
+create index if not exists leads_created_idx on public.leads (created_at desc);
+create index if not exists leads_status_idx  on public.leads (status);
+
 -- ======================= updated_at trigger =======================
 create or replace function public.set_updated_at() returns trigger
 language plpgsql as $$
@@ -68,6 +89,7 @@ alter table public.pages         enable row level security;
 alter table public.page_sections enable row level security;
 alter table public.globals       enable row level security;
 alter table public.seo           enable row level security;
+alter table public.leads         enable row level security;
 
 do $$
 declare t text;
@@ -80,6 +102,16 @@ begin
     -- Only signed-in admins can write.
     execute format('create policy "authenticated write" on public.%I for all to authenticated using (true) with check (true)', t);
   end loop;
+end $$;
+
+-- Leads are private: only signed-in admins may read/manage them. Public form
+-- submissions are inserted server-side with the service-role key, which bypasses
+-- RLS — so no anon policy is needed (and anon can never read other people's leads).
+do $$
+begin
+  drop policy if exists "authenticated all" on public.leads;
+  create policy "authenticated all" on public.leads
+    for all to authenticated using (true) with check (true);
 end $$;
 
 -- ===================== storage (media bucket) =====================
@@ -103,7 +135,7 @@ end $$;
   try {
     await client.query(SQL);
     const { rows } = await client.query(
-      "select table_name from information_schema.tables where table_schema='public' and table_name in ('pages','page_sections','globals','seo') order by table_name"
+      "select table_name from information_schema.tables where table_schema='public' and table_name in ('pages','page_sections','globals','seo','leads') order by table_name"
     );
     console.log("Migration OK. Tables:", rows.map((r) => r.table_name).join(", "));
   } finally {

@@ -7,6 +7,23 @@ export type GlobalRow = { key: string; label: string; position: number; data: Re
 export type SectionRow = { section_key: string; label: string; position: number; data: Record<string, unknown> };
 export type PageRow = { key: string; title: string; slug: string; nav_order: number };
 export type SeoRow = { ref_key: string; meta_title: string; meta_description: string; og_image: string };
+export type LeadRow = {
+  id: string;
+  created_at: string;
+  source: string;
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  data: Record<string, string>;
+  email_sent: boolean;
+  email_error: string | null;
+  emailed_at: string | null;
+  status: string;
+};
+
+const LEAD_COLUMNS =
+  "id,created_at,source,name,email,phone,message,data,email_sent,email_error,emailed_at,status";
 
 export async function getGlobalsList(): Promise<GlobalRow[]> {
   const supabase = await createSupabaseServerClient();
@@ -55,4 +72,29 @@ export async function getSeo(refKey: string): Promise<SeoRow | null> {
     .eq("ref_key", refKey)
     .maybeSingle();
   return (data as SeoRow) ?? null;
+}
+
+export async function getLeads(): Promise<LeadRow[]> {
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase
+    .from("leads")
+    .select(LEAD_COLUMNS)
+    .order("created_at", { ascending: false });
+  return (data as LeadRow[]) ?? [];
+}
+
+export async function getLead(id: string): Promise<LeadRow | null> {
+  const supabase = await createSupabaseServerClient();
+  const { data } = await supabase.from("leads").select(LEAD_COLUMNS).eq("id", id).maybeSingle();
+  return (data as LeadRow) ?? null;
+}
+
+/** Count of leads that haven't been opened yet — for the dashboard/nav badge. */
+export async function getNewLeadCount(): Promise<number> {
+  const supabase = await createSupabaseServerClient();
+  const { count } = await supabase
+    .from("leads")
+    .select("id", { count: "exact", head: true })
+    .eq("status", "new");
+  return count ?? 0;
 }

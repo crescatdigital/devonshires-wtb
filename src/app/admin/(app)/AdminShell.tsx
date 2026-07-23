@@ -9,6 +9,7 @@ type NavGroup = { title: string | null; items: NavItem[] };
 
 const NAV: NavGroup[] = [
   { title: null, items: [{ href: "/admin", label: "Dashboard" }] },
+  { title: "Enquiries", items: [{ href: "/admin/leads", label: "Leads" }] },
   { title: "Global", items: [{ href: "/admin/globals", label: "Global Settings" }] },
   {
     title: "Pages",

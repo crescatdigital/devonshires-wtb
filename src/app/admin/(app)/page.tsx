@@ -1,8 +1,12 @@
 import Link from "next/link";
-import { getGlobalsList, getPagesList } from "@/lib/cms-admin";
+import { getGlobalsList, getNewLeadCount, getPagesList } from "@/lib/cms-admin";
 
 export default async function DashboardPage() {
-  const [globals, pages] = await Promise.all([getGlobalsList(), getPagesList()]);
+  const [globals, pages, newLeads] = await Promise.all([
+    getGlobalsList(),
+    getPagesList(),
+    getNewLeadCount(),
+  ]);
 
   return (
     <div>
@@ -12,6 +16,28 @@ export default async function DashboardPage() {
           Manage the content of the Wills, Trusts &amp; Probate website.
         </p>
       </header>
+
+      <section className="mb-8">
+        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400">Enquiries</h2>
+        <Link
+          href="/admin/leads"
+          className="group flex items-center justify-between rounded-2xl bg-white p-6 ring-1 ring-slate-200 transition hover:ring-slate-900"
+        >
+          <div>
+            <h3 className="text-xl font-semibold text-slate-900">Leads</h3>
+            <p className="mt-1.5 text-base leading-relaxed text-slate-500">
+              Enquiries submitted through the website contact forms.
+            </p>
+          </div>
+          {newLeads > 0 ? (
+            <span className="shrink-0 rounded-full bg-emerald-100 px-3 py-1 text-sm font-semibold text-emerald-800">
+              {newLeads} new
+            </span>
+          ) : (
+            <span className="shrink-0 text-sm font-medium text-slate-400">View all</span>
+          )}
+        </Link>
+      </section>
 
       <section className="mb-8">
         <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-slate-400">Global</h2>
