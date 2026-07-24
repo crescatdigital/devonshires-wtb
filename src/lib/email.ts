@@ -103,15 +103,20 @@ export async function sendLeadNotification(
 
   const sourceLabel = SOURCE_LABELS[lead.source] ?? lead.source;
 
-  // Order the detail rows sensibly, then append any remaining raw fields.
-  const known = ["name", "email", "phone", "message"];
+  // Rows: Name/Email/Phone first, then any extra structured fields (e.g. best
+  // time to contact, help needed with), then the free-text message last. Raw
+  // fields already represented by Name/Email/Phone/Message are skipped so nothing
+  // is duplicated — and forms without a message (footer) get no Message row.
+  const represented = new Set([
+    "name", "firstName", "lastName", "email", "phone", "contactNumber", "message", "situation",
+  ]);
   const ordered: [string, string][] = [
     ["Name", lead.name],
     ["Email", lead.email],
     ["Phone", lead.phone],
   ];
   for (const [key, value] of Object.entries(lead.data)) {
-    if (known.includes(key)) continue;
+    if (represented.has(key)) continue;
     ordered.push([FIELD_LABELS[key] ?? key, value]);
   }
   if (lead.message) ordered.push(["Message", lead.message]);
