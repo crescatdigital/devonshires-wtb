@@ -132,7 +132,7 @@ export default function FaqSection({
                   <button
                     type="submit"
                     disabled={leadPending}
-                    className="flex h-[40px] items-center gap-[12px] rounded-full bg-flame px-[24px] text-[14px] font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60 md:h-[63px] md:px-[36px] md:text-[20px]"
+                    className="flex h-[40px] cursor-pointer items-center gap-[12px] rounded-full bg-flame px-[24px] text-[14px] font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60 md:h-[63px] md:px-[36px] md:text-[20px]"
                   >
                     {leadPending ? "Sending…" : content.formCard.submitLabel}
                     <ArrowRightIcon className="hidden size-[32px] md:block" />

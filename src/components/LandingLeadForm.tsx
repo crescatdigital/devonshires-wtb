@@ -90,7 +90,7 @@ export default function LandingLeadForm({ form }: { form: LandingForm }) {
             <button
               type="submit"
               disabled={pending}
-              className="flex h-[50px] w-full items-center justify-center whitespace-nowrap rounded-full bg-flame px-[16px] text-[12px] font-semibold uppercase tracking-[0.03em] text-white disabled:cursor-not-allowed disabled:opacity-60 md:h-[60px] md:whitespace-normal md:px-0 md:text-[15px] lg:h-[64px] lg:text-[20px]"
+              className="flex h-[50px] w-full cursor-pointer items-center justify-center whitespace-nowrap rounded-full bg-flame px-[16px] text-[12px] font-semibold uppercase tracking-[0.03em] text-white disabled:cursor-not-allowed disabled:opacity-60 md:h-[60px] md:whitespace-normal md:px-0 md:text-[15px] lg:h-[64px] lg:text-[20px]"
             >
               {pending ? "Sending…" : form.submitLabel}
             </button>

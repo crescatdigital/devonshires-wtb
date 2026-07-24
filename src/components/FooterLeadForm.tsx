@@ -138,7 +138,7 @@ export default function FooterLeadForm({ form }: { form: FooterForm }) {
           <button
             type="submit"
             disabled={pending}
-            className="mt-[24px] h-[45px] rounded-[4px] bg-white px-[18px] text-[15px] text-deep hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60 md:text-[18px]"
+            className="mt-[24px] h-[45px] cursor-pointer rounded-[4px] bg-white px-[18px] text-[15px] text-deep hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-60 md:text-[18px]"
           >
             {pending ? "Sending…" : form.submitLabel}
           </button>

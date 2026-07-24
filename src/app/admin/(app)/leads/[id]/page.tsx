@@ -40,7 +40,11 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
   const lead = await getLead(id);
   if (!lead) notFound();
 
-  const entries = Object.entries(lead.data ?? {});
+  // Name / Phone / Email are shown first from the normalized columns; skip the
+  // raw fields they're derived from so nothing is displayed twice. Everything
+  // else (help needed with, situation, best time, message, …) follows after.
+  const REPRESENTED = new Set(["name", "firstName", "lastName", "phone", "contactNumber", "email"]);
+  const otherEntries = Object.entries(lead.data ?? {}).filter(([key]) => !REPRESENTED.has(key));
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -62,15 +66,10 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
         <section className="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
           <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">Submission</h2>
           <dl className="space-y-3.5">
-            {/* Contact quick-links */}
-            {lead.email && (
+            {lead.name && (
               <div className="flex flex-col gap-0.5">
-                <dt className="text-xs font-semibold uppercase tracking-wider text-slate-400">Email</dt>
-                <dd className="text-base text-slate-900">
-                  <a href={`mailto:${lead.email}`} className="text-slate-900 underline decoration-slate-300 hover:decoration-slate-900">
-                    {lead.email}
-                  </a>
-                </dd>
+                <dt className="text-xs font-semibold uppercase tracking-wider text-slate-400">Name</dt>
+                <dd className="text-base text-slate-900">{lead.name}</dd>
               </div>
             )}
             {lead.phone && (
@@ -83,9 +82,19 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
                 </dd>
               </div>
             )}
+            {lead.email && (
+              <div className="flex flex-col gap-0.5">
+                <dt className="text-xs font-semibold uppercase tracking-wider text-slate-400">Email</dt>
+                <dd className="text-base text-slate-900">
+                  <a href={`mailto:${lead.email}`} className="text-slate-900 underline decoration-slate-300 hover:decoration-slate-900">
+                    {lead.email}
+                  </a>
+                </dd>
+              </div>
+            )}
 
-            {/* Every raw submitted field */}
-            {entries.map(([key, value]) => (
+            {/* Remaining submitted fields (help needed with, situation, etc.) */}
+            {otherEntries.map(([key, value]) => (
               <div key={key} className="flex flex-col gap-0.5">
                 <dt className="text-xs font-semibold uppercase tracking-wider text-slate-400">
                   {FIELD_LABELS[key] ?? key}
