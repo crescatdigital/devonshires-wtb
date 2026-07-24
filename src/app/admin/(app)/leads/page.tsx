@@ -68,8 +68,8 @@ export default async function LeadsPage() {
       ) : (
         <div className="overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200">
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[760px] text-left text-sm">
-              <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wider text-slate-500">
+            <table className="w-full min-w-[760px] text-left text-[16px]">
+              <thead className="border-b border-slate-200 bg-slate-50 text-[14px] uppercase tracking-wider text-slate-500">
                 <tr>
                   <th className="px-5 py-3 font-semibold">Received</th>
                   <th className="px-5 py-3 font-semibold">Source</th>
