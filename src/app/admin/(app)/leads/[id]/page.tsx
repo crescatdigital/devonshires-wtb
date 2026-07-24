@@ -68,13 +68,13 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
           <dl className="space-y-3.5">
             {lead.name && (
               <div className="flex flex-col gap-0.5">
-                <dt className="text-xs font-semibold uppercase tracking-wider text-slate-400">Name</dt>
+                <dt className="text-sm font-semibold uppercase tracking-wider text-slate-400">Name</dt>
                 <dd className="text-base text-slate-900">{lead.name}</dd>
               </div>
             )}
             {lead.phone && (
               <div className="flex flex-col gap-0.5">
-                <dt className="text-xs font-semibold uppercase tracking-wider text-slate-400">Phone</dt>
+                <dt className="text-sm font-semibold uppercase tracking-wider text-slate-400">Phone</dt>
                 <dd className="text-base text-slate-900">
                   <a href={`tel:${lead.phone.replace(/\s/g, "")}`} className="text-slate-900 underline decoration-slate-300 hover:decoration-slate-900">
                     {lead.phone}
@@ -84,7 +84,7 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
             )}
             {lead.email && (
               <div className="flex flex-col gap-0.5">
-                <dt className="text-xs font-semibold uppercase tracking-wider text-slate-400">Email</dt>
+                <dt className="text-sm font-semibold uppercase tracking-wider text-slate-400">Email</dt>
                 <dd className="text-base text-slate-900">
                   <a href={`mailto:${lead.email}`} className="text-slate-900 underline decoration-slate-300 hover:decoration-slate-900">
                     {lead.email}
@@ -96,7 +96,7 @@ export default async function LeadDetailPage({ params }: { params: Promise<{ id:
             {/* Remaining submitted fields (help needed with, situation, etc.) */}
             {otherEntries.map(([key, value]) => (
               <div key={key} className="flex flex-col gap-0.5">
-                <dt className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                <dt className="text-sm font-semibold uppercase tracking-wider text-slate-400">
                   {FIELD_LABELS[key] ?? key}
                 </dt>
                 <dd className="whitespace-pre-wrap text-base text-slate-900">{value}</dd>
