@@ -34,24 +34,20 @@ function collectFields(formData: FormData): Record<string, string> {
   return out;
 }
 
-/** Derive the normalized name/phone/message columns from the raw fields. */
-function normalize(source: string, fields: Record<string, string>) {
+/**
+ * Derive the normalized name/phone/message columns from the raw fields.
+ * `message` is ONLY the free-text message/situation field. The footer form has
+ * neither, so its message stays empty and no Message row is shown for footer
+ * enquiries. Other structured fields (bestTime, helpWith) are preserved in
+ * `data` and rendered as their own labelled rows in the email.
+ */
+function normalize(fields: Record<string, string>) {
   const name =
     fields.name ||
     [fields.firstName, fields.lastName].filter(Boolean).join(" ").trim();
   const phone = fields.phone || fields.contactNumber || "";
   const email = fields.email || "";
-
-  let message = fields.message || fields.situation || "";
-  if (source === "footer" && fields.bestTime) {
-    message = message
-      ? `${message}\nBest time to contact: ${fields.bestTime}`
-      : `Best time to contact: ${fields.bestTime}`;
-  }
-  if (source === "landing" && fields.helpWith) {
-    message = `Help needed with: ${fields.helpWith}${message ? `\n\n${message}` : ""}`;
-  }
-
+  const message = fields.message || fields.situation || "";
   return { name, email, phone, message };
 }
 
@@ -70,7 +66,7 @@ export async function submitLead(
   }
 
   const fields = collectFields(formData);
-  const { name, email, phone, message } = normalize(safeSource, fields);
+  const { name, email, phone, message } = normalize(fields);
 
   // Minimal validation — a name and a valid email are required.
   if (!name) {
