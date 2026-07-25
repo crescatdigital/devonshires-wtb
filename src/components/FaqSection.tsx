@@ -1,9 +1,10 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { startTransition, useActionState, useState } from "react";
 import Image from "next/image";
 import type { HubPageContent } from "@/lib/cms";
 import { submitLead, type LeadFormState } from "@/app/actions/leads";
+import { useRecaptcha } from "@/lib/useRecaptcha";
 import { ArrowRightIcon, ChevronCircleIcon } from "./icons";
 
 export type FaqData = HubPageContent["faq"];
@@ -19,7 +20,15 @@ export default function FaqSection({
 }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [leadState, leadAction, leadPending] = useActionState(submitLead, initialLeadState);
+  const getToken = useRecaptcha();
   const light = variant === "light";
+
+  async function handleLeadSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    formData.set("recaptchaToken", await getToken("faq"));
+    startTransition(() => leadAction(formData));
+  }
 
   const sectionBg = light ? "bg-lite" : "bg-deep";
 
@@ -59,6 +68,7 @@ export default function FaqSection({
 
           <form
             action={leadAction}
+            onSubmit={handleLeadSubmit}
             className="mt-[30px] rounded-[10px] border border-mint bg-deeper p-[22px] md:mt-[53px] md:p-[30px] lg:p-[60px]"
           >
             <input type="hidden" name="source" value="faq" />

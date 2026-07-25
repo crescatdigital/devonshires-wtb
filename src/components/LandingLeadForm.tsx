@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState } from "react";
+import { startTransition, useActionState } from "react";
 import type { LandingPageContent } from "@/lib/cms";
 import { submitLead, type LeadFormState } from "@/app/actions/leads";
+import { useRecaptcha } from "@/lib/useRecaptcha";
 
 type LandingForm = LandingPageContent["banner"]["form"];
 
@@ -13,11 +14,20 @@ const FIELD_CLASS =
 
 export default function LandingLeadForm({ form }: { form: LandingForm }) {
   const [state, formAction, pending] = useActionState(submitLead, initialState);
+  const getToken = useRecaptcha();
   const [titleBefore, titleAfter] = form.title.split(form.titleAccent);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    formData.set("recaptchaToken", await getToken("landing"));
+    startTransition(() => formAction(formData));
+  }
 
   return (
     <form
       action={formAction}
+      onSubmit={handleSubmit}
       className="relative w-full shrink-0 rounded-[20px] border-[3px] border-deep bg-lite px-[18px] pb-[28px] pt-[28px] shadow-[2px_4px_4px_2px_rgba(0,0,0,0.25)] md:rounded-[30px] md:px-[24px] md:pb-[42px] md:pt-[38px] lg:w-[571px] lg:px-[25px] lg:pb-[45px] lg:pt-[40px]"
     >
       <input type="hidden" name="source" value="landing" />
