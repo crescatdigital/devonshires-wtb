@@ -22,16 +22,56 @@ const KNOWN_SOURCES = new Set(["footer", "landing", "faq"]);
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** Internal/framework field names that must never be stored or emailed. */
+const INTERNAL_FIELDS = new Set(["source", "company", "recaptchaToken"]);
+
 /** Collect every non-empty text field except framework/internal ones. */
 function collectFields(formData: FormData): Record<string, string> {
   const out: Record<string, string> = {};
   for (const [key, value] of formData.entries()) {
     if (typeof value !== "string") continue;
-    if (key === "source" || key === "company" || key.startsWith("$ACTION")) continue;
+    if (INTERNAL_FIELDS.has(key) || key.startsWith("$ACTION")) continue;
     const trimmed = value.trim();
     if (trimmed) out[key] = trimmed;
   }
   return out;
+}
+
+/**
+ * Verify a reCAPTCHA v3 token server-side. Returns { ok } — rejects clearly
+ * failed / low-score tokens, but fails OPEN on network errors so a Google outage
+ * never blocks (or loses) a genuine enquiry. Skipped entirely when the secret
+ * key is not configured.
+ */
+async function verifyRecaptcha(token: string): Promise<{ ok: boolean; score?: number; error?: string }> {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secret) return { ok: true }; // not configured → don't block
+  if (!token) return { ok: false, error: "missing reCAPTCHA token" };
+
+  try {
+    const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ secret, response: token }),
+    });
+    const data = (await res.json()) as {
+      success: boolean;
+      score?: number;
+      "error-codes"?: string[];
+    };
+
+    if (!data.success) {
+      return { ok: false, error: `reCAPTCHA failed: ${(data["error-codes"] ?? []).join(", ") || "unknown"}` };
+    }
+    const minScore = Number(process.env.RECAPTCHA_MIN_SCORE ?? "0.5");
+    if (typeof data.score === "number" && data.score < minScore) {
+      return { ok: false, score: data.score, error: `low reCAPTCHA score ${data.score}` };
+    }
+    return { ok: true, score: data.score };
+  } catch (err) {
+    console.error("[leads] reCAPTCHA verify error — allowing submission:", err);
+    return { ok: true }; // fail open — don't lose a lead if Google is unreachable
+  }
 }
 
 /**
@@ -74,6 +114,16 @@ export async function submitLead(
   }
   if (!email || !EMAIL_RE.test(email)) {
     return { status: "error", message: "Please enter a valid email address." };
+  }
+
+  // Spam check: verify the reCAPTCHA token before storing or emailing anything.
+  const recaptcha = await verifyRecaptcha(String(formData.get("recaptchaToken") || ""));
+  if (!recaptcha.ok) {
+    console.warn("[leads] rejected by reCAPTCHA:", recaptcha.error);
+    return {
+      status: "error",
+      message: "We couldn't verify that you're human. Please try again.",
+    };
   }
 
   const emailPayload: LeadEmailPayload = { source: safeSource, name, email, phone, message, data: fields };

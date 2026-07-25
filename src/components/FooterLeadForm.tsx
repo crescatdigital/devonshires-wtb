@@ -1,7 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
+import { startTransition, useActionState } from "react";
 import { submitLead, type LeadFormState } from "@/app/actions/leads";
+import { useRecaptcha } from "@/lib/useRecaptcha";
 
 type FooterForm = {
   heading: string;
@@ -34,10 +35,19 @@ function Field({
 
 export default function FooterLeadForm({ form }: { form: FooterForm }) {
   const [state, formAction, pending] = useActionState(submitLead, initialState);
+  const getToken = useRecaptcha();
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    formData.set("recaptchaToken", await getToken("footer"));
+    startTransition(() => formAction(formData));
+  }
 
   return (
     <form
       action={formAction}
+      onSubmit={handleSubmit}
       className="-mx-6 w-[calc(100%+48px)] max-w-[680px] bg-deeper px-[24px] pb-[36px] pt-[30px] md:mx-0 md:w-full md:p-[35px] lg:p-[45px]"
     >
       <input type="hidden" name="source" value="footer" />
@@ -112,23 +122,6 @@ export default function FooterLeadForm({ form }: { form: FooterForm }) {
               </select>
             </Field>
           </div>
-          <p className="mt-[22px] text-[15px] font-bold text-white md:text-[18px]">Recaptcha</p>
-          {/* Placeholder for the reCAPTCHA widget wired up with the real CMS/backend */}
-          <div className="mt-[10px] flex h-[74px] w-[256px] items-center justify-between rounded-[3px] border border-[#d3d3d3] bg-[#f9f9f9] px-[12px]">
-            <span className="flex items-center gap-[10px]">
-              <span className="size-[24px] rounded-[2px] border-2 border-[#c1c1c1] bg-white" />
-              <span className="text-[13px] text-[#282727]">I&apos;m not a robot</span>
-            </span>
-            <span className="flex flex-col items-center">
-              <svg viewBox="0 0 32 32" className="size-[26px]" aria-hidden>
-                <path fill="#1c3aa9" d="M16 3a13 13 0 0 1 11 6l-4.3 3.2A7.7 7.7 0 0 0 16 8.3Z" />
-                <path fill="#4285f4" d="M27 9a13 13 0 0 1-1.6 15.6l-4-3.7A7.7 7.7 0 0 0 22.6 12Z" />
-                <path fill="#ababab" d="M25.4 24.6A13 13 0 0 1 3.6 20l5-1.8a7.7 7.7 0 0 0 12.8 2.7Z" />
-              </svg>
-              <span className="text-[8px] text-[#555]">reCAPTCHA</span>
-            </span>
-          </div>
-
           {state.status === "error" && (
             <p aria-live="polite" className="mt-[16px] text-[15px] font-semibold text-[#ff5b45] md:text-[17px]">
               {state.message}
