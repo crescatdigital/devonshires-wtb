@@ -59,6 +59,13 @@ const PAGES: PageLink[] = [
       "Lead-gen landing page — case-assessment form, how it works, what you get, clear-costs split section and common service questions.",
     figma: "Wills, Trusts & Probate Landing Page",
   },
+  {
+    title: "Private Client Pricing",
+    href: "/pricing",
+    description:
+      "Standalone pricing page — at-a-glance fees, inc/ex VAT and single/couple price switches, Wills, Powers of Attorney, Probate scenarios and disbursements.",
+    figma: "DC Pricing Page",
+  },
 ];
 
 export default async function SiteIndexPage() {

@@ -15,6 +15,7 @@ import { supabaseRead } from "@/lib/supabase/read";
 export type SiteSettings = (typeof content)["site"];
 export type HubPageContent = (typeof content)["pages"]["hub"];
 export type LandingPageContent = (typeof content)["pages"]["landing"];
+export type PricingPageContent = (typeof content)["pages"]["pricing"];
 export type ServicePageContent = (typeof content)["pages"]["servicePages"][ServiceSlug] & {
   banner: HubPageContent["banner"];
 };
@@ -150,6 +151,14 @@ export async function getLandingPage(): Promise<LandingPageContent> {
     } as LandingPageContent;
   }
   return content.pages.landing;
+}
+
+/**
+ * Private client pricing page. Static JSON only for now — it moves to Supabase
+ * (page_key "pricing") once the design is signed off.
+ */
+export async function getPricingPage(): Promise<PricingPageContent> {
+  return content.pages.pricing;
 }
 
 export async function getServicePage(

@@ -1985,6 +1985,251 @@
           }
         ]
       }
+    },
+    "pricing": {
+      "slug": "pricing",
+      "vat": {
+        "rate": 0.2,
+        "plusVat": "plus VAT",
+        "plusVatShort": "+ VAT",
+        "includingVat": "including VAT",
+        "includingVatShort": "inc. VAT",
+        "includingNote": "Including VAT",
+        "excludingNote": "Excluding VAT"
+      },
+      "hero": {
+        "eyebrow": "PRIVATE CLIENT PRICING",
+        "headingSegments": [
+          { "text": "Clear " },
+          { "text": "fees", "script": true },
+          { "text": " for wills, powers of attorney and probate." }
+        ],
+        "paragraphs": [
+          "An indication as to the overall costs which are likely to be incurred in relation to the scope of work set out below. Total costs are ultimately based upon the charges which you incur with us which are subject to VAT plus any disbursements (costs due to third parties, for example, the Land Registry, Probate Registry and the Office of The Public Guardian).",
+          "We will always discuss costs in more detail with you before we are formally instructed and we will ensure that you are updated during the course of any instruction as matters develop and no additional costs above those agreed at the outset will be charged unless they are agreed with you beforehand."
+        ],
+        "glance": {
+          "title": "AT A GLANCE",
+          "rows": [
+            { "label": "Will", "net": 350 },
+            { "label": "Power of Attorney", "prefix": "from", "net": 650 },
+            { "label": "Probate", "net": 300, "unit": "/ hour" }
+          ],
+          "noteIncluding": "Prices shown including VAT at 20%.",
+          "noteExcluding": "Prices shown excluding VAT."
+        },
+        "cta": { "label": "REQUEST A CALL BACK", "href": "#contact" }
+      },
+      "vatNotice": {
+        "text": "Our charges are subject to VAT, currently 20%. Disbursements, costs paid to third parties such as the Land Registry, Probate Registry and the Office of the Public Guardian are listed separately.",
+        "prompt": "USE THE SWITCH TO SWAP BETWEEN INC/EX VAT DISPLAYS:",
+        "options": ["Including VAT", "Excluding VAT"]
+      },
+      "wills": {
+        "headingBefore": "Service:",
+        "headingAccent": "Wills",
+        "intro": "There are several different types of will to include single, mirror, mutual and/or life interest trust wills and we will discuss these with you in more detail so that you can decide what best suits your circumstances.",
+        "types": ["Single wills", "Mirror wills", "Mutual wills", "Life interest trust wills"],
+        "outro": "Whilst it is always good practice to obtain specific tax and/or financial advice, we also provide an overview about Inheritance Tax and Probate Procedure as part of the instruction.",
+        "card": {
+          "label": "FIXED FEE",
+          "net": 350,
+          "unit": "per will",
+          "features": [
+            "Advice on the right type of will for you",
+            "Overview of Inheritance Tax",
+            "Overview of probate procedure"
+          ]
+        }
+      },
+      "powersOfAttorney": {
+        "headingBefore": "Service:",
+        "headingAccent": "Powers of Attorney",
+        "intro": "There are two separate forms of Lasting Powers of Attorney for individuals, namely those for “Financial Decisions” and “Health and Care Decisions”. We discuss these in detail with you at the outset and advise you about the various ways in which each can be drafted which can be incredibly important for practical purposes to ensure that they meet the needs of your individual circumstances.",
+        "selector": {
+          "title": "Price Selection:",
+          "hint": "(Use switch for your situation)",
+          "options": ["Single person", "Couple / two people"]
+        },
+        "registrationLabel": "Plus Office of the Public Guardian registration:",
+        "registrationFee": 92,
+        "cards": [
+          {
+            "title": "One Power of Attorney",
+            "single": {
+              "description": "Either Financial Decisions or Health and Care Decisions, for one person.",
+              "net": 650,
+              "registrations": 1
+            },
+            "couple": {
+              "description": "Either Financial Decisions or Health and Care Decisions, for each of you.",
+              "net": 800,
+              "registrations": 2
+            }
+          },
+          {
+            "title": "Both Powers of Attorney",
+            "badge": "Financial + Health & Care",
+            "single": {
+              "description": "Financial Decisions and Health and Care Decisions, for one person.",
+              "net": 750,
+              "registrations": 2
+            },
+            "couple": {
+              "description": "Financial Decisions and Health and Care Decisions, for each of you.",
+              "net": 900,
+              "registrations": 4
+            }
+          }
+        ],
+        "footnote": "Our fees cover advising, preparing and submitting each Power of Attorney for registration. Each one also attracts a registration fee from the Office of the Public Guardian, currently £92 per Power of Attorney."
+      },
+      "probate": {
+        "headingBefore": "Service:",
+        "headingAccent": "Probate and estate administration",
+        "intro": "Our charges are based upon how much time is taken by us to undertake the work which you have instructed us to carry out. We do not base our fees on the value of the estate and because every estate is different, we discuss the individual circumstances with you at the outset and provide a realistic estimate of the likely overall costs.",
+        "rate": {
+          "label": "OUR HOURLY CHARGING RATE",
+          "net": 300,
+          "unit": "per hour"
+        },
+        "chargesLead": "Our Charges -",
+        "chargesText": "We set out below, three examples of scenarios which often occur:",
+        "scenarios": [
+          {
+            "label": "Scenario A",
+            "title": "Applying for the grant",
+            "paragraphs": [
+              "Assisting you (either probate or administration) to include advising and obtaining from you, the information which will be required and subsequently preparing and submitting the application to the Probate Registry.",
+              "This assumes that here are no queries raised by the Probate Registry and further, that you can provide us with all information required in a timely manner:"
+            ],
+            "footerLabel": "Approx. 7 - 8 hours",
+            "netRange": [2100, 2400]
+          },
+          {
+            "label": "Scenario B",
+            "title": "Grant and estate administration with no will",
+            "paragraphs": [
+              "Applying for the grant and administration of the estate where there is a valid will, no more than one residential home, 1 -2 bank accounts, 1-2 beneficiaries, no inheritance tax to pay and no claims against the estate (either by individuals or institutions such as the DWP).",
+              "Our work will cover communicating with financial institutions, obtaining valuations and/or closing balances, applying for the grant, liaising with the Probate Registry and once the grant has been obtained, dealing with the distribution of the estate in accordance with the terms of the will. Advising you throughout as to any matters which may arise."
+            ],
+            "footerLabel": "Approx. 20 - 25 hours",
+            "netRange": [6000, 7500]
+          },
+          {
+            "label": "Scenario C",
+            "title": "Complex Estates",
+            "paragraphs": [
+              "Complex estates which do not fall within the parameters set out above, for example, where there are multiple financial institutions and/or assets holders involved (such as shares, independent investments, premium bonds and jewellery), business assets, trusts complex family dynamics and tax implications (Inheritance, Capital Gains or Income) are likely to take significantly longer to deal with and it is only possible to provide you with a realistic estimate of the overall timescale and cost involved once we have discussed the circumstances with you at the initial enquiry stage.",
+              "We are often also instructed to arrange the funeral, house clearance and/or marketing of the property together with the legal conveyancing transaction and once again, the scope of your instructions will be discussed at the outset and a realistic cost and timescale will be provided so that you can reach a meaningful decision before we are formally instructed."
+            ],
+            "footerLabel": "Time and cost",
+            "footerValue": "Tailored estimate",
+            "footerNote": "Given once we have discussed the estate with you."
+          }
+        ]
+      },
+      "disbursements": {
+        "headingBefore": "Service:",
+        "headingAccent": "Disbursements",
+        "paragraphs": [
+          "The extent and nature of any disbursements which will be incurred will depend upon both the scope of work which we have been instructed to carry out and the individual circumstances concerning the estate.",
+          "Likely disbursements will be discussed with you in more detail at the outset; however, we set out below some of the third part expenses which may arise."
+        ],
+        "note": "Additional disbursements will arise if we are also instructed to undertake the conveyancing transaction.",
+        "table": {
+          "title": "TYPICAL THIRD-PARTY COSTS",
+          "rows": [
+            { "label": "Probate Registry fee", "value": "£526" },
+            {
+              "label": "Land Registry fees",
+              "detail": "Copies of title, to establish the information needed for the application",
+              "value": "£7 - £14"
+            },
+            { "label": "Statutory advertising", "value": "£400 - £500" },
+            { "label": "Bankruptcy searches", "value": "£7", "unit": "per individual" }
+          ]
+        }
+      },
+      "noSurprises": {
+        "headingBefore": "No surprises on",
+        "headingAccent": "cost",
+        "headingAfter": ".",
+        "items": [
+          {
+            "title": "Costs discussed first",
+            "text": "We talk through costs with you in detail before you formally instruct us."
+          },
+          {
+            "title": "Updates as things develop",
+            "text": "We keep you informed throughout your instruction as matters progress."
+          },
+          {
+            "title": "Nothing extra without agreement",
+            "text": "No costs above those agreed at the outset are charged unless you agree them beforehand."
+          }
+        ]
+      },
+      "contact": {
+        "heading": "Talk through your options with us.",
+        "textBefore": "Get in touch with",
+        "name": "Paul McGinley",
+        "textAfter": "to arrange a more detailed discussion at your convenience.",
+        "cta": { "label": "REQUEST A CALL BACK", "href": "#contact" },
+        "email": "Paul.Mcginley@devonshiresclaims.co.uk"
+      },
+      "services": {
+        "eyebrow": "EXPLORE OUR SERVICES",
+        "headingLine1": "Complete estate planning,",
+        "headingLine2": "under one firm",
+        "cards": [
+          {
+            "label": "SERVICE",
+            "title": "Wills",
+            "image": {
+              "src": "/images/pricing-service-wills.jpg",
+              "alt": "Wills service",
+              "width": 586,
+              "height": 210
+            },
+            "text": "Protect your loved ones with a clear, valid will built around your wishes.",
+            "link": {
+              "label": "Explore Wills",
+              "href": "/wills"
+            }
+          },
+          {
+            "label": "SERVICE",
+            "title": "Power of Attorney",
+            "image": {
+              "src": "/images/pricing-service-power-of-attorney.jpg",
+              "alt": "Power of Attorney service",
+              "width": 586,
+              "height": 210
+            },
+            "text": "Secure who speaks on your behalf, when you are unable to do so.",
+            "link": {
+              "label": "Explore LPA",
+              "href": "/power-of-attorney"
+            }
+          },
+          {
+            "label": "SERVICE",
+            "title": "Probate",
+            "image": {
+              "src": "/images/pricing-service-probate.jpg",
+              "alt": "Probate service",
+              "width": 586,
+              "height": 210
+            },
+            "text": "Compassionate, fixed-fee help administering a loved one's estate.",
+            "link": {
+              "label": "Explore Probate",
+              "href": "/probate"
+            }
+          }
+        ]
+      }
     }
   }
 }

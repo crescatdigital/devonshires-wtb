@@ -9,6 +9,9 @@
   --lite-green: #f1fffd;
   --ice-green: #f2fffd;
   --flame: #fa4214;
+  /* Pricing page */
+  --aqua: #cefdf7;
+  --cream: #f6f3ec;
 }
 
 @theme inline {
@@ -19,6 +22,8 @@
   --color-lite: var(--lite-green);
   --color-ice: var(--ice-green);
   --color-flame: var(--flame);
+  --color-aqua: var(--aqua);
+  --color-cream: var(--cream);
 
   --font-sans: var(--font-open-sans), Arial, Helvetica, sans-serif;
   --font-heading: "Segoe UI", "Segoe UI Variable Text", system-ui,
