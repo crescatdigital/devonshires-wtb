@@ -153,12 +153,32 @@ export async function getLandingPage(): Promise<LandingPageContent> {
   return content.pages.landing;
 }
 
+/** Sections of the pricing page as stored in Supabase (page_key "pricing"). */
+export const PRICING_SECTIONS = [
+  "vat",
+  "hero",
+  "vatNotice",
+  "wills",
+  "powersOfAttorney",
+  "probate",
+  "disbursements",
+  "noSurprises",
+  "contact",
+  "services",
+] as const;
+
 /**
- * Private client pricing page. Static JSON only for now — it moves to Supabase
- * (page_key "pricing") once the design is signed off.
+ * Private client pricing page. Each section comes from Supabase when present and
+ * falls back to the bundled JSON section-by-section, so a missing row never
+ * breaks the page.
  */
 export async function getPricingPage(): Promise<PricingPageContent> {
-  return content.pages.pricing;
+  const fallback = content.pages.pricing;
+  const s = await fetchSections("pricing");
+  if (!s) return fallback;
+  const merged: Record<string, unknown> = { ...fallback };
+  for (const key of PRICING_SECTIONS) if (s[key]) merged[key] = s[key];
+  return merged as PricingPageContent;
 }
 
 export async function getServicePage(

@@ -109,7 +109,7 @@ function PillSwitch({
           type="button"
           aria-pressed={i === active}
           onClick={() => onSelect(i)}
-          className={`h-[44px] cursor-pointer rounded-full px-[20px] text-[14px] font-semibold transition-colors duration-200 md:h-[50px] xl:h-[57px] xl:min-w-[171px] xl:px-[30px] xl:text-[16px] ${
+          className={`h-[44px] cursor-pointer rounded-full px-[20px] text-[14px] font-semibold transition-colors duration-200 md:h-[50px] xl:h-[57px] xl:min-w-[171px] xl:px-[30px] xl:text-[14px] ${
             i === active ? "bg-deep text-white" : "text-deep hover:bg-deep/10"
           }`}
         >
@@ -179,7 +179,7 @@ export function PoaCards({ content }: { content: PoaContent }) {
               {option.description}
             </p>
             <p className="mt-auto flex items-baseline gap-[14px] pt-[16px] xl:pt-[20px]">
-              <span className="text-[52px] font-semibold leading-none xl:text-[72px]">
+              <span className="text-[52px] font-semibold leading-none xl:text-[70px]">
                 <Price net={option.net} />
               </span>
               <span className={`text-[16px] xl:text-[20px] ${dark ? "text-white/85" : "text-deep/70"}`}>

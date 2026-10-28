@@ -1,6 +1,11 @@
 // Seeds Supabase from the existing static content JSON.
-// Global settings + all pages (homepage, service pages, landing).
-// Idempotent — safe to re-run (upserts). Run: node scripts/seed.cjs
+// Global settings + all pages (homepage, service pages, landing, pricing).
+// Idempotent upserts. Run: node scripts/seed.cjs
+//
+// WARNING: a full run overwrites every page and global with the JSON, discarding
+// edits made in /admin. To add or reset a single page only, pass its key:
+//   node scripts/seed.cjs --only=pricing
+// That touches just that page's rows (and its SEO row) — nothing else.
 const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, "..", ".env.local") });
 const { makeClient } = require("./lib/db.cjs");
@@ -11,6 +16,9 @@ const site = content.site;
 const hub = content.pages.hub;
 const sp = content.pages.servicePages;
 const landing = content.pages.landing;
+const pricing = content.pages.pricing;
+
+const ONLY = (process.argv.find((a) => a.startsWith("--only=")) || "").slice("--only=".length) || null;
 
 const ADMIN_EMAIL = "development@crescatdigital.com";
 const ADMIN_PASSWORD = "DWtb@24454";
@@ -88,6 +96,27 @@ const PAGES = [
         "Specialist Wills, Trusts & Probate solicitors. Request a free, no-obligation case assessment — we review your situation, explain your options and outline costs before you decide.",
     },
   },
+  {
+    // Fees are stored net of VAT ("net"); the page adds VAT at vat.rate.
+    key: "pricing", title: "Private Client Pricing", slug: "pricing", nav: 6,
+    sections: [
+      ["vat", "VAT rate & labels", pricing.vat],
+      ["hero", "Hero + at a glance", pricing.hero],
+      ["vatNotice", "VAT notice & switch", pricing.vatNotice],
+      ["wills", "Wills", pricing.wills],
+      ["powersOfAttorney", "Powers of Attorney", pricing.powersOfAttorney],
+      ["probate", "Probate", pricing.probate],
+      ["disbursements", "Disbursements", pricing.disbursements],
+      ["noSurprises", "No surprises on cost", pricing.noSurprises],
+      ["contact", "Contact band", pricing.contact],
+      ["services", "Services grid", pricing.services],
+    ],
+    seo: {
+      meta_title: "Private Client Pricing | Wills, Trusts & Probate | Devonshires Claims",
+      meta_description:
+        "Clear fees for wills, powers of attorney and probate. Fixed fees and transparent hourly rates from Devonshires Claims, with VAT and disbursements shown separately.",
+    },
+  },
 ];
 
 async function seedData(client) {
@@ -99,18 +128,23 @@ async function seedData(client) {
       [key, label, position, JSON.stringify(data)]
     );
 
-  // ---- Globals (global settings + global sections) ----
-  await upsertGlobal("site_general", "General (name, logo, contact)", 0, {
-    name: site.name, logo: site.logo, phone: site.phone, email: site.email,
-  });
-  await upsertGlobal("header", "Header", 1, site.header);
-  await upsertGlobal("footer", "Footer", 2, site.footer);
-  await upsertGlobal("socials", "Social links", 3, { items: site.socials });
-  await upsertGlobal("banner_assets", "Banner assets", 4, site.bannerAssets);
-  await upsertGlobal("mega_menu", "Mega menu", 5, site.megaMenu);
+  const pages = ONLY ? PAGES.filter((p) => p.key === ONLY) : PAGES;
+  if (ONLY && !pages.length) throw new Error(`Unknown page key "${ONLY}"`);
+
+  if (!ONLY) {
+    // ---- Globals (global settings + global sections) ----
+    await upsertGlobal("site_general", "General (name, logo, contact)", 0, {
+      name: site.name, logo: site.logo, phone: site.phone, email: site.email,
+    });
+    await upsertGlobal("header", "Header", 1, site.header);
+    await upsertGlobal("footer", "Footer", 2, site.footer);
+    await upsertGlobal("socials", "Social links", 3, { items: site.socials });
+    await upsertGlobal("banner_assets", "Banner assets", 4, site.bannerAssets);
+    await upsertGlobal("mega_menu", "Mega menu", 5, site.megaMenu);
+  }
 
   // ---- Pages, sections, SEO ----
-  for (const page of PAGES) {
+  for (const page of pages) {
     await client.query(
       `insert into public.pages (key, title, slug, nav_order) values ($1,$2,$3,$4)
        on conflict (key) do update set title=excluded.title, slug=excluded.slug, nav_order=excluded.nav_order`,
@@ -132,7 +166,9 @@ async function seedData(client) {
     );
   }
 
-  console.log(`Seeded: 6 globals; ${PAGES.length} pages (${PAGES.reduce((n, p) => n + p.sections.length, 0)} sections) + SEO.`);
+  console.log(
+    `Seeded: ${ONLY ? "no" : "6"} globals; ${pages.length} page(s) (${pages.reduce((n, p) => n + p.sections.length, 0)} sections) + SEO.`
+  );
 }
 
 async function seedSupabase() {
@@ -161,7 +197,7 @@ async function seedSupabase() {
   } finally {
     await client.end();
   }
-  await seedSupabase();
+  if (!ONLY) await seedSupabase();
   console.log("Seed complete.");
 })().catch((e) => {
   console.error("Seed failed:", e.message);

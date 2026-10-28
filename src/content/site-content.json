@@ -243,6 +243,10 @@
           {
             "label": "Lasting Power of Attorney",
             "href": "/power-of-attorney"
+          },
+          {
+            "label": "Private Client Pricing",
+            "href": "/pricing"
           }
         ]
       }
@@ -864,9 +868,9 @@
               "label": "SERVICE",
               "title": "Power of Attorney",
               "image": {
-                "src": "/images/service-power-of-attorny.png",
+                "src": "/images/service-card-power-of-attorney.jpg",
                 "alt": "Power of Attorney service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Secure who speaks on your behalf, when you are unable to do so.",
@@ -879,9 +883,9 @@
               "label": "SERVICE",
               "title": "Trusts",
               "image": {
-                "src": "/images/service-trust.png",
+                "src": "/images/service-card-trusts.jpg",
                 "alt": "Trusts service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Ring-fence and control how your wealth passes to the next generation.",
@@ -894,9 +898,9 @@
               "label": "SERVICE",
               "title": "Probate",
               "image": {
-                "src": "/images/service-probate.png",
+                "src": "/images/service-card-probate.jpg",
                 "alt": "Probate service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Compassionate, fixed-fee help administering a loved one's estate.",
@@ -1154,9 +1158,9 @@
               "label": "SERVICE",
               "title": "Wills",
               "image": {
-                "src": "/images/service-wills.png",
+                "src": "/images/service-card-wills.jpg",
                 "alt": "Wills service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Protect your loved ones with a clear, valid will built around your wishes.",
@@ -1169,9 +1173,9 @@
               "label": "SERVICE",
               "title": "Probate",
               "image": {
-                "src": "/images/service-probate.png",
+                "src": "/images/service-card-probate.jpg",
                 "alt": "Probate service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Compassionate, fixed-fee help administering a loved one's estate.",
@@ -1184,9 +1188,9 @@
               "label": "SERVICE",
               "title": "Power of Attorney",
               "image": {
-                "src": "/images/service-power-of-attorny.png",
+                "src": "/images/service-card-power-of-attorney.jpg",
                 "alt": "Power of Attorney service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Secure who speaks on your behalf, when you are unable to do so.",
@@ -1444,9 +1448,9 @@
               "label": "SERVICE",
               "title": "Wills",
               "image": {
-                "src": "/images/service-wills.png",
+                "src": "/images/service-card-wills.jpg",
                 "alt": "Wills service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Protect your loved ones with a clear, valid will built around your wishes.",
@@ -1459,9 +1463,9 @@
               "label": "SERVICE",
               "title": "Trusts",
               "image": {
-                "src": "/images/service-trust.png",
+                "src": "/images/service-card-trusts.jpg",
                 "alt": "Trusts service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Ring-fence and control how your wealth passes to the next generation.",
@@ -1474,9 +1478,9 @@
               "label": "SERVICE",
               "title": "Power of Attorney",
               "image": {
-                "src": "/images/service-power-of-attorny.png",
+                "src": "/images/service-card-power-of-attorney.jpg",
                 "alt": "Power of Attorney service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Secure who speaks on your behalf, when you are unable to do so.",
@@ -1734,9 +1738,9 @@
               "label": "SERVICE",
               "title": "Wills",
               "image": {
-                "src": "/images/service-wills.png",
+                "src": "/images/service-card-wills.jpg",
                 "alt": "Wills service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Protect your loved ones with a clear, valid will built around your wishes.",
@@ -1749,9 +1753,9 @@
               "label": "SERVICE",
               "title": "Trusts",
               "image": {
-                "src": "/images/service-trust.png",
+                "src": "/images/service-card-trusts.jpg",
                 "alt": "Trusts service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Ring-fence and control how your wealth passes to the next generation.",
@@ -1764,9 +1768,9 @@
               "label": "SERVICE",
               "title": "Probate",
               "image": {
-                "src": "/images/service-probate.png",
+                "src": "/images/service-card-probate.jpg",
                 "alt": "Probate service",
-                "width": 410,
+                "width": 586,
                 "height": 210
               },
               "text": "Compassionate, fixed-fee help administering a loved one's estate.",
@@ -2187,7 +2191,7 @@
             "label": "SERVICE",
             "title": "Wills",
             "image": {
-              "src": "/images/pricing-service-wills.jpg",
+              "src": "/images/service-card-wills.jpg",
               "alt": "Wills service",
               "width": 586,
               "height": 210
@@ -2202,7 +2206,7 @@
             "label": "SERVICE",
             "title": "Power of Attorney",
             "image": {
-              "src": "/images/pricing-service-power-of-attorney.jpg",
+              "src": "/images/service-card-power-of-attorney.jpg",
               "alt": "Power of Attorney service",
               "width": 586,
               "height": 210
@@ -2217,7 +2221,7 @@
             "label": "SERVICE",
             "title": "Probate",
             "image": {
-              "src": "/images/pricing-service-probate.jpg",
+              "src": "/images/service-card-probate.jpg",
               "alt": "Probate service",
               "width": 586,
               "height": 210

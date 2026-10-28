@@ -52,7 +52,7 @@ export function PricingHero({ content }: { content: Content["hero"] }) {
           <h1 className="mt-[14px] font-heading text-[38px] font-semibold leading-[1.15] text-white sm:text-[52px] lg:text-[72px] xl:mt-[22px] xl:text-[96px] xl:leading-[115px]">
             {content.headingSegments.map((seg, i) =>
               seg.script ? (
-                <span key={i} className="font-script font-normal tracking-[6px] text-mint">
+                <span key={i} className="font-script font-normal tracking-[9px] text-mint xl:mr-[8px]">
                   {seg.text}
                 </span>
               ) : (
@@ -70,7 +70,7 @@ export function PricingHero({ content }: { content: Content["hero"] }) {
         {/* Right — at a glance card + CTA */}
         <div className="flex w-full flex-col items-center xl:mt-[66px] xl:w-[673px] xl:shrink-0">
           <div className="w-full rounded-[24px] border-[4px] border-mint bg-white px-[24px] py-[28px] md:px-[40px] xl:rounded-[40px] xl:px-[55px] xl:pb-[64px] xl:pt-[48px]">
-            <p className="font-heading text-[18px] font-bold uppercase text-deep md:text-[20px] xl:text-[24px]">
+            <p className="text-[18px] font-bold uppercase text-deep md:text-[20px] xl:text-[24px]">
               {content.glance.title}
             </p>
             <dl className="mt-[10px] xl:mt-[30px]">
@@ -117,8 +117,8 @@ export function VatNotice({ content }: { content: Content["vatNotice"] }) {
     <Container className="pt-[36px] xl:pt-[55px]">
       <div className="flex flex-col gap-[24px] rounded-[16px] bg-mint px-[24px] py-[24px] lg:flex-row lg:items-center lg:justify-between lg:gap-[60px] xl:rounded-[22px] xl:px-[75px] xl:py-[25px]">
         <div className="text-deep lg:max-w-[1060px]">
-          <p className="text-[16px] leading-[1.4] md:text-[18px] xl:text-[22px] xl:leading-[27px]">{content.text}</p>
-          <p className="mt-[16px] text-[15px] font-bold md:text-[18px] xl:mt-[27px] xl:text-[22px]">{content.prompt}</p>
+          <p className="text-[16px] leading-[1.4] md:text-[18px] xl:text-[20px] xl:leading-[27px]">{content.text}</p>
+          <p className="mt-[16px] text-[15px] font-bold md:text-[18px] xl:mt-[27px] xl:text-[20px]">{content.prompt}</p>
         </div>
         <div className="shrink-0">
           <VatSwitch options={content.options} />
@@ -160,7 +160,7 @@ export function WillsPricing({ content }: { content: Content["wills"] }) {
         <div className="w-full rounded-[20px] border border-deep bg-white px-[24px] py-[28px] lg:w-[420px] lg:shrink-0 xl:w-[491px] xl:rounded-[30px] xl:px-[47px] xl:pb-[50px] xl:pt-[46px]">
           <p className="text-[15px] font-bold uppercase text-teal xl:text-[18px]">{card.label}</p>
           <p className="mt-[8px] flex items-baseline gap-[14px] text-deep xl:mt-[14px]">
-            <span className="text-[52px] font-semibold leading-none xl:text-[72px]">
+            <span className="text-[52px] font-semibold leading-none xl:text-[70px]">
               <Price net={card.net} />
             </span>
             <span className="text-[16px] text-deep/70 xl:text-[18px]">{card.unit}</span>
@@ -231,10 +231,10 @@ export function ProbatePricing({ content }: { content: Content["probate"] }) {
         </p>
 
         {/* Hourly rate */}
-        <div className="border-t-[1.5px] border-deep pt-[20px] text-deep lg:mt-[16px] lg:w-[400px] lg:shrink-0 xl:w-[465px] xl:pt-[32px]">
+        <div className="border-t-[2.5px] border-deep pt-[20px] text-deep lg:mt-[16px] lg:w-[400px] lg:shrink-0 xl:w-[465px] xl:pt-[32px]">
           <p className="text-[16px] uppercase xl:text-[20px]">{rate.label}</p>
           <p className="mt-[8px] flex items-baseline gap-[14px] xl:mt-[14px]">
-            <span className="text-[52px] font-semibold leading-none xl:text-[72px]">
+            <span className="text-[52px] font-semibold leading-none xl:text-[70px]">
               <Price net={rate.net} />
             </span>
             <span className="text-[16px] text-deep/70 xl:text-[20px]">{rate.unit}</span>
@@ -250,22 +250,16 @@ export function ProbatePricing({ content }: { content: Content["probate"] }) {
       </p>
 
       <div className="mt-[20px] grid grid-cols-1 gap-[20px] lg:grid-cols-3 xl:mt-[30px] xl:gap-[31px]">
-        {content.scenarios.map((s, i) => {
-          const dark = i === content.scenarios.length - 1;
+        {content.scenarios.map((s) => {
           const netRange = "netRange" in s ? s.netRange : undefined;
+          // Aqua by default; the deep-green treatment is the hover state.
           return (
             <article
               key={s.label}
-              className={`flex flex-col rounded-[20px] border px-[24px] pb-[28px] pt-[28px] xl:rounded-[30px] xl:px-[50px] xl:pb-[40px] xl:pt-[44px] ${
-                dark ? "border-teal bg-deep text-white" : "border-deep bg-aqua text-deep"
-              }`}
+              className="group flex flex-col rounded-[20px] border border-deep bg-aqua px-[24px] pb-[28px] pt-[28px] text-deep transition-colors duration-300 hover:border-teal hover:bg-deep hover:text-white xl:rounded-[30px] xl:px-[50px] xl:pb-[40px] xl:pt-[44px]"
             >
-              <p className="text-center text-[20px] text-teal xl:text-[24px]">{s.label}</p>
-              <h3
-                className={`mt-[14px] font-heading text-[22px] font-semibold leading-[1.25] xl:mt-[16px] xl:px-[8px] xl:text-[28px] ${
-                  dark ? "text-mint" : ""
-                }`}
-              >
+              <p className="text-center text-[20px] font-semibold text-teal xl:text-[24px]">{s.label}</p>
+              <h3 className="mt-[14px] text-[22px] font-semibold leading-[1.25] transition-colors duration-300 group-hover:text-mint xl:mt-[16px] xl:px-[8px] xl:text-[26px]">
                 {s.title}
               </h3>
               <div className="mb-[28px] mt-[14px] space-y-[20px] text-[16px] leading-[1.4] xl:mb-[74px] xl:mt-[22px] xl:space-y-[27px] xl:px-[8px] xl:text-[20px] xl:leading-[27px]">
@@ -273,9 +267,9 @@ export function ProbatePricing({ content }: { content: Content["probate"] }) {
                   <p key={p}>{p}</p>
                 ))}
               </div>
-              <div className={`mt-auto border-t pt-[20px] xl:pt-[28px] ${dark ? "border-teal" : "border-deep"}`}>
+              <div className="mt-auto border-t border-deep pt-[20px] transition-colors duration-300 group-hover:border-teal xl:pt-[28px]">
                 <p className="text-[16px] xl:text-[18px]">{s.footerLabel}</p>
-                <p className={`mt-[6px] text-[34px] font-semibold leading-[1.2] xl:mt-[10px] xl:text-[48px] ${dark ? "text-mint" : ""}`}>
+                <p className="mt-[6px] text-[34px] font-semibold leading-[1.2] transition-colors duration-300 group-hover:text-mint xl:mt-[10px] xl:text-[48px]">
                   {netRange ? <PriceRange net={netRange} /> : s.footerValue}
                 </p>
                 <p className="mt-[4px] text-[16px] xl:mt-[8px] xl:text-[17px]">
@@ -350,8 +344,8 @@ export function NoSurprises({ content }: { content: Content["noSurprises"] }) {
       <ServiceHeading before={content.headingBefore} accent={content.headingAccent} after={content.headingAfter} />
       <div className="mt-[24px] grid grid-cols-1 gap-[28px] md:grid-cols-3 md:gap-[32px] xl:mt-[50px] xl:gap-[52px]">
         {content.items.map((item) => (
-          <div key={item.title} className="border-t-2 border-deep pt-[20px] text-deep xl:pt-[50px]">
-            <h3 className="font-heading text-[20px] font-semibold xl:text-[28px]">
+          <div key={item.title} className="border-t-[2.5px] border-deep pt-[20px] text-deep xl:pt-[50px]">
+            <h3 className="text-[20px] font-semibold xl:text-[26px]">
               {item.title}
               <TickIcon className="relative -top-[2px] ml-[12px] inline size-[26px] text-teal xl:ml-[20px] xl:size-[38px]" />
             </h3>
@@ -370,7 +364,7 @@ export function PricingContact({ content }: { content: Content["contact"] }) {
     <Container className="pt-[48px] xl:pt-[114px]">
       <div className="flex flex-col gap-[28px] rounded-[20px] bg-deep px-[24px] py-[32px] lg:flex-row lg:items-end lg:justify-between lg:gap-[60px] xl:rounded-[30px] xl:px-[110px] xl:py-[74px]">
         <div className="lg:max-w-[780px]">
-          <h2 className="font-heading text-[32px] font-light leading-[1.2] text-mint md:text-[44px] xl:text-[70px] xl:leading-[77px]">
+          <h2 className="text-[32px] font-light leading-[1.2] text-mint md:text-[44px] xl:text-[65px] xl:leading-[77px]">
             {content.heading}
           </h2>
           <p className="mt-[16px] max-w-[700px] text-[16px] leading-[1.4] text-white md:text-[20px] xl:mt-[40px] xl:text-[24px] xl:leading-[33px]">

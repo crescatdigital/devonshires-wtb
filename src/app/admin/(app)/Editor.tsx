@@ -206,6 +206,7 @@ function Node({
         <span className="mb-1.5 block text-sm font-medium text-slate-600">{label}</span>
         <input
           type="number"
+          step="any"
           value={value}
           onChange={(e) => update(path, e.target.value === "" ? 0 : Number(e.target.value))}
           className="w-40 rounded-lg border border-slate-300 px-3.5 py-2.5 text-base text-slate-900 outline-none focus:border-slate-900"
