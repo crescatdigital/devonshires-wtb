@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { LandingPageContent } from "@/lib/cms";
 import LandingLeadForm from "./LandingLeadForm";
+import RichText from "./RichText";
 
 /* ---------- small inline icon set used only on the landing page ---------- */
 
@@ -161,14 +162,15 @@ export function LandingHero({ content }: { content: LandingPageContent["banner"]
               </span>
             ))}
           </h1>
-          <p className="mt-[26px] max-w-[520px] text-[17px] leading-[1.5] text-white lg:mt-[40px] lg:max-w-[760px] lg:text-[24px]">
-            {content.paragraph}
-          </p>
+          <RichText
+            html={content.paragraph}
+            className="mt-[26px] max-w-[520px] text-[17px] leading-[1.5] text-white lg:mt-[40px] lg:max-w-[760px] lg:text-[24px]"
+          />
           <ul className="mt-[34px] space-y-[22px] lg:mt-[50px] lg:space-y-[30px]">
             {content.bullets.map((b) => (
               <li key={b} className="flex items-center gap-[16px] text-[18px] text-white lg:gap-[22px] lg:text-[28px]">
                 <OutlineCheck className="size-[36px] shrink-0 text-mint lg:size-[46px]" />
-                {b}
+                <RichText html={b} inline />
               </li>
             ))}
           </ul>
@@ -208,9 +210,11 @@ export function TrustBadges({ content }: { content: LandingPageContent["trustBad
     <section className="bg-lite py-[40px] lg:py-[40px]">
       <div className="mx-auto max-w-[1500px] px-6 text-center">
         <p className="text-[20px] text-teal lg:text-[28px]">
-          {parts[0]}
-          <span className="font-bold">{content.headingAccent}</span>
-          {parts[1]}
+          <RichText html={parts[0]} inline />
+          <span className="font-bold">
+            <RichText html={content.headingAccent} inline />
+          </span>
+          <RichText html={parts[1]} inline />
         </p>
         <div className="mt-[30px] flex flex-wrap items-center justify-center gap-[24px] lg:mt-[20px] lg:gap-[45px]">
           {content.logos.map((logo) => (
@@ -244,7 +248,7 @@ export function HelpWhen({ content }: { content: LandingPageContent["helpWhen"] 
     <section className="bg-mint py-[32px] md:py-[48px] lg:pt-[30px] lg:pb-[60px]">
       <div className="mx-auto max-w-[1810px] px-6">
         <h2 className="text-center font-heading text-[26px] text-deep md:text-[34px] lg:text-[42px]">
-          {content.heading}
+          <RichText html={content.heading} inline />
         </h2>
         <div className="mt-[24px] grid grid-cols-1 gap-[14px] sm:grid-cols-2 md:mt-[40px] md:gap-[22px] xl:grid-cols-4">
           {content.cards.map((card) => (
@@ -255,7 +259,7 @@ export function HelpWhen({ content }: { content: LandingPageContent["helpWhen"] 
               <span className="flex size-[60px] shrink-0 items-center justify-center rounded-full border-3 border-teal bg-lite text-teal md:size-[68px] lg:size-[92px]">
                 <LandingIcon name={card.icon} className="size-[26px] md:size-[34px] lg:size-[44px]" />
               </span>
-              <p className="text-[16px] leading-[1.35] text-white md:text-[18px] lg:text-[22px]">{card.text}</p>
+              <RichText html={card.text} className="text-[16px] leading-[1.35] text-white md:text-[18px] lg:text-[22px]" />
             </article>
           ))}
         </div>
@@ -279,7 +283,7 @@ export function HowItWorks({ content }: { content: LandingPageContent["howItWork
     <section className="bg-deep py-[32px] md:py-[48px] lg:pt-[40px] lg:pb-[70px]">
       <div className="mx-auto max-w-[1500px] px-6">
         <h2 className="mb-[50px] text-center font-heading text-[26px] text-white md:mb-0 md:text-[34px] lg:text-[42px]">
-          {content.heading}
+          <RichText html={content.heading} inline />
         </h2>
         <div className="mt-[28px] grid grid-cols-1 gap-y-[50px] md:mt-[50px] md:grid-cols-3 md:gap-x-0 md:gap-y-[48px] lg:mt-[60px]">
           {content.steps.map((step) => (
@@ -296,11 +300,12 @@ export function HowItWorks({ content }: { content: LandingPageContent["howItWork
                 </span>
               </div>
               <h3 className="mt-[16px] font-heading text-[22px] font-semibold text-white md:mt-[24px] md:text-[26px] lg:mt-[28px]">
-                {step.title}
+                <RichText html={step.title} inline />
               </h3>
-              <p className="mt-[10px] max-w-[340px] text-[16px] leading-[1.4] text-white md:mt-[14px] md:text-[18px] lg:mt-[16px] lg:text-[22px]">
-                {step.text}
-              </p>
+              <RichText
+                html={step.text}
+                className="mt-[10px] max-w-[340px] text-[16px] leading-[1.4] text-white md:mt-[14px] md:text-[18px] lg:mt-[16px] lg:text-[22px]"
+              />
             </div>
           ))}
         </div>
@@ -336,9 +341,11 @@ export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGe
       <div className="relative mx-auto max-w-[1920px] px-6 lg:pl-[105px] lg:pr-0">
         <div className="lg:max-w-[1000px]">
           <h2 className="font-heading text-[32px] font-semibold leading-[1.25] text-teal lg:text-[42px]">
-            {content.headingBefore}
-            <span className="underline decoration-2 underline-offset-[6px] text-deep">{content.headingAccent}</span>
-            {content.headingAfter}
+            <RichText html={content.headingBefore} inline />
+            <span className="underline decoration-2 underline-offset-[6px] text-deep">
+              <RichText html={content.headingAccent} inline />
+            </span>
+            <RichText html={content.headingAfter} inline />
           </h2>
           <ul className="mt-[36px] lg:mt-[44px] ml-0 md:ml-[25px]">
             {content.items.map((item, i) => (
@@ -363,7 +370,7 @@ export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGe
                     strokeLinejoin="round"
                   />
                 </svg>
-                {item}
+                <RichText html={item} inline />
               </li>
             ))}
           </ul>
@@ -404,10 +411,10 @@ export function SplitSection({ content }: { content: LandingPageContent["split"]
         <div className="flex justify-center">
           <div className="inline-flex overflow-hidden rounded-[30px] font-heading text-[20px] leading-[1.15] md:text-[22px] lg:text-[42px]">
             <span className="bg-deep pl-[25px] pr-[16px] pt-[11px] pb-[14px] text-mint md:px-[30px] md:py-[11px] lg:pb-[18px] lg:pl-[80px] lg:pr-[15px] lg:pt-[13px]">
-              {content.heading}
+              <RichText html={content.heading} inline />
             </span>
             <span className="bg-mint pl-[16px] pr-[25px] pt-[11px] pb-[14px] text-deep md:px-[30px] md:py-[11px] lg:pb-[16px] lg:pl-[15px] lg:pr-[80px] lg:pt-[14px]">
-              {content.headingHighlight}
+              <RichText html={content.headingHighlight} inline />
             </span>
           </div>
         </div>
@@ -430,7 +437,7 @@ export function SplitSection({ content }: { content: LandingPageContent["split"]
               {content.bullets.map((b) => (
                 <li key={b} className="flex gap-[16px]">
                   <span className="mt-[11px] size-[8px] shrink-0 rounded-full bg-mint lg:mt-[14px]" />
-                  {b}
+                  <RichText html={b} inline />
                 </li>
               ))}
             </ul>
@@ -448,9 +455,10 @@ export function SplitSection({ content }: { content: LandingPageContent["split"]
                 aria-hidden
               />
             </span>
-            <p className="text-center font-heading text-[24px] leading-[1.4] text-deep lg:text-[36px]">
-              {content.quote}
-            </p>
+            <RichText
+              html={content.quote}
+              className="text-center font-heading text-[24px] leading-[1.4] text-deep lg:text-[36px]"
+            />
           </div>
         </div>
 

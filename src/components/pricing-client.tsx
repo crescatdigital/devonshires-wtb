@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 import type { PricingPageContent } from "@/lib/cms";
+import RichText from "./RichText";
 
 /*
  * Interactive pieces of the pricing page. Content stores every fee net of VAT;
@@ -168,16 +169,17 @@ export function PoaCards({ content }: { content: PoaContent }) {
             }`}
           >
             <div className="flex flex-wrap items-center justify-between gap-[12px]">
-              <h3 className="text-[19px] font-bold xl:text-[22px]">{card.title}</h3>
+              <h3 className="text-[19px] font-bold xl:text-[22px]"><RichText html={card.title} inline /></h3>
               {"badge" in card && card.badge && (
                 <span className="rounded-full bg-mint px-[16px] py-[5px] text-[14px] font-bold text-deep xl:px-[23px] xl:py-[6px] xl:text-[18px]">
                   {card.badge}
                 </span>
               )}
             </div>
-            <p className={`mt-[12px] text-[16px] leading-[1.4] xl:mt-[18px] xl:text-[22px] xl:leading-[30px] ${dark ? "text-white/85" : "text-deep/70"}`}>
-              {option.description}
-            </p>
+            <RichText
+              html={option.description}
+              className={`mt-[12px] text-[16px] leading-[1.4] xl:mt-[18px] xl:text-[22px] xl:leading-[30px] ${dark ? "text-white/85" : "text-deep/70"}`}
+            />
             <p className="mt-auto flex items-baseline gap-[14px] pt-[16px] xl:pt-[20px]">
               <span className="text-[52px] font-semibold leading-none xl:text-[70px]">
                 <Price net={option.net} />
@@ -191,7 +193,7 @@ export function PoaCards({ content }: { content: PoaContent }) {
                 dark ? "bg-mint text-deep" : "bg-deep text-mint"
               }`}
             >
-              {content.registrationLabel}{" "}
+              <RichText html={content.registrationLabel} inline />{" "}
               <strong className={`font-bold ${dark ? "text-deep" : "text-white"}`}>
                 {`${formatGbp(count * fee)} (${count} × ${formatGbp(fee)})`}
               </strong>

@@ -1,4 +1,5 @@
 import type { PricingPageContent } from "@/lib/cms";
+import RichText from "./RichText";
 import { ArrowRightIcon } from "./icons";
 import { AltPrice, CoupleSwitch, PoaCards, Price, PriceRange, VatSwitch, VatText } from "./pricing-client";
 
@@ -24,8 +25,8 @@ function Container({ className = "", children }: { className?: string; children:
 function ServiceHeading({ before, accent, after }: { before: string; accent: string; after?: string }) {
   return (
     <h2 className="font-heading text-[32px] font-semibold leading-[1.2] text-deep md:text-[44px] xl:text-[65px]">
-      {before} <span className="heading-accent text-teal">{accent}</span>
-      {after}
+      <RichText html={before} inline /> <span className="heading-accent text-teal"><RichText html={accent} inline /></span>
+      {after ? <RichText html={after} inline /> : null}
     </h2>
   );
 }
@@ -62,7 +63,7 @@ export function PricingHero({ content }: { content: Content["hero"] }) {
           </h1>
           <div className="mt-[24px] space-y-[24px] text-[16px] leading-[1.5] text-white md:text-[18px] lg:mt-[44px] lg:space-y-[30px] lg:text-[22px] lg:leading-[30px]">
             {content.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
+              <RichText key={p} html={p} />
             ))}
           </div>
         </div>
@@ -71,7 +72,7 @@ export function PricingHero({ content }: { content: Content["hero"] }) {
         <div className="flex w-full flex-col items-center xl:mt-[66px] xl:w-[673px] xl:shrink-0">
           <div className="w-full rounded-[24px] border-[4px] border-mint bg-white px-[24px] py-[28px] md:px-[40px] xl:rounded-[40px] xl:px-[55px] xl:pb-[64px] xl:pt-[48px]">
             <p className="text-[18px] font-bold uppercase text-deep md:text-[20px] xl:text-[24px]">
-              {content.glance.title}
+              <RichText html={content.glance.title} inline />
             </p>
             <dl className="mt-[10px] xl:mt-[30px]">
               {content.glance.rows.map((row, i) => (
@@ -117,8 +118,8 @@ export function VatNotice({ content }: { content: Content["vatNotice"] }) {
     <Container className="pt-[36px] xl:pt-[55px]">
       <div className="flex flex-col gap-[24px] rounded-[16px] bg-mint px-[24px] py-[24px] lg:flex-row lg:items-center lg:justify-between lg:gap-[60px] xl:rounded-[22px] xl:px-[75px] xl:py-[25px]">
         <div className="text-deep lg:max-w-[1060px]">
-          <p className="text-[16px] leading-[1.4] md:text-[18px] xl:text-[20px] xl:leading-[27px]">{content.text}</p>
-          <p className="mt-[16px] text-[15px] font-bold md:text-[18px] xl:mt-[27px] xl:text-[20px]">{content.prompt}</p>
+          <RichText html={content.text} className="text-[16px] leading-[1.4] md:text-[18px] xl:text-[20px] xl:leading-[27px]" />
+          <p className="mt-[16px] text-[15px] font-bold md:text-[18px] xl:mt-[27px] xl:text-[20px]"><RichText html={content.prompt} inline /></p>
         </div>
         <div className="shrink-0">
           <VatSwitch options={content.options} />
@@ -138,22 +139,24 @@ export function WillsPricing({ content }: { content: Content["wills"] }) {
         {/* Left — copy */}
         <div className="lg:max-w-[1060px] lg:pt-[40px] xl:pt-[53px]">
           <ServiceHeading before={content.headingBefore} accent={content.headingAccent} />
-          <p className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:text-[24px] xl:leading-[33px]">
-            {content.intro}
-          </p>
+          <RichText
+            html={content.intro}
+            className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:text-[24px] xl:leading-[33px]"
+          />
           <ul className="mt-[16px] flex flex-wrap gap-[10px] xl:mt-[22px] xl:gap-[15px]">
             {content.types.map((type) => (
               <li
                 key={type}
                 className="rounded-full border-[1.5px] border-deep px-[18px] py-[8px] text-[15px] text-deep md:text-[16px] xl:px-[30px] xl:py-[12px] xl:text-[18px]"
               >
-                {type}
+                <RichText html={type} inline />
               </li>
             ))}
           </ul>
-          <p className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:text-[24px] xl:leading-[33px]">
-            {content.outro}
-          </p>
+          <RichText
+            html={content.outro}
+            className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:text-[24px] xl:leading-[33px]"
+          />
         </div>
 
         {/* Right — fixed fee card */}
@@ -172,7 +175,7 @@ export function WillsPricing({ content }: { content: Content["wills"] }) {
             {card.features.map((f) => (
               <li key={f} className="flex items-center gap-[12px] text-[16px] text-deep xl:gap-[14px] xl:text-[18px]">
                 <TickIcon className="size-[20px] shrink-0 text-teal xl:size-[22px]" />
-                {f}
+                <RichText html={f} inline />
               </li>
             ))}
           </ul>
@@ -192,14 +195,15 @@ export function PowersOfAttorneyPricing({ content }: { content: Content["powersO
       <div className="flex flex-col gap-[28px] lg:flex-row lg:items-end lg:justify-between lg:gap-[60px]">
         <div className="lg:max-w-[1010px]">
           <ServiceHeading before={content.headingBefore} accent={content.headingAccent} />
-          <p className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:text-[24px] xl:leading-[33px]">
-            {content.intro}
-          </p>
+          <RichText
+            html={content.intro}
+            className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:text-[24px] xl:leading-[33px]"
+          />
         </div>
 
         {/* Single / couple price selection */}
         <div className="flex shrink-0 flex-col items-center text-center xl:mr-[79px]">
-          <p className="text-[16px] font-bold text-teal xl:text-[18px]">{content.selector.title}</p>
+          <p className="text-[16px] font-bold text-teal xl:text-[18px]"><RichText html={content.selector.title} inline /></p>
           <p className="text-[14px] text-deep xl:text-[16px]">{content.selector.hint}</p>
           <div className="mt-[12px] xl:mt-[14px]">
             <CoupleSwitch options={content.selector.options} />
@@ -209,9 +213,10 @@ export function PowersOfAttorneyPricing({ content }: { content: Content["powersO
 
       <PoaCards content={content} />
 
-      <p className="mt-[28px] text-[15px] leading-[1.4] text-deep md:text-[17px] xl:mt-[62px] xl:text-[20px] xl:leading-[27px]">
-        {content.footnote}
-      </p>
+      <RichText
+        html={content.footnote}
+        className="mt-[28px] text-[15px] leading-[1.4] text-deep md:text-[17px] xl:mt-[62px] xl:text-[20px] xl:leading-[27px]"
+      />
 
       <div className="mt-[48px] h-px bg-teal xl:mt-[105px]" />
     </Container>
@@ -226,9 +231,10 @@ export function ProbatePricing({ content }: { content: Content["probate"] }) {
     <Container className="pt-[40px] xl:pt-[98px]">
       <ServiceHeading before={content.headingBefore} accent={content.headingAccent} />
       <div className="mt-[16px] flex flex-col gap-[28px] lg:flex-row lg:items-start lg:justify-between lg:gap-[60px] xl:mt-[30px]">
-        <p className="text-[16px] leading-[1.4] text-deep md:text-[20px] lg:max-w-[1040px] xl:text-[24px] xl:leading-[33px]">
-          {content.intro}
-        </p>
+        <RichText
+          html={content.intro}
+          className="text-[16px] leading-[1.4] text-deep md:text-[20px] lg:max-w-[1040px] xl:text-[24px] xl:leading-[33px]"
+        />
 
         {/* Hourly rate */}
         <div className="border-t-[2.5px] border-deep pt-[20px] text-deep lg:mt-[16px] lg:w-[400px] lg:shrink-0 xl:w-[465px] xl:pt-[32px]">
@@ -246,7 +252,7 @@ export function ProbatePricing({ content }: { content: Content["probate"] }) {
       </div>
 
       <p className="mt-[32px] text-[16px] text-deep md:text-[20px] xl:mt-[22px] xl:text-[24px]">
-        <strong className="font-bold text-teal">{content.chargesLead}</strong> {content.chargesText}
+        <strong className="font-bold text-teal">{content.chargesLead}</strong> <RichText html={content.chargesText} inline />
       </p>
 
       <div className="mt-[20px] grid grid-cols-1 gap-[20px] lg:grid-cols-3 xl:mt-[30px] xl:gap-[31px]">
@@ -260,11 +266,11 @@ export function ProbatePricing({ content }: { content: Content["probate"] }) {
             >
               <p className="text-center text-[20px] font-semibold text-teal xl:text-[24px]">{s.label}</p>
               <h3 className="mt-[14px] text-[22px] font-semibold leading-[1.25] transition-colors duration-300 group-hover:text-mint xl:mt-[16px] xl:px-[8px] xl:text-[26px]">
-                {s.title}
+                <RichText html={s.title} inline />
               </h3>
               <div className="mb-[28px] mt-[14px] space-y-[20px] text-[16px] leading-[1.4] xl:mb-[74px] xl:mt-[22px] xl:space-y-[27px] xl:px-[8px] xl:text-[20px] xl:leading-[27px]">
                 {s.paragraphs.map((p) => (
-                  <p key={p}>{p}</p>
+                  <RichText key={p} html={p} />
                 ))}
               </div>
               <div className="mt-auto border-t border-deep pt-[20px] transition-colors duration-300 group-hover:border-teal xl:pt-[28px]">
@@ -296,17 +302,18 @@ export function DisbursementsPricing({ content }: { content: Content["disburseme
           <ServiceHeading before={content.headingBefore} accent={content.headingAccent} />
           <div className="mt-[16px] space-y-[20px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:space-y-[33px] xl:text-[24px] xl:leading-[33px]">
             {content.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
+              <RichText key={p} html={p} />
             ))}
           </div>
-          <p className="mt-[20px] text-[15px] leading-[1.4] text-teal md:text-[17px] xl:mt-[45px] xl:text-[20px] xl:leading-[27px]">
-            {content.note}
-          </p>
+          <RichText
+            html={content.note}
+            className="mt-[20px] text-[15px] leading-[1.4] text-teal md:text-[17px] xl:mt-[45px] xl:text-[20px] xl:leading-[27px]"
+          />
         </div>
 
         {/* Right — typical third-party costs */}
         <div className="w-full rounded-[20px] border border-deep bg-mint px-[18px] pb-[12px] pt-[24px] text-deep lg:w-[560px] lg:shrink-0 xl:w-[649px] xl:rounded-[30px] xl:px-[42px] xl:pb-[8px] xl:pt-[38px]">
-          <p className="px-[6px] text-[16px] font-semibold uppercase xl:px-[14px] xl:text-[20px]">{table.title}</p>
+          <p className="px-[6px] text-[16px] font-semibold uppercase xl:px-[14px] xl:text-[20px]"><RichText html={table.title} inline /></p>
           <dl className="mt-[14px] border-t border-deep xl:mt-[20px]">
             {table.rows.map((row, i) => (
               <div
@@ -318,7 +325,7 @@ export function DisbursementsPricing({ content }: { content: Content["disburseme
                 <dt>
                   <span className="text-[16px] xl:text-[20px]">{row.label}</span>
                   {"detail" in row && row.detail && (
-                    <span className="mt-[6px] block max-w-[380px] text-[13px] leading-[1.4] xl:text-[16px]">{row.detail}</span>
+                    <span className="mt-[6px] block max-w-[380px] text-[13px] leading-[1.4] xl:text-[16px]"><RichText html={row.detail} inline /></span>
                   )}
                 </dt>
                 <dd className="whitespace-nowrap text-[22px] font-semibold leading-none xl:text-[32px]">
@@ -346,10 +353,10 @@ export function NoSurprises({ content }: { content: Content["noSurprises"] }) {
         {content.items.map((item) => (
           <div key={item.title} className="border-t-[2.5px] border-deep pt-[20px] text-deep xl:pt-[50px]">
             <h3 className="text-[20px] font-semibold xl:text-[26px]">
-              {item.title}
+              <RichText html={item.title} inline />
               <TickIcon className="relative -top-[2px] ml-[12px] inline size-[26px] text-teal xl:ml-[20px] xl:size-[38px]" />
             </h3>
-            <p className="mt-[10px] text-[16px] leading-[1.4] xl:mt-[26px] xl:text-[20px] xl:leading-[27px]">{item.text}</p>
+            <RichText html={item.text} className="mt-[10px] text-[16px] leading-[1.4] xl:mt-[26px] xl:text-[20px] xl:leading-[27px]" />
           </div>
         ))}
       </div>
@@ -365,10 +372,10 @@ export function PricingContact({ content }: { content: Content["contact"] }) {
       <div className="flex flex-col gap-[28px] rounded-[20px] bg-deep px-[24px] py-[32px] lg:flex-row lg:items-end lg:justify-between lg:gap-[60px] xl:rounded-[30px] xl:px-[110px] xl:py-[74px]">
         <div className="lg:max-w-[780px]">
           <h2 className="text-[32px] font-light leading-[1.2] text-mint md:text-[44px] xl:text-[65px] xl:leading-[77px]">
-            {content.heading}
+            <RichText html={content.heading} inline />
           </h2>
           <p className="mt-[16px] max-w-[700px] text-[16px] leading-[1.4] text-white md:text-[20px] xl:mt-[40px] xl:text-[24px] xl:leading-[33px]">
-            {content.textBefore} <strong className="font-semibold">{content.name}</strong> {content.textAfter}
+            <RichText html={content.textBefore} inline /> <strong className="font-semibold">{content.name}</strong> <RichText html={content.textAfter} inline />
           </p>
         </div>
         <div className="flex flex-col items-start gap-[20px] lg:items-center lg:pb-[33px] xl:gap-[36px]">

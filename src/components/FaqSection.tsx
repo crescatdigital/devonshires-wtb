@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { HubPageContent } from "@/lib/cms";
 import { submitLead, type LeadFormState } from "@/app/actions/leads";
 import { useRecaptcha } from "@/lib/useRecaptcha";
+import RichText from "./RichText";
 import { ArrowRightIcon, ChevronCircleIcon } from "./icons";
 
 export type FaqData = HubPageContent["faq"];
@@ -58,13 +59,16 @@ export default function FaqSection({
             <span className={`hidden h-px w-[74px] xl:block ${eyebrowLine}`} />
           </div>
           <h2 className="mt-[12px] text-center font-heading text-[44px] font-semibold leading-[1] text-white md:mt-[33px] md:text-left md:leading-[1.14] lg:text-[68px] xl:text-[92px]">
-            {content.headingLine1}
+            <RichText html={content.headingLine1} inline />
             <br />
-            <span className={`heading-accent ${accentColor}`}>{content.headingLine2}</span>
+            <span className={`heading-accent ${accentColor}`}>
+              <RichText html={content.headingLine2} inline />
+            </span>
           </h2>
-          <p className={`mt-[18px] text-center text-[16px] leading-normal md:mt-[46px] md:text-left md:text-[18px] lg:text-[24px] ${introColor}`}>
-            {content.intro}
-          </p>
+          <RichText
+            html={content.intro}
+            className={`mt-[18px] text-center text-[16px] leading-normal md:mt-[46px] md:text-left md:text-[18px] lg:text-[24px] ${introColor}`}
+          />
 
           <form
             action={leadAction}
@@ -88,12 +92,13 @@ export default function FaqSection({
                 className="size-[42px] shrink-0 md:size-[85px]"
               />
               <h3 className="max-w-[525px] font-heading text-[22px] font-semibold leading-[1.3] text-white md:text-[26px] lg:text-[34px]">
-                {content.formCard.title}
+                <RichText html={content.formCard.title} inline />
               </h3>
             </div>
-            <p className="mt-[16px] text-[16px] leading-[24px] text-white md:mt-[28px] md:text-[22px] md:leading-[35px]">
-              {content.formCard.subtitle}
-            </p>
+            <RichText
+              html={content.formCard.subtitle}
+              className="mt-[16px] text-[16px] leading-[24px] text-white md:mt-[28px] md:text-[22px] md:leading-[35px]"
+            />
 
             {leadState.status === "success" ? (
               <p
@@ -168,7 +173,7 @@ export default function FaqSection({
                   className="flex w-full cursor-pointer items-center justify-between gap-6 py-[16px] text-left md:py-[30px]"
                 >
                   <span className={`max-w-[672px] font-heading text-[20px] font-semibold leading-normal lg:text-[24px] ${headingColor}`}>
-                    {item.question}
+                    <RichText html={item.question} inline />
                   </span>
                   {light ? (
                     <>
@@ -182,9 +187,10 @@ export default function FaqSection({
                   )}
                 </button>
                 {isOpen && hasAnswer && (
-                  <div className={`whitespace-pre-line pr-0 text-[16px] leading-[26px] md:pr-[70px] md:text-[18px] md:leading-[35px] ${light ? "mt-[12px] pb-[24px] md:mt-[2em] md:pb-[6em]" : "pb-[24px] md:pb-[36px]"} ${bodyColor}`}>
-                    {item.answer}
-                  </div>
+                  <RichText
+                    html={item.answer}
+                    className={`whitespace-pre-line pr-0 text-[16px] leading-[26px] md:pr-[70px] md:text-[18px] md:leading-[35px] ${light ? "mt-[12px] pb-[24px] md:mt-[2em] md:pb-[6em]" : "pb-[24px] md:pb-[36px]"} ${bodyColor}`}
+                  />
                 )}
               </div>
             );

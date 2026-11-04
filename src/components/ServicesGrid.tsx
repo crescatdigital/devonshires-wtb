@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { HubPageContent } from "@/lib/cms";
 import SectionIntro from "./SectionIntro";
+import RichText from "./RichText";
 import { ArrowRightIcon } from "./icons";
 
 export default function ServicesGrid({
@@ -38,9 +39,12 @@ export default function ServicesGrid({
                   {card.label}
                 </p>
                 <h3 className="mt-[12px] font-heading text-[34px] text-white md:mt-[18px] md:text-[45px]">
-                  {card.title}
+                  <RichText html={card.title} inline />
                 </h3>
-                <p className="mt-[10px] text-[16px] leading-normal text-white md:mt-[16px] md:text-[24px]">{card.text}</p>
+                <RichText
+                  html={card.text}
+                  className="mt-[10px] text-[16px] leading-normal text-white md:mt-[16px] md:text-[24px]"
+                />
                 <a
                   href={card.link.href}
                   className="mt-auto flex items-center gap-[14px] pt-[20px] text-[21px] text-flame md:pt-[30px] md:text-[32px]"

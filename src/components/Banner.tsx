@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BannerArtwork, { type BannerImage, type Testimonial } from "./BannerArtwork";
+import RichText from "./RichText";
 import { ArrowRightIcon, FolderIcon } from "./icons";
 
 type Segment = { text: string; script?: boolean; break?: boolean };
@@ -72,9 +73,10 @@ export default function Banner({ banner }: { banner: BannerData }) {
               </span>
             ))}
           </h1>
-          <p className="mx-auto mt-[15px] max-w-[779px] text-center text-[16px] leading-normal text-white sm:text-[20px] lg:mt-[46px] lg:text-[24px] xl:mx-0 xl:text-left">
-            {banner.paragraph}
-          </p>
+          <RichText
+            html={banner.paragraph}
+            className="mx-auto mt-[15px] max-w-[779px] text-center text-[16px] leading-normal text-white sm:text-[20px] lg:mt-[46px] lg:text-[24px] xl:mx-0 xl:text-left"
+          />
           <div className="mt-[25px] flex justify-center gap-[10px] lg:mt-[70px] xl:flex-wrap xl:justify-start xl:gap-[20px]">
             <a
               href={banner.primaryCta.href}

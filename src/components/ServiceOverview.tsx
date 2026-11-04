@@ -1,3 +1,4 @@
+import RichText from "./RichText";
 import { CheckCircleIcon } from "./icons";
 
 export type OverviewData = {
@@ -24,13 +25,13 @@ export default function ServiceOverview({ content }: { content: OverviewData }) 
             <span className="hidden h-px w-[74px] bg-teal xl:block" />
           </div>
           <h2 className="mt-[16px] font-heading text-[30px] font-semibold leading-[1.3] text-deep md:mt-[24px] md:text-[38px] lg:text-[65px]">
-            {content.headingBefore}
-            <span className="heading-accent text-teal"> {content.headingAccent} </span>
-            {content.headingAfter}
+            <RichText html={content.headingBefore} inline />
+            <span className="heading-accent text-teal"> <RichText html={content.headingAccent} inline /> </span>
+            <RichText html={content.headingAfter} inline />
           </h2>
           <div className="mt-[20px] space-y-[16px] text-[16px] leading-[1.5] text-deep md:mt-[30px] md:space-y-[20px] md:text-[18px] md:leading-[1.4] lg:text-[24px]">
             {content.paragraphs.map((p, i) => (
-              <p key={i}>{p}</p>
+              <RichText key={i} html={p} />
             ))}
           </div>
         </div>
@@ -38,7 +39,7 @@ export default function ServiceOverview({ content }: { content: OverviewData }) 
         {/* Right — included checklist card */}
         <div className="rounded-[20px] bg-white border border-mint p-[24px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] md:rounded-[30px] md:p-[40px] lg:p-[55px]">
           <p className="font-heading text-[17px] font-semibold uppercase tracking-[0.04em] text-deep md:text-[20px] lg:text-[26px]">
-            {content.cardTitle}
+            <RichText html={content.cardTitle} inline />
           </p>
           <ul className="mt-[16px] md:mt-[24px]">
             {content.checklist.map((item, i) => (
@@ -49,7 +50,7 @@ export default function ServiceOverview({ content }: { content: OverviewData }) 
                 }`}
               >
                 <CheckCircleIcon className="size-[30px] shrink-0 md:size-[44px]" />
-                {item}
+                <RichText html={item} inline />
               </li>
             ))}
           </ul>

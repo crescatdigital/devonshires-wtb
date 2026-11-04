@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronCircleIcon } from "./icons";
+import RichText from "./RichText";
 import type { LandingPageContent } from "@/lib/cms";
 
 export default function ServiceQuestions({
@@ -16,7 +17,7 @@ export default function ServiceQuestions({
       <div className="mx-auto max-w-[1484px] px-6">
         <div className="rounded-[24px] bg-deep px-[24px] pt-[30px] pb-[50px] md:px-[40px] lg:px-[110px]">
           <h2 className="text-center font-heading text-[28px] font-normal text-white md:text-[34px] lg:text-[42px]">
-            {content.heading}
+            <RichText html={content.heading} inline />
           </h2>
           <div className="mt-[30px]">
             {content.items.map((item, i) => {
@@ -31,14 +32,15 @@ export default function ServiceQuestions({
                     className="flex w-full cursor-pointer items-center justify-between gap-6 py-[14px] text-left"
                   >
                     <span className="font-heading text-[18px] font-semibold text-lite lg:text-[24px]">
-                      {item.question}
+                      <RichText html={item.question} inline />
                     </span>
                     <ChevronCircleIcon className="size-[40px] shrink-0 md:size-[54px] lg:size-[60px]" open={isOpen} />
                   </button>
                   {isOpen && hasAnswer && (
-                    <p className="pb-[26px] pr-0 text-[16px] leading-[30px] text-white/90 md:pr-[60px] lg:text-[18px]">
-                      {item.answer}
-                    </p>
+                    <RichText
+                      html={item.answer}
+                      className="pb-[26px] pr-0 text-[16px] leading-[30px] text-white/90 md:pr-[60px] lg:text-[18px]"
+                    />
                   )}
                 </div>
               );
@@ -46,7 +48,7 @@ export default function ServiceQuestions({
           </div>
         </div>
         <p className="mt-[25px] text-center font-heading text-[18px] text-deep md:mt-[36px] md:text-[26px]">
-          {content.stillUnsureText}
+          <RichText html={content.stillUnsureText} inline />
           <a href="#assessment" className="block md:inline text-flame font-semibold underline">
             {content.stillUnsureLink}
           </a>

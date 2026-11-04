@@ -1,3 +1,4 @@
+import RichText from "./RichText";
 import { ArrowRightIcon } from "./icons";
 
 export type JourneyData = {
@@ -26,13 +27,14 @@ export default function ServiceJourney({ content }: { content: JourneyData }) {
             <span className="hidden h-px w-[74px] bg-teal xl:block" />
           </div>
           <h2 className="mt-[16px] font-heading text-[30px] font-semibold leading-[1.15] text-white md:mt-[30px] md:text-[40px] md:leading-[1.1] lg:text-[92px]">
-            {content.headingBefore}
-            <span className="heading-accent text-teal"> {content.headingAccent}</span>
-            {content.headingAfter}
+            <RichText html={content.headingBefore} inline />
+            <span className="heading-accent text-teal"> <RichText html={content.headingAccent} inline /></span>
+            <RichText html={content.headingAfter} inline />
           </h2>
-          <p className="mt-[20px] max-w-[684px] text-[16px] leading-[1.4] text-white md:mt-[60px] md:text-[18px] lg:text-[24px]">
-            {content.subtext}
-          </p>
+          <RichText
+            html={content.subtext}
+            className="mt-[20px] max-w-[684px] text-[16px] leading-[1.4] text-white md:mt-[60px] md:text-[18px] lg:text-[24px]"
+          />
 
           <div className="mt-[32px] rounded-[12px] border-2 border-[#14B8B0] bg-white px-[24px] py-[28px] md:mt-[110px] md:px-[80px] md:py-[70px]">
             <div className="flex items-center gap-[20px]">
@@ -63,14 +65,14 @@ export default function ServiceJourney({ content }: { content: JourneyData }) {
               </span>
 
               <h3 className="font-heading text-[20px] font-semibold leading-[1.2] text-deep md:text-[34px]">
-                {content.checklistTitle}
+                <RichText html={content.checklistTitle} inline />
               </h3>
             </div>
 
             <ul className="mt-[20px] space-y-[10px] pl-[22px] text-[16px] leading-[1.5] text-deep md:mt-[36px] md:space-y-[18px] md:pl-[38px] md:text-[26px] md:leading-[1.55]">
               {content.checklist.map((item) => (
                 <li key={item} className="list-disc marker:text-deep">
-                  {item}
+                  <RichText html={item} inline />
                 </li>
               ))}
             </ul>
@@ -125,12 +127,12 @@ export default function ServiceJourney({ content }: { content: JourneyData }) {
             </span>
               <div className="min-w-0 flex-1 rounded-[10px] border-[3px] border-white bg-deep pt-[20px] pr-[16px] pb-[36px] pl-[24px] md:pt-[26px] md:pr-[26px] md:pb-[70px] md:pl-[50px]">
                 <div className="flex flex-col gap-[10px] sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                  <h3 className="mt-[4px] min-w-0 font-heading text-[18px] font-semibold text-white md:mt-[30px] sm:text-[34px]">{step.title}</h3>
+                  <h3 className="mt-[4px] min-w-0 font-heading text-[18px] font-semibold text-white md:mt-[30px] sm:text-[34px]"><RichText html={step.title} inline /></h3>
                   <span className="w-fit shrink-0 rounded-full bg-mint px-[14px] py-[6px] text-[13px] font-semibold text-deep md:px-[20px] md:py-[10px] md:text-[18px]">
                     {step.meta}
                   </span>
                 </div>
-                <p className="mt-[10px] mr-0 text-[15px] leading-[24px] text-white/90 md:mt-[14px] md:mr-[100px] sm:text-[22px] sm:leading-[1.5]">{step.text}</p>
+                <RichText html={step.text} className="mt-[10px] mr-0 text-[15px] leading-[24px] text-white/90 md:mt-[14px] md:mr-[100px] sm:text-[22px] sm:leading-[1.5]" />
               </div>
             </li>
             );

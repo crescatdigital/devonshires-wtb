@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { HubPageContent } from "@/lib/cms";
+import RichText from "./RichText";
 
 export default function WhyUs({ content }: { content: HubPageContent["whyUs"] }) {
   return (
@@ -13,9 +14,13 @@ export default function WhyUs({ content }: { content: HubPageContent["whyUs"] })
           <span className="hidden h-px w-[74px] bg-teal xl:block" />
         </div>
         <h2 className="mt-[12px] text-center font-heading text-[34px] font-semibold leading-[1.25] text-deep lg:mt-[30px] lg:text-[46px] xl:text-left xl:text-[55px]">
-          {content.headingBefore}
-          <span className="heading-accent text-teal">{content.headingAccent}</span>
-          <span className="heading-accent text-deep">{content.headingAfter}</span>
+          <RichText html={content.headingBefore} inline />
+          <span className="heading-accent text-teal">
+            <RichText html={content.headingAccent} inline />
+          </span>
+          <span className="heading-accent text-deep">
+            <RichText html={content.headingAfter} inline />
+          </span>
         </h2>
         <div className="mt-[30px] grid grid-cols-1 divide-y divide-white/60 rounded-[30px] border border-lite bg-deep xl:mt-[50px] xl:grid-cols-3 xl:divide-x xl:divide-y-0">
           {content.columns.map((col) => (
@@ -28,11 +33,12 @@ export default function WhyUs({ content }: { content: HubPageContent["whyUs"] })
                 className="size-[150px] rounded-full"
               />
               <h3 className="mt-[22px] max-w-[321px] text-center text-[24px] font-semibold leading-[1.3] text-mint px-4 xl:mt-[35px] xl:text-[26px] xl:leading-normal">
-                {col.title}
+                <RichText html={col.title} inline />
               </h3>
-              <p className="mt-[20px] max-w-[341px] text-center text-[16px] leading-normal text-white xl:mt-[26px] xl:text-[20px]">
-                {col.text}
-              </p>
+              <RichText
+                html={col.text}
+                className="mt-[20px] max-w-[341px] text-center text-[16px] leading-normal text-white xl:mt-[26px] xl:text-[20px]"
+              />
             </div>
           ))}
         </div>

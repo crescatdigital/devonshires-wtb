@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { HubPageContent } from "@/lib/cms";
 import SectionIntro from "./SectionIntro";
+import RichText from "./RichText";
 import { ArrowRightIcon } from "./icons";
 
 const CORNER_CLASSES: Record<number, string> = {
@@ -46,11 +47,12 @@ export default function WhyItMatters({
                 {box.numeral}
               </p>
               <h3 className="mt-[22px] font-heading text-[26px] font-semibold leading-[1.2] text-white md:mt-[39px] md:text-[34px] md:leading-[1.5]">
-                {box.title}
+                <RichText html={box.title} inline />
               </h3>
-              <p className="mt-[14px] max-w-[483px] text-[16px] leading-[26px] text-white md:mt-[25px] md:text-[22px] md:leading-[35px]">
-                {box.text}
-              </p>
+              <RichText
+                html={box.text}
+                className="mt-[14px] max-w-[483px] text-[16px] leading-[26px] text-white md:mt-[25px] md:text-[22px] md:leading-[35px]"
+              />
             </article>
           ))}
         </div>

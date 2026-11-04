@@ -1,3 +1,4 @@
+import RichText from "./RichText";
 import { ArrowRightIcon } from "./icons";
 
 export type ReasonsData = {
@@ -21,13 +22,16 @@ export default function ServiceReasons({ content }: { content: ReasonsData }) {
           <span className="hidden h-px w-[74px] bg-mint xl:block" />
         </div>
         <h2 className="mt-[16px] font-heading text-[32px] font-semibold leading-[1.15] text-white md:mt-[28px] md:text-[40px] lg:text-[92px]">
-          {content.headingBefore}
+          <RichText html={content.headingBefore} inline />
           <br />
-          <span className="heading-accent text-mint">{content.headingAccent}</span>
+          <span className="heading-accent text-mint">
+            <RichText html={content.headingAccent} inline />
+          </span>
         </h2>
-        <p className="mx-auto mt-[24px] max-w-[900px] text-[16px] leading-normal text-white md:mt-[50px] md:text-[18px] lg:text-[24px]">
-          {content.subtext}
-        </p>
+        <RichText
+          html={content.subtext}
+          className="mx-auto mt-[24px] max-w-[900px] text-[16px] leading-normal text-white md:mt-[50px] md:text-[18px] lg:text-[24px]"
+        />
 
         <div className="mt-[36px] grid grid-cols-1 gap-[16px] text-left sm:grid-cols-2 md:mt-[70px] md:gap-[24px] xl:grid-cols-4">
           {content.cards.map((card) => (
@@ -39,9 +43,12 @@ export default function ServiceReasons({ content }: { content: ReasonsData }) {
                 {card.numeral}
               </span>
               <h3 className="mt-[18px] font-heading text-[22px] font-semibold text-white md:mt-[26px] md:text-[28px]">
-                {card.title}
+                <RichText html={card.title} inline />
               </h3>
-              <p className="mt-[14px] text-[16px] leading-[24px] text-white/90 md:mt-[20px] md:text-[18px] md:leading-[26px]">{card.text}</p>
+              <RichText
+                html={card.text}
+                className="mt-[14px] text-[16px] leading-[24px] text-white/90 md:mt-[20px] md:text-[18px] md:leading-[26px]"
+              />
               <span className="absolute bottom-[28px] mt-auto block h-[2px] w-[70px] bg-teal md:bottom-[40px]" />
             </article>
           ))}

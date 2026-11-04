@@ -1,3 +1,5 @@
+import RichText from "./RichText";
+
 type Scheme = "light" | "dark";
 
 /**
@@ -52,16 +54,17 @@ export default function SectionIntro({
         <span className={`hidden h-px w-[74px] xl:block ${lineColor}`} />
       </div>
       <h2 className={`${headingMtClassName ?? "mt-[28px]"} font-heading font-semibold ${headingClassName ?? headingClass} ${headingColor}`}>
-        {headingLine1}
+        <RichText html={headingLine1} inline />
         <br />
-        <span className={`heading-accent ${accentColor}`}>{headingLine2}</span>
+        <span className={`heading-accent ${accentColor}`}>
+          <RichText html={headingLine2} inline />
+        </span>
       </h2>
       {intro && (
-        <p
+        <RichText
+          html={intro}
           className={`mx-auto ${introMtClassName ?? "mt-[50px]"} max-w-[1230px] text-[18px] leading-normal lg:text-[24px] ${introColor} ${centered ? "" : "mx-0"}`}
-        >
-          {intro}
-        </p>
+        />
       )}
     </div>
   );

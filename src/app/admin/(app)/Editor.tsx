@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { saveGlobal, saveSection } from "../actions";
+import RichTextEditor from "./RichTextEditor";
 
 /* ----------------------------- helpers ----------------------------- */
 
@@ -40,6 +41,43 @@ const LONG_KEYS = new Set([
 ]);
 function isLongText(key: string | number, v: string): boolean {
   return LONG_KEYS.has(String(key)) || v.length > 70;
+}
+
+/* --------------------- rich-text field classification --------------------- */
+
+// URLs, enums and numeric-ish strings — always a plain input, never WYSIWYG.
+const PLAIN_KEYS = new Set([
+  "href", "src", "alt", "icon", "slug", "id", "key", "unit", "numeral", "meta",
+  "badge", "prefix", "email", "phone", "name", "label", "submitLabel", "value",
+  "footerValue", "footerLabel", "footerNote", "metaTitle", "metaDescription",
+  "ogImage", "eyebrow", "message", "hint", "stillUnsureLink",
+  "noteIncluding", "noteExcluding", "includingNote", "excludingNote",
+  "plusVat", "plusVatShort", "includingVat", "includingVatShort",
+]);
+// Containers whose string children are display/data, not editable prose.
+const PLAIN_PARENTS = new Set(["headingSegments", "placeholders", "options"]);
+// Body copy — full (block) WYSIWYG + block render on the site.
+const BLOCK_KEYS = new Set([
+  "paragraph", "paragraphs", "text", "intro", "answer", "quote", "subtext",
+  "description", "disclaimer", "subtitle", "regulatory", "outro", "footnote",
+  "note",
+]);
+
+function isPlainKey(key: string | number): boolean {
+  const s = String(key);
+  return PLAIN_KEYS.has(s) || /(href|url|src)$/i.test(s);
+}
+
+type FieldKind = "plain" | "block" | "inline";
+
+/** Decide how a string field is edited. Array items (numeric key) inherit the
+ *  array's key; some containers force their children to stay plain. */
+function classifyField(keyName: string | number, parentKey?: string | number): FieldKind {
+  if (parentKey !== undefined && PLAIN_PARENTS.has(String(parentKey))) return "plain";
+  const realKey = typeof keyName === "number" ? parentKey ?? keyName : keyName;
+  if (isPlainKey(realKey)) return "plain";
+  if (BLOCK_KEYS.has(String(realKey))) return "block";
+  return "inline";
 }
 
 function setAtPath(obj: Json, path: Path, value: Json): Json {
@@ -169,31 +207,42 @@ function Node({
   path,
   keyName,
   update,
+  parentKey,
 }: {
   value: Json;
   path: Path;
   keyName: string | number;
   update: (p: Path, v: Json) => void;
+  parentKey?: string | number;
 }) {
   const label = humanize(keyName);
 
   // strings
   if (typeof value === "string") {
+    const kind = classifyField(keyName, parentKey);
     return (
       <label className="block">
         <span className="mb-1.5 block text-sm font-medium text-slate-600">{label}</span>
-        {isLongText(keyName, value) ? (
-          <textarea
-            value={value}
-            onChange={(e) => update(path, e.target.value)}
-            rows={3}
-            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-base leading-relaxed text-slate-900 outline-none focus:border-slate-900"
-          />
+        {kind === "plain" ? (
+          isLongText(keyName, value) ? (
+            <textarea
+              value={value}
+              onChange={(e) => update(path, e.target.value)}
+              rows={3}
+              className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-base leading-relaxed text-slate-900 outline-none focus:border-slate-900"
+            />
+          ) : (
+            <input
+              value={value}
+              onChange={(e) => update(path, e.target.value)}
+              className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-base text-slate-900 outline-none focus:border-slate-900"
+            />
+          )
         ) : (
-          <input
+          <RichTextEditor
             value={value}
-            onChange={(e) => update(path, e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-base text-slate-900 outline-none focus:border-slate-900"
+            inline={kind === "inline"}
+            onChange={(html) => update(path, html)}
           />
         )}
       </label>
@@ -289,9 +338,9 @@ function Node({
                 </div>
               </div>
               {isPlainObject(item) ? (
-                <ObjectFields value={item} path={[...path, i]} update={update} />
+                <ObjectFields value={item} path={[...path, i]} update={update} parentKey={keyName} />
               ) : (
-                <Node value={item} path={[...path, i]} keyName={i} update={update} />
+                <Node value={item} path={[...path, i]} keyName={i} update={update} parentKey={keyName} />
               )}
             </div>
           ))}
@@ -324,10 +373,12 @@ function ObjectFields({
   value,
   path,
   update,
+  parentKey,
 }: {
   value: Record<string, Json>;
   path: Path;
   update: (p: Path, v: Json) => void;
+  parentKey?: string | number;
 }) {
   // Render simple fields (text, numbers, images) before long repeatable lists /
   // nested groups, so headings and copy appear first regardless of jsonb key order.
@@ -338,7 +389,7 @@ function ObjectFields({
   return (
     <div className="space-y-4">
       {entries.map(([k, v]) => (
-        <Node key={k} value={v} path={[...path, k]} keyName={k} update={update} />
+        <Node key={k} value={v} path={[...path, k]} keyName={k} update={update} parentKey={parentKey} />
       ))}
     </div>
   );
