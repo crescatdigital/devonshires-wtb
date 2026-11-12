@@ -216,13 +216,16 @@ function Node({
   parentKey?: string | number;
 }) {
   const label = humanize(keyName);
+  // Array items (numeric key) sit under their own "Paragraph 1"-style header,
+  // so their index would only show up as a stray "0", "1", … label.
+  const showLabel = typeof keyName !== "number";
 
   // strings
   if (typeof value === "string") {
     const kind = classifyField(keyName, parentKey);
     return (
       <label className="block">
-        <span className="mb-1.5 block text-sm font-medium text-slate-600">{label}</span>
+        {showLabel && <span className="mb-1.5 block text-sm font-medium text-slate-600">{label}</span>}
         {kind === "plain" ? (
           isLongText(keyName, value) ? (
             <textarea
@@ -252,7 +255,7 @@ function Node({
   if (typeof value === "number") {
     return (
       <label className="block">
-        <span className="mb-1.5 block text-sm font-medium text-slate-600">{label}</span>
+        {showLabel && <span className="mb-1.5 block text-sm font-medium text-slate-600">{label}</span>}
         <input
           type="number"
           step="any"
@@ -282,7 +285,7 @@ function Node({
   if (isImageObject(value)) {
     return (
       <div>
-        <span className="mb-1.5 block text-sm font-medium text-slate-600">{label}</span>
+        {showLabel && <span className="mb-1.5 block text-sm font-medium text-slate-600">{label}</span>}
         <ImageField value={value} path={path} update={update} />
       </div>
     );
@@ -293,7 +296,7 @@ function Node({
     const template = value.length ? blankLike(value[0]) : "";
     return (
       <div className="rounded-xl border border-slate-200 p-3">
-        <p className="mb-3 text-base font-semibold text-slate-700">{label}</p>
+        {showLabel && <p className="mb-3 text-base font-semibold text-slate-700">{label}</p>}
         <div className="space-y-3">
           {value.map((item, i) => (
             <div key={i} className="rounded-lg bg-slate-50 p-3">
@@ -360,7 +363,7 @@ function Node({
   if (isPlainObject(value)) {
     return (
       <div className="rounded-xl border border-slate-200 p-3">
-        <p className="mb-3 text-base font-semibold text-slate-700">{label}</p>
+        {showLabel && <p className="mb-3 text-base font-semibold text-slate-700">{label}</p>}
         <ObjectFields value={value} path={path} update={update} />
       </div>
     );
