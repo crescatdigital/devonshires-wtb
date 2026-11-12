@@ -1,4 +1,4 @@
-import DOMPurify from "isomorphic-dompurify";
+import sanitizeHtml from "sanitize-html";
 
 /**
  * Renders CMS rich text (HTML authored in the admin WYSIWYG editor) on the
@@ -15,11 +15,20 @@ import DOMPurify from "isomorphic-dompurify";
  *
  * Plain strings (content authored before the WYSIWYG editor) are valid HTML and
  * pass through unchanged.
+ *
+ * Sanitizing uses sanitize-html (a pure-JS parser that Next bundles), not
+ * DOMPurify + jsdom: jsdom is loaded by Next as an external package and its
+ * ESM-only dependencies crash Vercel's serverless runtime with ERR_REQUIRE_ESM,
+ * which silently broke every on-demand page refresh after a CMS save.
  */
 
 const INLINE_TAGS = ["a", "b", "strong", "i", "em", "u", "s", "strike", "span", "br"];
 const BLOCK_TAGS = [...INLINE_TAGS, "p", "ul", "ol", "li", "h2", "h3", "blockquote"];
-const ALLOWED_ATTR = ["href", "target", "rel"];
+/** Only links carry attributes. Disallowed tags are dropped but keep their text;
+ *  script/style contents are discarded. Link schemes are limited to
+ *  http(s)/mailto/tel plus relative URLs, so `javascript:` links are removed. */
+const ALLOWED_ATTRIBUTES = { a: ["href", "target", "rel"] };
+const ALLOWED_SCHEMES = ["http", "https", "mailto", "tel"];
 
 /** Shared prose styling. `em`-based sizes scale with the caller's font-size; no
  *  colours are set, so links and text inherit the surrounding section's palette. */
@@ -40,9 +49,10 @@ const INLINE_PROSE =
   "[&_a]:underline [&_a]:underline-offset-2 [&_a]:font-medium [&_strong]:font-semibold [&_em]:italic";
 
 function sanitize(html: string, inline: boolean): string {
-  return DOMPurify.sanitize(html, {
-    ALLOWED_TAGS: inline ? INLINE_TAGS : BLOCK_TAGS,
-    ALLOWED_ATTR,
+  return sanitizeHtml(html, {
+    allowedTags: inline ? INLINE_TAGS : BLOCK_TAGS,
+    allowedAttributes: ALLOWED_ATTRIBUTES,
+    allowedSchemes: ALLOWED_SCHEMES,
   });
 }
 
