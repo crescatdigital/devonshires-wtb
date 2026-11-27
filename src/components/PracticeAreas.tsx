@@ -22,12 +22,13 @@ export default function PracticeAreas({
           introMtClassName="mt-[18px] md:mt-[50px]"
         />
         {/* One column on mobile, 2×2 from tablet, 4 across on desktop, so all
-            four cards are always visible and none is left alone on a row. */}
-        <div className="mx-auto mt-[22px] grid grid-cols-1 justify-items-center gap-[20px] md:mt-[50px] md:max-w-[840px] md:grid-cols-2 lg:mt-[70px] xl:max-w-[1700px] xl:grid-cols-4">
+            four cards are always visible and none is left alone on a row.
+            Below xl the cards stretch to fill the full content width. */}
+        <div className="mx-auto mt-[22px] grid grid-cols-1 justify-items-center gap-[20px] md:mt-[50px] md:grid-cols-2 lg:mt-[70px] xl:max-w-[1700px] xl:grid-cols-4">
           {content.cards.map((card) => (
             <article
               key={card.title}
-              className="group relative flex w-full max-w-[410px] flex-col rounded-[16px] border-2 border-teal bg-white p-[20px] transition-all duration-200 xl:rounded-[10px] xl:border-deep xl:p-[25px_10px_0_10px] xl:hover:border-teal xl:hover:bg-lite xl:hover:shadow-[2px_4px_4px_4px_rgba(0,0,0,0.1)]"
+              className="group relative flex w-full flex-col xl:max-w-[410px] rounded-[16px] border-2 border-teal bg-white p-[20px] transition-all duration-200 xl:rounded-[10px] xl:border-deep xl:p-[25px_10px_0_10px] xl:hover:border-teal xl:hover:bg-lite xl:hover:shadow-[2px_4px_4px_4px_rgba(0,0,0,0.1)]"
             >
               <div className="absolute inset-x-0 top-0 h-[11px] rounded-t-[16px] bg-teal transition-opacity duration-200 xl:rounded-t-[10px] xl:opacity-0 xl:group-hover:opacity-100" />
 
