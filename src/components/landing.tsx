@@ -138,7 +138,7 @@ export function LandingHero({ content }: { content: LandingPageContent["banner"]
         className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[697px] object-cover lg:block"
       />
 
-      <div className="relative mx-auto flex max-w-[1920px] flex-col gap-[32px] px-6 py-[52px] md:gap-[48px] lg:flex-row lg:items-start lg:justify-between lg:gap-[80px] lg:py-[90px] lg:pl-[175px] lg:pr-[262px]">
+      <div className="relative mx-auto flex max-w-[1920px] flex-col gap-[32px] px-6 py-[52px] md:gap-[48px] lg:flex-row lg:items-start lg:justify-between lg:gap-[50px] lg:px-[60px] lg:py-[90px] min-[1440px]:gap-[80px] min-[1440px]:pl-[175px] min-[1440px]:pr-[262px]">
         {/* Left — pitch */}
         <div className="relative lg:flex-1">
           <Eyebrow>{content.eyebrow}</Eyebrow>
@@ -175,24 +175,27 @@ export function LandingHero({ content }: { content: LandingPageContent["banner"]
             ))}
           </ul>
           <div className="mt-[36px] h-px w-full max-w-[620px] bg-white/25 lg:mt-[50px]" />
-          <div className="mt-[22px]">
-            <p className="text-[16px] font-semibold text-white lg:text-[18px]">Devonshires Claims</p>
+          {/* Reviews + award seal. Below 1440px the seal sits beside the reviews
+              badge; from 1440px it floats bottom-right as in the desktop design. */}
+          <div className="mt-[22px] lg:flex lg:items-center lg:gap-[40px] min-[1440px]:block">
+            <div>
+              <p className="text-[16px] font-semibold text-white lg:text-[18px]">Devonshires Claims</p>
+              <Image
+                src="/images/reviews-badge.png"
+                alt="Devonshires Claims rated 4.8 out of 5 — 48 verified reviews"
+                width={349}
+                height={111}
+                className="mt-[10px] h-auto w-[280px] lg:w-[320px]"
+              />
+            </div>
             <Image
-              src="/images/reviews-badge.png"
-              alt="Devonshires Claims rated 4.8 out of 5 — 48 verified reviews"
-              width={349}
-              height={111}
-              className="mt-[10px] h-auto w-[280px] lg:w-[320px]"
+              src="/images/win-badge.png"
+              alt="UK Legal Awards 2023 — Devonshires Claims — Best Solicitors 2023"
+              width={200}
+              height={168}
+              className="hidden lg:block lg:w-[170px] min-[1440px]:absolute min-[1440px]:bottom-[70px] min-[1440px]:right-[10px] min-[1440px]:w-[200px]"
             />
           </div>
-          {/* Award seal */}
-          <Image
-            src="/images/win-badge.png"
-            alt="UK Legal Awards 2023 — Devonshires Claims — Best Solicitors 2023"
-            width={200}
-            height={168}
-            className="hidden lg:absolute lg:bottom-[70px] lg:right-[10px] lg:block lg:w-[200px]"
-          />
         </div>
 
         {/* Right — assessment form */}
@@ -216,11 +219,12 @@ export function TrustBadges({ content }: { content: LandingPageContent["trustBad
           </span>
           <RichText html={parts[1]} inline />
         </p>
-        <div className="mt-[30px] flex flex-wrap items-center justify-center gap-[24px] lg:mt-[20px] lg:gap-[45px]">
+        {/* 1 column on mobile, 2×2 on tablet, 4 across on desktop. */}
+        <div className="mt-[30px] grid grid-cols-1 justify-items-center gap-[24px] sm:grid-cols-2 lg:mt-[20px] lg:grid-cols-4 lg:gap-[45px]">
           {content.logos.map((logo) => (
             <div
               key={logo.label}
-              className="flex h-[116px] w-[309px] items-center justify-center rounded-[12px] border-2 border-teal bg-white px-[30px] py-[10px] text-center font-heading text-[18px] font-semibold text-deep/75"
+              className="flex h-[116px] w-full max-w-[309px] sm:max-w-none lg:max-w-[309px] items-center justify-center rounded-[12px] border-2 border-teal bg-white px-[30px] py-[10px] text-center font-heading text-[18px] font-semibold text-deep/75"
             >
               {"image" in logo && logo.image ? (
                 <Image
@@ -329,17 +333,18 @@ export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGe
     <section className="relative overflow-hidden bg-ice pt-[40px] pb-[25px] md:py-[48px] lg:py-[70px]">
       {/* Mint background panel behind the shield (desktop) */}
       <div aria-hidden className="absolute inset-y-0 right-0 hidden w-[380px] bg-mint lg:block" />
-      {/* Duotone shield (desktop) */}
+      {/* Duotone shield (wide desktop) — only from 1440px, where the 815px shield
+          fits beside the 1000px text column without overlapping it. */}
       <Image
         src={content.image.src}
         alt={content.image.alt}
         width={content.image.width}
         height={content.image.height}
-        className="pointer-events-none absolute -right-[0] top-[-48px] hidden w-[815px] lg:block"
+        className="pointer-events-none absolute right-0 top-[-48px] hidden w-[815px] min-[1440px]:block"
       />
 
-      <div className="relative mx-auto max-w-[1920px] px-6 lg:pl-[105px] lg:pr-0">
-        <div className="lg:max-w-[1000px]">
+      <div className="relative mx-auto max-w-[1920px] px-6 lg:flex lg:items-center lg:gap-[40px] lg:pl-[60px] lg:pr-0 min-[1440px]:pl-[105px]">
+        <div className="lg:max-w-[1000px] lg:flex-1">
           <h2 className="font-heading text-[32px] font-semibold leading-[1.25] text-teal lg:text-[42px]">
             <RichText html={content.headingBefore} inline />
             <span className="underline decoration-2 underline-offset-[6px] text-deep">
@@ -376,14 +381,14 @@ export function WhatYouGet({ content }: { content: LandingPageContent["whatYouGe
           </ul>
         </div>
 
-        {/* Shield (mobile) */}
-        <div className="mt-[40px] flex justify-center lg:hidden">
+        {/* Shield (mobile: below the list; tablet/laptop: right-hand column) */}
+        <div className="mt-[40px] flex justify-center lg:mt-0 lg:w-[38%] lg:shrink-0 min-[1440px]:hidden">
           <Image
             src={content.image.src}
             alt={content.image.alt}
             width={content.image.width}
             height={content.image.height}
-            className="h-auto w-[320px] max-w-full"
+            className="h-auto w-[320px] max-w-full lg:w-full"
           />
         </div>
       </div>

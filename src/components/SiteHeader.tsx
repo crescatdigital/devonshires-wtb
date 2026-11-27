@@ -68,7 +68,7 @@ export default function SiteHeader({ site }: { site: SiteSettings }) {
       </div>
 
       {/* Desktop nav */}
-      <nav className="mx-auto hidden max-w-[1730px] flex-wrap items-center justify-center gap-x-12 gap-y-2 px-6 pb-4 pt-2 lg:flex">
+      <nav className="mx-auto hidden max-w-[1730px] flex-wrap items-center justify-center gap-x-8 gap-y-2 xl:gap-x-12 px-6 pb-4 pt-2 lg:flex">
         {site.header.navigation.map((item) => {
           const isMega = item.label === mm.trigger;
           if (isMega) {

@@ -22,9 +22,10 @@ export default function WhyUs({ content }: { content: HubPageContent["whyUs"] })
             <RichText html={content.headingAfter} inline />
           </span>
         </h2>
-        <div className="mt-[30px] grid grid-cols-1 divide-y divide-white/60 rounded-[30px] border border-lite bg-deep xl:mt-[50px] xl:grid-cols-3 xl:divide-x xl:divide-y-0">
+        {/* Stacked on mobile; three columns side by side from tablet up. */}
+        <div className="mt-[30px] grid grid-cols-1 divide-y divide-white/60 rounded-[30px] border border-lite bg-deep md:grid-cols-3 md:divide-x md:divide-y-0 xl:mt-[50px]">
           {content.columns.map((col) => (
-            <div key={col.title} className="flex flex-col items-center p-[26px] xl:px-[40px] xl:pb-[55px] xl:pt-[30px]">
+            <div key={col.title} className="flex flex-col items-center p-[26px] md:px-[18px] lg:px-[30px] lg:pb-[45px] xl:px-[40px] xl:pb-[55px] xl:pt-[30px]">
               <Image
                 src={col.image.src}
                 alt={col.image.alt}
@@ -32,12 +33,12 @@ export default function WhyUs({ content }: { content: HubPageContent["whyUs"] })
                 height={col.image.height}
                 className="size-[150px] rounded-full"
               />
-              <h3 className="mt-[22px] max-w-[321px] text-center text-[24px] font-semibold leading-[1.3] text-mint px-4 xl:mt-[35px] xl:text-[26px] xl:leading-normal">
+              <h3 className="mt-[22px] max-w-[321px] text-center text-[24px] font-semibold leading-[1.3] text-mint px-4 lg:text-[26px] xl:mt-[35px] xl:leading-normal">
                 <RichText html={col.title} inline />
               </h3>
               <RichText
                 html={col.text}
-                className="mt-[20px] max-w-[341px] text-center text-[16px] leading-normal text-white xl:mt-[26px] xl:text-[20px]"
+                className="mt-[20px] max-w-[341px] text-center text-[16px] leading-normal text-white lg:text-[20px] xl:mt-[26px]"
               />
             </div>
           ))}

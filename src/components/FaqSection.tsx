@@ -50,8 +50,8 @@ export default function FaqSection({
     <section className={`${sectionBg} ${ light ? "" : "pt-[30px] pb-[70px] lg:pt-[93px] lg:pb-[130px]" }`} >
       <div className={`mx-auto flex flex-col justify-between xl:flex-row ${light ? "w-full" : "max-w-[1810px] gap-[40px] px-4 md:gap-[60px] md:px-6 xl:gap-[124px] xl:px-[20px]"}`}>
         {/* Left column — intro + contact form */}
-        <div className={`w-full ${light ? "bg-deep px-[20px] pt-[36px] pb-[60px] md:bg-mint md:pb-[8em] md:pl-[8em] md:pr-[4em] md:pt-[5em] xl:flex-1" : "max-w-[791px]"}`}>
-          <div className="flex items-center justify-center gap-[24px] xl:justify-start">
+        <div className={`w-full ${light ? "bg-deep px-[20px] pt-[36px] pb-[60px] md:bg-mint md:pb-[8em] md:pl-[8em] md:pr-[4em] md:pt-[5em] xl:flex-1" : "xl:max-w-[791px]"}`}>
+          <div className="flex items-center justify-center gap-[24px] md:justify-start">
             <span className={`hidden h-px w-[74px] xl:block ${eyebrowLine}`} />
             <p className={`font-heading text-[20px] font-semibold uppercase lg:text-[26px] ${eyebrowColor}`}>
               {content.eyebrow}
@@ -159,7 +159,7 @@ export default function FaqSection({
         </div>
 
         {/* Right column — FAQ accordion */}
-        <div className={`w-full ${light ? "bg-mint px-[20px] pt-[36px] pb-[60px] md:bg-deep md:pb-[8em] md:pl-[5em] md:pr-[7em] md:pt-[7em] xl:flex-1" : "max-w-[845px] xl:pt-[25px]"}`}>
+        <div className={`w-full ${light ? "bg-mint px-[20px] pt-[36px] pb-[60px] md:bg-deep md:pb-[8em] md:pl-[5em] md:pr-[7em] md:pt-[7em] xl:flex-1" : "xl:max-w-[845px] xl:pt-[25px]"}`}>
           <div className={`h-px w-full ${topDivider}`} />
           {content.items.map((item, i) => {
             const isOpen = openIndex === i;

@@ -24,7 +24,7 @@ function Container({ className = "", children }: { className?: string; children:
 /** "Service: Wills" — semibold lead-in plus the Segoe Semilight italic accent. */
 function ServiceHeading({ before, accent, after }: { before: string; accent: string; after?: string }) {
   return (
-    <h2 className="font-heading text-[32px] font-semibold leading-[1.2] text-deep md:text-[44px] xl:text-[65px]">
+    <h2 className="font-heading text-[32px] font-semibold leading-[1.2] text-deep md:text-[44px] lg:text-[65px]">
       <RichText html={before} inline /> <span className="heading-accent text-teal"><RichText html={accent} inline /></span>
       {after ? <RichText html={after} inline /> : null}
     </h2>
@@ -71,7 +71,7 @@ export function PricingHero({ content }: { content: Content["hero"] }) {
         {/* Right — at a glance card + CTA */}
         <div className="flex w-full flex-col items-center xl:mt-[66px] xl:w-[673px] xl:shrink-0">
           <div className="w-full rounded-[24px] border-[4px] border-mint bg-white px-[24px] py-[28px] md:px-[40px] xl:rounded-[40px] xl:px-[55px] xl:pb-[64px] xl:pt-[48px]">
-            <p className="text-[18px] font-bold uppercase text-deep md:text-[20px] xl:text-[24px]">
+            <p className="text-[18px] font-bold uppercase text-deep md:text-[20px] lg:text-[24px]">
               <RichText html={content.glance.title} inline />
             </p>
             <dl className="mt-[10px] xl:mt-[30px]">
@@ -82,25 +82,25 @@ export function PricingHero({ content }: { content: Content["hero"] }) {
                     i < content.glance.rows.length - 1 ? "border-b border-deep/15" : "pb-0 xl:pb-0"
                   } ${i === 0 ? "pt-[8px] xl:pt-[12px]" : ""}`}
                 >
-                  <dt className="text-[18px] text-deep md:text-[22px] xl:text-[26px]">{row.label}</dt>
-                  <dd className="whitespace-nowrap text-[22px] font-semibold text-deep md:text-[26px] xl:text-[32px]">
+                  <dt className="text-[18px] text-deep md:text-[22px] lg:text-[26px]">{row.label}</dt>
+                  <dd className="whitespace-nowrap text-[22px] font-semibold text-deep md:text-[26px] lg:text-[32px]">
                     {"prefix" in row && row.prefix && `${row.prefix} `}
                     <Price net={row.net} />
                     {"unit" in row && row.unit && (
-                      <span className="text-[16px] font-normal md:text-[20px] xl:text-[24px]">{row.unit}</span>
+                      <span className="text-[16px] font-normal md:text-[20px] lg:text-[24px]">{row.unit}</span>
                     )}
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-[14px] text-[15px] text-deep/70 md:text-[18px] xl:mt-[22px] xl:text-[22px]">
+            <p className="mt-[14px] text-[15px] text-deep/70 md:text-[18px] xl:mt-[22px] lg:text-[22px]">
               <VatText including={content.glance.noteIncluding} excluding={content.glance.noteExcluding} />
             </p>
           </div>
 
           <a
             href={content.cta.href}
-            className="mt-[28px] flex h-[52px] items-center gap-[12px] rounded-full bg-flame px-[28px] text-[16px] font-semibold text-white xl:mt-[45px] xl:h-[75px] xl:px-[35px] xl:text-[20px]"
+            className="mt-[28px] flex h-[52px] items-center gap-[12px] rounded-full bg-flame px-[28px] text-[16px] font-semibold text-white xl:mt-[45px] xl:h-[75px] xl:px-[35px] lg:text-[20px]"
           >
             {content.cta.label}
             <ArrowRightIcon className="size-[24px] xl:size-[28px]" />
@@ -118,8 +118,8 @@ export function VatNotice({ content }: { content: Content["vatNotice"] }) {
     <Container className="pt-[36px] xl:pt-[55px]">
       <div className="flex flex-col gap-[24px] rounded-[16px] bg-mint px-[24px] py-[24px] lg:flex-row lg:items-center lg:justify-between lg:gap-[60px] xl:rounded-[22px] xl:px-[75px] xl:py-[25px]">
         <div className="text-deep lg:max-w-[1060px]">
-          <RichText html={content.text} className="text-[16px] leading-[1.4] md:text-[18px] xl:text-[20px] xl:leading-[27px]" />
-          <p className="mt-[16px] text-[15px] font-bold md:text-[18px] xl:mt-[27px] xl:text-[20px]"><RichText html={content.prompt} inline /></p>
+          <RichText html={content.text} className="text-[16px] leading-[1.4] md:text-[18px] lg:text-[20px] lg:leading-[27px]" />
+          <p className="mt-[16px] text-[15px] font-bold md:text-[18px] xl:mt-[27px] lg:text-[20px]"><RichText html={content.prompt} inline /></p>
         </div>
         <div className="shrink-0">
           <VatSwitch options={content.options} />
@@ -141,13 +141,13 @@ export function WillsPricing({ content }: { content: Content["wills"] }) {
           <ServiceHeading before={content.headingBefore} accent={content.headingAccent} />
           <RichText
             html={content.intro}
-            className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:text-[24px] xl:leading-[33px]"
+            className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] lg:text-[24px] lg:leading-[33px]"
           />
           <ul className="mt-[16px] flex flex-wrap gap-[10px] xl:mt-[22px] xl:gap-[15px]">
             {content.types.map((type) => (
               <li
                 key={type}
-                className="rounded-full border-[1.5px] border-deep px-[18px] py-[8px] text-[15px] text-deep md:text-[16px] xl:px-[30px] xl:py-[12px] xl:text-[18px]"
+                className="rounded-full border-[1.5px] border-deep px-[18px] py-[8px] text-[15px] text-deep md:text-[16px] xl:px-[30px] xl:py-[12px] lg:text-[18px]"
               >
                 <RichText html={type} inline />
               </li>
@@ -155,25 +155,25 @@ export function WillsPricing({ content }: { content: Content["wills"] }) {
           </ul>
           <RichText
             html={content.outro}
-            className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:text-[24px] xl:leading-[33px]"
+            className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] lg:text-[24px] lg:leading-[33px]"
           />
         </div>
 
         {/* Right — fixed fee card */}
         <div className="w-full rounded-[20px] border border-deep bg-white px-[24px] py-[28px] lg:w-[420px] lg:shrink-0 xl:w-[491px] xl:rounded-[30px] xl:px-[47px] xl:pb-[50px] xl:pt-[46px]">
-          <p className="text-[15px] font-bold uppercase text-teal xl:text-[18px]">{card.label}</p>
+          <p className="text-[15px] font-bold uppercase text-teal lg:text-[18px]">{card.label}</p>
           <p className="mt-[8px] flex items-baseline gap-[14px] text-deep xl:mt-[14px]">
-            <span className="text-[52px] font-semibold leading-none xl:text-[70px]">
+            <span className="text-[52px] font-semibold leading-none lg:text-[70px]">
               <Price net={card.net} />
             </span>
-            <span className="text-[16px] text-deep/70 xl:text-[18px]">{card.unit}</span>
+            <span className="text-[16px] text-deep/70 lg:text-[18px]">{card.unit}</span>
           </p>
-          <p className="mt-[14px] border-b border-deep/15 pb-[18px] text-[17px] text-deep/70 xl:mt-[24px] xl:pb-[22px] xl:text-[20px]">
+          <p className="mt-[14px] border-b border-deep/15 pb-[18px] text-[17px] text-deep/70 xl:mt-[24px] xl:pb-[22px] lg:text-[20px]">
             <AltPrice net={card.net} />
           </p>
           <ul className="mt-[16px] space-y-[14px] xl:mt-[24px] xl:space-y-[20px]">
             {card.features.map((f) => (
-              <li key={f} className="flex items-center gap-[12px] text-[16px] text-deep xl:gap-[14px] xl:text-[18px]">
+              <li key={f} className="flex items-center gap-[12px] text-[16px] text-deep xl:gap-[14px] lg:text-[18px]">
                 <TickIcon className="size-[20px] shrink-0 text-teal xl:size-[22px]" />
                 <RichText html={f} inline />
               </li>
@@ -197,14 +197,14 @@ export function PowersOfAttorneyPricing({ content }: { content: Content["powersO
           <ServiceHeading before={content.headingBefore} accent={content.headingAccent} />
           <RichText
             html={content.intro}
-            className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:text-[24px] xl:leading-[33px]"
+            className="mt-[16px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] lg:text-[24px] lg:leading-[33px]"
           />
         </div>
 
         {/* Single / couple price selection */}
         <div className="flex shrink-0 flex-col items-center text-center xl:mr-[79px]">
-          <p className="text-[16px] font-bold text-teal xl:text-[18px]"><RichText html={content.selector.title} inline /></p>
-          <p className="text-[14px] text-deep xl:text-[16px]">{content.selector.hint}</p>
+          <p className="text-[16px] font-bold text-teal lg:text-[18px]"><RichText html={content.selector.title} inline /></p>
+          <p className="text-[14px] text-deep lg:text-[16px]">{content.selector.hint}</p>
           <div className="mt-[12px] xl:mt-[14px]">
             <CoupleSwitch options={content.selector.options} />
           </div>
@@ -215,7 +215,7 @@ export function PowersOfAttorneyPricing({ content }: { content: Content["powersO
 
       <RichText
         html={content.footnote}
-        className="mt-[28px] text-[15px] leading-[1.4] text-deep md:text-[17px] xl:mt-[62px] xl:text-[20px] xl:leading-[27px]"
+        className="mt-[28px] text-[15px] leading-[1.4] text-deep md:text-[17px] xl:mt-[62px] lg:text-[20px] lg:leading-[27px]"
       />
 
       <div className="mt-[48px] h-px bg-teal xl:mt-[105px]" />
@@ -233,25 +233,25 @@ export function ProbatePricing({ content }: { content: Content["probate"] }) {
       <div className="mt-[16px] flex flex-col gap-[28px] lg:flex-row lg:items-start lg:justify-between lg:gap-[60px] xl:mt-[30px]">
         <RichText
           html={content.intro}
-          className="text-[16px] leading-[1.4] text-deep md:text-[20px] lg:max-w-[1040px] xl:text-[24px] xl:leading-[33px]"
+          className="text-[16px] leading-[1.4] text-deep md:text-[20px] lg:max-w-[1040px] lg:text-[24px] lg:leading-[33px]"
         />
 
         {/* Hourly rate */}
         <div className="border-t-[2.5px] border-deep pt-[20px] text-deep lg:mt-[16px] lg:w-[400px] lg:shrink-0 xl:w-[465px] xl:pt-[32px]">
-          <p className="text-[16px] uppercase xl:text-[20px]">{rate.label}</p>
+          <p className="text-[16px] uppercase lg:text-[20px]">{rate.label}</p>
           <p className="mt-[8px] flex items-baseline gap-[14px] xl:mt-[14px]">
-            <span className="text-[52px] font-semibold leading-none xl:text-[70px]">
+            <span className="text-[52px] font-semibold leading-none lg:text-[70px]">
               <Price net={rate.net} />
             </span>
-            <span className="text-[16px] text-deep/70 xl:text-[20px]">{rate.unit}</span>
+            <span className="text-[16px] text-deep/70 lg:text-[20px]">{rate.unit}</span>
           </p>
-          <p className="mt-[10px] text-[16px] text-deep/70 xl:mt-[16px] xl:text-[20px]">
+          <p className="mt-[10px] text-[16px] text-deep/70 xl:mt-[16px] lg:text-[20px]">
             <AltPrice net={rate.net} />
           </p>
         </div>
       </div>
 
-      <p className="mt-[32px] text-[16px] text-deep md:text-[20px] xl:mt-[22px] xl:text-[24px]">
+      <p className="mt-[32px] text-[16px] text-deep md:text-[20px] xl:mt-[22px] lg:text-[24px]">
         <strong className="font-bold text-teal">{content.chargesLead}</strong> <RichText html={content.chargesText} inline />
       </p>
 
@@ -264,21 +264,21 @@ export function ProbatePricing({ content }: { content: Content["probate"] }) {
               key={s.label}
               className="group flex flex-col rounded-[20px] border border-deep bg-aqua px-[24px] pb-[28px] pt-[28px] text-deep transition-colors duration-300 hover:border-teal hover:bg-deep hover:text-white xl:rounded-[30px] xl:px-[50px] xl:pb-[40px] xl:pt-[44px]"
             >
-              <p className="text-center text-[20px] font-semibold text-teal xl:text-[24px]">{s.label}</p>
-              <h3 className="mt-[14px] text-[22px] font-semibold leading-[1.25] transition-colors duration-300 group-hover:text-mint xl:mt-[16px] xl:px-[8px] xl:text-[26px]">
+              <p className="text-center text-[20px] font-semibold text-teal lg:text-[24px]">{s.label}</p>
+              <h3 className="mt-[14px] text-[22px] font-semibold leading-[1.25] transition-colors duration-300 group-hover:text-mint xl:mt-[16px] xl:px-[8px] lg:text-[26px]">
                 <RichText html={s.title} inline />
               </h3>
-              <div className="mb-[28px] mt-[14px] space-y-[20px] text-[16px] leading-[1.4] xl:mb-[74px] xl:mt-[22px] xl:space-y-[27px] xl:px-[8px] xl:text-[20px] xl:leading-[27px]">
+              <div className="mb-[28px] mt-[14px] space-y-[20px] text-[16px] leading-[1.4] xl:mb-[74px] xl:mt-[22px] xl:space-y-[27px] xl:px-[8px] lg:text-[20px] lg:leading-[27px]">
                 {s.paragraphs.map((p) => (
                   <RichText key={p} html={p} />
                 ))}
               </div>
               <div className="mt-auto border-t border-deep pt-[20px] transition-colors duration-300 group-hover:border-teal xl:pt-[28px]">
-                <p className="text-[16px] xl:text-[18px]">{s.footerLabel}</p>
-                <p className="mt-[6px] text-[34px] font-semibold leading-[1.2] transition-colors duration-300 group-hover:text-mint xl:mt-[10px] xl:text-[48px]">
+                <p className="text-[16px] lg:text-[18px]">{s.footerLabel}</p>
+                <p className="mt-[6px] text-[34px] font-semibold leading-[1.2] transition-colors duration-300 group-hover:text-mint xl:mt-[10px] lg:text-[48px]">
                   {netRange ? <PriceRange net={netRange} /> : s.footerValue}
                 </p>
-                <p className="mt-[4px] text-[16px] xl:mt-[8px] xl:text-[17px]">
+                <p className="mt-[4px] text-[16px] xl:mt-[8px] lg:text-[17px]">
                   {netRange ? <VatText /> : s.footerNote}
                 </p>
               </div>
@@ -300,20 +300,20 @@ export function DisbursementsPricing({ content }: { content: Content["disburseme
         {/* Left — copy */}
         <div className="lg:max-w-[740px] xl:-mt-[12px]">
           <ServiceHeading before={content.headingBefore} accent={content.headingAccent} />
-          <div className="mt-[16px] space-y-[20px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:space-y-[33px] xl:text-[24px] xl:leading-[33px]">
+          <div className="mt-[16px] space-y-[20px] text-[16px] leading-[1.4] text-deep md:text-[20px] xl:mt-[30px] xl:space-y-[33px] lg:text-[24px] lg:leading-[33px]">
             {content.paragraphs.map((p) => (
               <RichText key={p} html={p} />
             ))}
           </div>
           <RichText
             html={content.note}
-            className="mt-[20px] text-[15px] leading-[1.4] text-teal md:text-[17px] xl:mt-[45px] xl:text-[20px] xl:leading-[27px]"
+            className="mt-[20px] text-[15px] leading-[1.4] text-teal md:text-[17px] xl:mt-[45px] lg:text-[20px] lg:leading-[27px]"
           />
         </div>
 
         {/* Right — typical third-party costs */}
         <div className="w-full rounded-[20px] border border-deep bg-mint px-[18px] pb-[12px] pt-[24px] text-deep lg:w-[560px] lg:shrink-0 xl:w-[649px] xl:rounded-[30px] xl:px-[42px] xl:pb-[8px] xl:pt-[38px]">
-          <p className="px-[6px] text-[16px] font-semibold uppercase xl:px-[14px] xl:text-[20px]"><RichText html={table.title} inline /></p>
+          <p className="px-[6px] text-[16px] font-semibold uppercase xl:px-[14px] lg:text-[20px]"><RichText html={table.title} inline /></p>
           <dl className="mt-[14px] border-t border-deep xl:mt-[20px]">
             {table.rows.map((row, i) => (
               <div
@@ -323,15 +323,15 @@ export function DisbursementsPricing({ content }: { content: Content["disburseme
                 }`}
               >
                 <dt>
-                  <span className="text-[16px] xl:text-[20px]">{row.label}</span>
+                  <span className="text-[16px] lg:text-[20px]">{row.label}</span>
                   {"detail" in row && row.detail && (
-                    <span className="mt-[6px] block max-w-[380px] text-[13px] leading-[1.4] xl:text-[16px]"><RichText html={row.detail} inline /></span>
+                    <span className="mt-[6px] block max-w-[380px] text-[13px] leading-[1.4] lg:text-[16px]"><RichText html={row.detail} inline /></span>
                   )}
                 </dt>
-                <dd className="whitespace-nowrap text-[22px] font-semibold leading-none xl:text-[32px]">
+                <dd className="whitespace-nowrap text-[22px] font-semibold leading-none lg:text-[32px]">
                   {row.value}
                   {"unit" in row && row.unit && (
-                    <span className="ml-[6px] text-[14px] font-normal xl:text-[18px]">{row.unit}</span>
+                    <span className="ml-[6px] text-[14px] font-normal lg:text-[18px]">{row.unit}</span>
                   )}
                 </dd>
               </div>
@@ -352,11 +352,11 @@ export function NoSurprises({ content }: { content: Content["noSurprises"] }) {
       <div className="mt-[24px] grid grid-cols-1 gap-[28px] md:grid-cols-3 md:gap-[32px] xl:mt-[50px] xl:gap-[52px]">
         {content.items.map((item) => (
           <div key={item.title} className="border-t-[2.5px] border-deep pt-[20px] text-deep xl:pt-[50px]">
-            <h3 className="text-[20px] font-semibold xl:text-[26px]">
+            <h3 className="text-[20px] font-semibold lg:text-[26px]">
               <RichText html={item.title} inline />
               <TickIcon className="relative -top-[2px] ml-[12px] inline size-[26px] text-teal xl:ml-[20px] xl:size-[38px]" />
             </h3>
-            <RichText html={item.text} className="mt-[10px] text-[16px] leading-[1.4] xl:mt-[26px] xl:text-[20px] xl:leading-[27px]" />
+            <RichText html={item.text} className="mt-[10px] text-[16px] leading-[1.4] xl:mt-[26px] lg:text-[20px] lg:leading-[27px]" />
           </div>
         ))}
       </div>
@@ -371,22 +371,22 @@ export function PricingContact({ content }: { content: Content["contact"] }) {
     <Container className="pt-[48px] xl:pt-[114px]">
       <div className="flex flex-col gap-[28px] rounded-[20px] bg-deep px-[24px] py-[32px] lg:flex-row lg:items-end lg:justify-between lg:gap-[60px] xl:rounded-[30px] xl:px-[110px] xl:py-[74px]">
         <div className="lg:max-w-[780px]">
-          <h2 className="text-[32px] font-light leading-[1.2] text-mint md:text-[44px] xl:text-[65px] xl:leading-[77px]">
+          <h2 className="text-[32px] font-light leading-[1.2] text-mint md:text-[44px] lg:text-[65px] lg:leading-[77px]">
             <RichText html={content.heading} inline />
           </h2>
-          <p className="mt-[16px] max-w-[700px] text-[16px] leading-[1.4] text-white md:text-[20px] xl:mt-[40px] xl:text-[24px] xl:leading-[33px]">
+          <p className="mt-[16px] max-w-[700px] text-[16px] leading-[1.4] text-white md:text-[20px] xl:mt-[40px] lg:text-[24px] lg:leading-[33px]">
             <RichText html={content.textBefore} inline /> <strong className="font-semibold">{content.name}</strong> <RichText html={content.textAfter} inline />
           </p>
         </div>
         <div className="flex flex-col items-start gap-[20px] lg:items-center lg:pb-[33px] xl:gap-[36px]">
           <a
             href={content.cta.href}
-            className="flex h-[52px] items-center gap-[12px] rounded-full bg-flame px-[28px] text-[16px] font-semibold text-white xl:h-[75px] xl:px-[35px] xl:text-[20px]"
+            className="flex h-[52px] items-center gap-[12px] rounded-full bg-flame px-[28px] text-[16px] font-semibold text-white xl:h-[75px] xl:px-[35px] lg:text-[20px]"
           >
             {content.cta.label}
             <ArrowRightIcon className="size-[24px] xl:size-[28px]" />
           </a>
-          <a href={`mailto:${content.email}`} className="text-[14px] font-semibold text-white [overflow-wrap:anywhere] min-[400px]:text-[16px] md:text-[20px] xl:text-[24px]">
+          <a href={`mailto:${content.email}`} className="text-[14px] font-semibold text-white [overflow-wrap:anywhere] min-[400px]:text-[16px] md:text-[20px] lg:text-[24px]">
             {content.email}
           </a>
         </div>

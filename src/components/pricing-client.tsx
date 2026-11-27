@@ -110,7 +110,7 @@ function PillSwitch({
           type="button"
           aria-pressed={i === active}
           onClick={() => onSelect(i)}
-          className={`h-[44px] cursor-pointer rounded-full px-[20px] text-[14px] font-semibold transition-colors duration-200 md:h-[50px] xl:h-[57px] xl:min-w-[171px] xl:px-[30px] xl:text-[14px] ${
+          className={`h-[44px] cursor-pointer rounded-full px-[20px] text-[14px] font-semibold transition-colors duration-200 md:h-[50px] xl:h-[57px] xl:min-w-[171px] xl:px-[30px] lg:text-[14px] ${
             i === active ? "bg-deep text-white" : "text-deep hover:bg-deep/10"
           }`}
         >
@@ -169,27 +169,27 @@ export function PoaCards({ content }: { content: PoaContent }) {
             }`}
           >
             <div className="flex flex-wrap items-center justify-between gap-[12px]">
-              <h3 className="text-[19px] font-bold xl:text-[22px]"><RichText html={card.title} inline /></h3>
+              <h3 className="text-[19px] font-bold lg:text-[22px]"><RichText html={card.title} inline /></h3>
               {"badge" in card && card.badge && (
-                <span className="rounded-full bg-mint px-[16px] py-[5px] text-[14px] font-bold text-deep xl:px-[23px] xl:py-[6px] xl:text-[18px]">
+                <span className="rounded-full bg-mint px-[16px] py-[5px] text-[14px] font-bold text-deep xl:px-[23px] xl:py-[6px] lg:text-[18px]">
                   {card.badge}
                 </span>
               )}
             </div>
             <RichText
               html={option.description}
-              className={`mt-[12px] text-[16px] leading-[1.4] xl:mt-[18px] xl:text-[22px] xl:leading-[30px] ${dark ? "text-white/85" : "text-deep/70"}`}
+              className={`mt-[12px] text-[16px] leading-[1.4] xl:mt-[18px] lg:text-[22px] lg:leading-[30px] ${dark ? "text-white/85" : "text-deep/70"}`}
             />
             <p className="mt-auto flex items-baseline gap-[14px] pt-[16px] xl:pt-[20px]">
-              <span className="text-[52px] font-semibold leading-none xl:text-[70px]">
+              <span className="text-[52px] font-semibold leading-none lg:text-[70px]">
                 <Price net={option.net} />
               </span>
-              <span className={`text-[16px] xl:text-[20px] ${dark ? "text-white/85" : "text-deep/70"}`}>
+              <span className={`text-[16px] lg:text-[20px] ${dark ? "text-white/85" : "text-deep/70"}`}>
                 <AltPrice net={option.net} short />
               </span>
             </p>
             <p
-              className={`mt-[20px] rounded-[12px] px-[18px] py-[14px] text-[15px] leading-[1.35] md:text-[17px] xl:mt-[38px] xl:rounded-[14px] xl:px-[25px] xl:py-[19px] xl:text-[22px] ${
+              className={`mt-[20px] rounded-[12px] px-[18px] py-[14px] text-[15px] leading-[1.35] md:text-[17px] xl:mt-[38px] xl:rounded-[14px] xl:px-[25px] xl:py-[19px] lg:text-[22px] ${
                 dark ? "bg-mint text-deep" : "bg-deep text-mint"
               }`}
             >

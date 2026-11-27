@@ -65,9 +65,10 @@ export default function RichText({
   inline?: boolean;
   className?: string;
 }) {
-  const raw = (html ?? "").trim();
-  if (!raw) return null;
-  const clean = sanitize(raw, inline);
+  if (!html?.trim()) return null;
+  // Inline fragments are often stitched together ("from your " + "FREE" +
+  // " Case…"), so keep their edge spaces; trimming them glues words together.
+  const clean = sanitize(inline ? html : html.trim(), inline);
 
   if (inline) {
     return (

@@ -71,9 +71,9 @@ export default function PracticeAreas({
                 </h3>
                 <RichText
                   html={card.description}
-                  className="text-[16px] leading-[1.4] text-deep md:text-[17px] md:leading-[26px] xl:mt-[22px] xl:text-[22px] xl:leading-[35px]"
+                  className="text-[16px] leading-[1.4] text-deep md:text-[17px] md:leading-[26px] lg:text-[21px] lg:leading-[32px] xl:mt-[22px] xl:text-[22px] xl:leading-[35px]"
                 />
-                <ul className="mt-[16px] list-disc ps-[22px] text-[16px] font-semibold leading-[32px] text-deep md:text-[17px] xl:mt-[22px] xl:text-[22px] xl:font-normal xl:leading-[50px]">
+                <ul className="mt-[16px] list-disc ps-[22px] text-[16px] font-semibold leading-[32px] text-deep md:text-[17px] lg:text-[21px] lg:leading-[40px] xl:mt-[22px] xl:text-[22px] xl:font-normal xl:leading-[50px]">
                   {card.bullets.map((bullet) => (
                     <li key={bullet}><RichText html={bullet} inline /></li>
                   ))}
