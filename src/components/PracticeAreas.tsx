@@ -21,13 +21,13 @@ export default function PracticeAreas({
           headingMtClassName="mt-[15px] md:mt-[28px]"
           introMtClassName="mt-[18px] md:mt-[50px]"
         />
-        <div className="mt-[22px] flex flex-wrap justify-center gap-[20px] md:mt-[50px] lg:mt-[70px]">
+        {/* One column on mobile, 2×2 from tablet, 4 across on desktop, so all
+            four cards are always visible and none is left alone on a row. */}
+        <div className="mx-auto mt-[22px] grid grid-cols-1 justify-items-center gap-[20px] md:mt-[50px] md:max-w-[840px] md:grid-cols-2 lg:mt-[70px] xl:max-w-[1700px] xl:grid-cols-4">
           {content.cards.map((card) => (
             <article
               key={card.title}
-              className={`group relative w-full max-w-[410px] flex-col rounded-[16px] border-2 border-teal bg-white p-[20px] transition-all duration-200 xl:rounded-[10px] xl:border-deep xl:p-[25px_10px_0_10px] xl:hover:border-teal xl:hover:bg-lite xl:hover:shadow-[2px_4px_4px_4px_rgba(0,0,0,0.1)] ${
-                card.title === "Power of Attorney" ? "hidden xl:flex" : "flex"
-              }`}
+              className="group relative flex w-full max-w-[410px] flex-col rounded-[16px] border-2 border-teal bg-white p-[20px] transition-all duration-200 xl:rounded-[10px] xl:border-deep xl:p-[25px_10px_0_10px] xl:hover:border-teal xl:hover:bg-lite xl:hover:shadow-[2px_4px_4px_4px_rgba(0,0,0,0.1)]"
             >
               <div className="absolute inset-x-0 top-0 h-[11px] rounded-t-[16px] bg-teal transition-opacity duration-200 xl:rounded-t-[10px] xl:opacity-0 xl:group-hover:opacity-100" />
 
@@ -64,7 +64,7 @@ export default function PracticeAreas({
                 </span>
               </div>
 
-              <div className="mt-[18px] xl:mt-0 xl:px-[35px] xl:pb-[160px] xl:pt-0">
+              <div className="mt-[18px] flex flex-1 flex-col xl:mt-0 xl:block xl:px-[35px] xl:pb-[160px] xl:pt-0">
                 <h3 className="hidden font-heading text-[48px] font-semibold leading-[1.3] text-deep xl:mt-[24px] xl:block">
                   <RichText html={card.title} inline />
                 </h3>
@@ -79,7 +79,7 @@ export default function PracticeAreas({
                 </ul>
 
                 <div
-                  className={`relative ml-auto w-fit xl:absolute xl:bottom-[52px] xl:ml-0 xl:mt-auto xl:w-auto xl:pt-[30px] ${
+                  className={`relative ml-auto w-fit md:mt-auto md:pt-[26px] xl:absolute xl:bottom-[52px] xl:ml-0 xl:mt-auto xl:w-auto xl:pt-[30px] ${
                     card.title === "Trusts" || card.title === "Probate"
                       ? "mt-[64px]"
                       : "mt-[26px]"
